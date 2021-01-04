@@ -13,7 +13,7 @@ You can access a working prototype of the React app here: https://nomnoms-app.ve
 ### 2. User Stories
 This app is for two types of users: a data entry user and a manager "admin" user
 
-###### Landing/Home Page
+###### Landing
 * As a visitor
  - I want to understand what I can do with this app (or sign up, or log in) so I can log in or create an account
 
@@ -25,7 +25,7 @@ This app is for two types of users: a data entry user and a manager "admin" user
 * As a visitor
 * I want to register to use this app so I can create a work account.
 
-###### My Noms Page
+###### Home Page
 1. As a logged-in user,
 * I want to be able to...
 * view only my courses on the dashboard page of the app, so I can decide if I want to... 
