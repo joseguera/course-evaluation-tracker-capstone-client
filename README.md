@@ -15,7 +15,7 @@ This app is for two types of users: a data entry user and a manager "admin" user
 
 ###### Landing/Home Page
 * As a visitor
-* I want to understand what I can do with this app (or sign up, or log in) so I can log in or create an account
+ - I want to understand what I can do with this app (or sign up, or log in) so I can log in or create an account
 
 ###### Login Page
 * As a returning register user
