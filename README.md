@@ -26,9 +26,9 @@ This app is for two types of users: a data entry user and a manager "admin" user
 * I want to register to use this app so I can create a work account.
 
 ###### My Noms Page
-* As a logged-in user,
+1. As a logged-in user,
 * I want to be able to...
-*   view only my courses on the dashboard page of the app, so I can decide if I want to... 
+* view only my courses on the dashboard page of the app, so I can decide if I want to... 
 *   evaluate a course, 
 *   edit/complete my evaluation of a course I've started
 *   create a new course that's missing from my list of courses
