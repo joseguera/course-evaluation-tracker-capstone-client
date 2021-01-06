@@ -1,6 +1,6 @@
 # Course Evaluation Tracker Capstone - Client
 
-# Course Evaluation App
+## CourseGrader App
 This app allows users to review courses and keep track of the instructor's syllabus and course quality as well as instructor-student interaction.
 
 
@@ -103,22 +103,38 @@ My Noms Page
 ### 7. Back-end Structure - Business Objects
 * users (database table)
     * id (auto-generated)
-    * first name (user-generated)
-    * last name (user-generated)
+    * first_name (user-generated)
+    * last_name (user-generated)
     * username (user-generated)
     * password (at least one number, one lowercase and one uppercase letter at least eight characters that are letters, numbers or the underscore)
     * date_created (auto-generated)
 
 * courses (database table)
     * id (auto-generated)
-    * course_number (user-generated)
-    * course_title (user-generated)
-    * course_reg_number (user-generated)
-    * quarter (user-generated)
-    * year (user-generated)
     * instructor_name (user-generated)
-
-
+    * program_area (user-generated)
+    * program_rep (foreign key - users id)
+    * course_number (user-generated)
+    * course_name (user-generated)
+    * quarter (user-generated)
+    * project_id (user-generated)
+    * score (user-generated)
+    
+* questions
+    * id (auto-generated)
+    * syllabus_Q1 (user-generated)
+    * syllabus_Q2 (user-generated)
+    * syllabus_Q3 (user-generated)
+    * syllabus_Q4 (user-generated)
+    * modules_Q1 (user-generated)
+    * modules_Q2 (user-generated)
+    * modules_Q3 (user-generated)
+    * stu_tea_interactions_Q1 (user-generated)
+    * stu_tea_interactions_Q2 (user-generated)
+    * stu_tea_interactions_Q3 (user-generated)
+    * total (foreign key - courses id)
+     
+     
 
 ### 8. API Documentation (to do later)
 API Documentation details:
