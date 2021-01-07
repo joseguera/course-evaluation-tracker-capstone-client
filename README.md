@@ -122,16 +122,16 @@ My Noms Page
     
 * questions
     * id (auto-generated)
-    * syllabus_Q1 (user-generated)
-    * syllabus_Q2 (user-generated)
-    * syllabus_Q3 (user-generated)
-    * syllabus_Q4 (user-generated)
-    * modules_Q1 (user-generated)
-    * modules_Q2 (user-generated)
-    * modules_Q3 (user-generated)
-    * stu_tea_interactions_Q1 (user-generated)
-    * stu_tea_interactions_Q2 (user-generated)
-    * stu_tea_interactions_Q3 (user-generated)
+    * question1 (user-generated)
+    * question2 (user-generated)
+    * question3 (user-generated)
+    * question4 (user-generated)
+    * question5 (user-generated)
+    * question6 (user-generated)
+    * question7 (user-generated)
+    * question8 (user-generated)
+    * question9 (user-generated)
+    * question10 (user-generated)
     * total (foreign key - courses id)
      
      
