@@ -1,4 +1,4 @@
-.NomItem {
+.CourseItem {
     list-style: none;
     margin: 0;
     font-size: 20px;
@@ -10,7 +10,7 @@
     background-color: #006994;
 }
 
-.NomItem_style {
+.CourseItem_style {
     color: yellow;
     font-family: 'Major Mono Display', monospace;
     font-size: 18px;
@@ -23,12 +23,12 @@ font-family: 'Press Start 2P', cursive;
 font-family: 'Orbitron', sans-serif;
 font-family: 'VT323', monospace; */
 
-.NomItem__title:hover {
+.CourseItem__title:hover {
     margin: 0;
     color: #fff;   
 }
 
-.AddNomItem__required {
+.AddCourseItem__required {
 color: #b00c0c;
 }
 

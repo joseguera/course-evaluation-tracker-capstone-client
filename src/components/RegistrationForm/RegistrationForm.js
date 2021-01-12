@@ -12,16 +12,18 @@ export default class RegistrationForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
-    const { fullname, username, password } = ev.target
+    const { first_name, last_name, username, password } = ev.target
 
     this.setState({ error: null })
     AuthApiService.postUser({
-      fullname: fullname.value,
+      first_name: first_name.value,
+      last_name: last_name.value,
       username: username.value,
       password: password.value
     })
       .then(user => {
-        fullname.value = ''
+        first_name.value = ''
+        last_name.value = ''
         username.value = ''
         password.value = ''
         this.props.onRegistrationSuccess()
@@ -44,16 +46,28 @@ export default class RegistrationForm extends Component {
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
-        <div className='fullname fields'>
-          <label htmlFor='RegistrationForm__fullname'>
-            Full name <Required />
+        <div className='first_name fields'>
+          <label htmlFor='RegistrationForm__first_name'>
+            First name <Required />
           </label>
           <br />
           <Input
-            name='fullname'
+            name='first_name'
             type='text'
             required
-            id='RegistrationForm__fullname'>
+            id='RegistrationForm__first_name'>
+          </Input>
+        </div>
+        <div className='last_name fields'>
+          <label htmlFor='RegistrationForm__last_name'>
+            Last name <Required />
+          </label>
+          <br />
+          <Input
+            name='last_name'
+            type='text'
+            required
+            id='RegistrationForm__last_name'>
           </Input>
         </div>
         <div className='username fields'>
