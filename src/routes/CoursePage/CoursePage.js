@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import TokenService from '../../services/token-service'
-import CoursesContext from '../../context/CoursesContext';
+import CoursesContext from '../../components/context/CoursesContext';
 import config from '../../config'
 import './CoursePage.css';
 

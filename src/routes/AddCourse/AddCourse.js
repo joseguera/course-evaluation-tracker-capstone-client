@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CoursesContext from '../../context/CoursesContext';
+import CoursesContext from '../../components/context/CoursesContext';
 import config from '../../config';
 import TokenService from '../../services/token-service'
 import './AddCourse.css'
