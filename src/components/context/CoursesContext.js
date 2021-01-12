@@ -1,7 +1,7 @@
 import React from 'react'
 
 const CoursesContext = React.createContext({
-  noms: [],
+  courses: [],
   addCourse: () => {},
   deleteCourse: () => {},
   updateCourse: () => {},

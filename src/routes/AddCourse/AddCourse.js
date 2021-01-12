@@ -24,16 +24,21 @@ class AddCourse extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        var d = document.getElementById("style");
-        var result = d.options[d.selectedIndex].text;
+        // var d = document.getElementById("style");
+        // var result = d.options[d.selectedIndex].text;
         // get the form fields from the event
-        const { course_name, sub, url, description, style } = e.target;
+        const { instructor_name, program_area, program_rep, course_number,
+                course_name, quarter, project_id, notes } = e.target;
+        
         const course = {
+            instructor_name: instructor_name.value,
+            program_area: program_area.value,
+            program_rep: program_rep.value,
+            course_number: course_number.value,
             course_name: course_name.value,
-            sub: sub.value,
-            url: url.value,
-            description: description.value,
-            style: result
+            quarter: quarter.value,
+            project_id: project_id.value,
+            notes: notes.value
         }
         this.setState({ error: null })
         fetch(config.API_ENDPOINT + `/courses`, {
@@ -51,11 +56,14 @@ class AddCourse extends Component {
                 return res.json()
             })
             .then(data => {
+                instructor_name.value = ''
+                program_area.value = ''
+                program_rep.value = ''
+                course_number.value = ''
                 course_name.value = ''
-                sub.value = ''
-                url.value = ''
-                description.value = ''
-                style.value = ''
+                quarter.value = ''
+                project_id.value = ''
+                notes.value = ''
                 this.context.addCourse(data)
                 this.props.history.push('/courselist')
             })
@@ -83,8 +91,40 @@ class AddCourse extends Component {
                         {error && <p>{error.message}</p>}
                     </div>
                     <div className='add-fields'>
+                        <label htmlFor='project_id'> 
+                            Project ID
+                            {' '}
+                            <Required />
+                        </label>
+                        <br />
+                        <input 
+                            type='text'
+                            name='project_id'
+                            id='project_id'
+                            placeholder='e.g., 375565'
+                            className='inputs'
+                            required
+                        />
+                    </div>
+                    <div className='add-fields'>
+                        <label htmlFor='course_number'> 
+                            Course Number
+                            {' '}
+                            <Required />
+                        </label>
+                        <br />
+                        <input 
+                            type='text'
+                            name='course_number'
+                            id='course_number'
+                            placeholder='e.g., MGMT X 495.6'
+                            className='inputs'
+                            required
+                        />
+                    </div>
+                    <div className='add-fields'>
                         <label htmlFor='course_name'> 
-                            Course Name
+                            Course Title
                             {' '}
                             <Required />
                         </label>
@@ -93,69 +133,83 @@ class AddCourse extends Component {
                             type='text'
                             name='course_name'
                             id='course_name'
-                            placeholder='Vegan honey'
+                            placeholder='e.g., Intro to Budgeting'
                             className='inputs'
                             required
                         />
                     </div>
                     <div className='add-fields'>
-                        <label htmlFor='sub'>
-                            Substitution for
+                        <label htmlFor='quarter'> 
+                            Quarter
                             {' '}
                             <Required />
                         </label>
                         <br />
                         <input 
                             type='text'
-                            name='sub'
-                            id='sub'
-                            placeholder='honey'
+                            name='quarter'
+                            id='quarter'
+                            placeholder='e.g., Winter 2021'
                             className='inputs'
                             required
                         />
                     </div>
                     <div className='add-fields'>
-                        <label htmlFor='url'>
-                            URL
-                            {' '}
-                        </label>
-                        <br />
-                        <input 
-                            type='url'
-                            name='url'
-                            id='url'
-                            placeholder='https://www.veganhoney.com'
-                            className='inputs'
-                        />
-                    </div>
-                    <div className='add-fields'>
-                        <label htmlFor='description'>
-                            Description
-                        </label>
-                        <br />
-                        <textarea
-                            name='description'
-                            id='description'
-                            className='inputs textarea'
-                            placeholder='Vegan Honey made with apples and lemon'
-                        />
-                    </div>
-                    <div className='add-fields'>
-                        <label htmlFor='style'>
-                            Course Type:
+                        <label htmlFor='program_area'>
+                            Program Area
                             {' '}
                             <Required />
                         </label>
                         <br />
-                        <select 
-                            id="style"
+                        <input 
+                            type='text'
+                            name='program_area'
+                            id='program_area'
+                            placeholder='e.g, LMC'
                             className='inputs'
                             required
-                        >
-                            {/* <option value="None">-- Select --</option> */}
-                            <option value="course">Course</option>
-                            <option value="recipe">Recipe</option>
-                        </select>
+                        />
+                    </div>
+                    <div className='add-fields'>
+                        <label htmlFor='instructor_name'>
+                            Instructor Name:
+                            {' '}
+                        </label>
+                        <br />
+                        <input 
+                            type='text'
+                            name='instructor_name'
+                            id='instructor_name'
+                            placeholder='e.g., Ron Howard'
+                            className='inputs'
+                        />
+                    </div>
+                    <div className='add-fields'>
+                        <label htmlFor='instructor_name'>
+                            Program Representative:
+                            {' '}
+                        </label>
+                        <br />
+                        <input 
+                            type='text'
+                            name='instructor_name'
+                            id='instructor_name'
+                            placeholder='e.g., Henry Winkler'
+                            className='inputs'
+                        />
+                    </div>
+                    <div className='add-fields'>
+                        <label htmlFor='notes'>
+                            Notes
+                            {' '}
+                        </label>
+                        <br />
+                        <textarea
+                            name='notes'
+                            id='notes'
+                            className='inputs textarea'
+                            placeholder='e.g., missing grades (01/12/2021)'
+                        />
                     </div>                    
                     <div className='AddCourse_buttons'>
                         <button 

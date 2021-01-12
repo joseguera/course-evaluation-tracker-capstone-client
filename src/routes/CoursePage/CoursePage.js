@@ -21,11 +21,14 @@ class CoursePage extends Component {
     state = {
         error: null,
         id: '',
+        instructor_name: '',
+        program_area: '',
+        program_rep: '',
+        course_number: '',
         course_name: '',
-        sub: '',
-        url: '',
-        description: '',
-        style: ''
+        quarter: '',
+        project_id: '',
+        notes: ''
     };
 
     componentDidMount() {
@@ -46,11 +49,14 @@ class CoursePage extends Component {
             .then(responseData => {
                 this.setState({
                     id: responseData.id,
+                    instructor_name: responseData.instructor_name,
+                    program_area: responseData.program_area,
+                    program_rep: responseData.program_rep,
+                    course_number: responseData.course_number,
                     course_name: responseData.course_name,
-                    sub: responseData.sub,
-                    url: responseData.url,
-                    description: responseData.description,
-                    style: responseData.style
+                    quarter: responseData.quarter,
+                    project_id: responseData.project_id,
+                    notes: responseData.notes
                 })
             })
             .catch(error => {
@@ -64,43 +70,45 @@ class CoursePage extends Component {
     }
 
     render() {
-        const { id, course_name, sub, url, description, style } = this.state;
+        const { id, instructor_name, program_area, program_rep,
+                course_number, course_name, quarter,
+                project_id, notes } = this.state;
         return (
             <div className='main-course-page'>
             <section className='CoursePage'>
-                <h2 className='CoursePage_heading'>{course_name}</h2>
+                <h2 className='CoursePage_heading'>{project_id}: {course_number} - {course_name} ({quarter})</h2>
                     <div className='page-body'>
-                        <p className='sub'>
+                        <p className='program_area'>
                             <span>
-                            Substitution for:
+                            Program Area:
                             {' '}
                             </span>
                             <br />
-                            {sub}
+                            {program_area}
                         </p>
-                        <p className='url'>
+                        <p className='instructor_name'>
                             <span>
-                            URL:
+                            Instructor:
                             {' '}
                             </span>
                             <br />
-                            <a href={url} target='_blank' rel='noreferrer'>{url}</a>
+                            {instructor_name}
                         </p>
-                        <p className='description'>
+                        <p className='program_rep'>
                             <span>
-                            Description:
+                            Program Representative:
                             {' '}
                             </span>
                             <br />
-                            {description}
+                            {program_rep}
                         </p>
-                        <p className='style'>
+                        <p className='notes'>
                             <span>
-                            Course Type:
+                            Notes:
                             {' '}
                             </span>
                             <br />
-                            {style ? style : `No Course type was selected`}
+                            {notes}
                         </p>
                     </div>
                     <div className='CoursePage__buttons'>

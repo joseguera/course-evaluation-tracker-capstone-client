@@ -24,11 +24,14 @@ class EditCourse extends Component {
     state = {
         error: null,
         id: '',
+        instructor_name: '',
+        program_area: '',
+        program_rep: '',
+        course_number: '',
         course_name: '',
-        sub: '',
-        url: '',
-        description: '',
-        style: ''
+        quarter: '',
+        project_id: '',
+        notes: ''
     };
 
     componentDidMount() {
@@ -49,12 +52,14 @@ class EditCourse extends Component {
             .then(responseData => {
                 this.setState({
                     id: responseData.id,
+                    instructor_name: responseData.instructor_name,
+                    program_area: responseData.program_area,
+                    program_rep: responseData.program_rep,
+                    course_number: responseData.course_number,
                     course_name: responseData.course_name,
-                    sub: responseData.sub,
-                    url: responseData.url,
-                    description: responseData.description,                    
-                    style: responseData.style                  
-
+                    quarter: responseData.quarter,
+                    project_id: responseData.project_id,
+                    notes: responseData.notes
                 })
             })
             .catch(error => {
