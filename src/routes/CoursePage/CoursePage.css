@@ -1,4 +1,4 @@
-.main-nom-page {
+.main-course-page {
     width: 700px; /* Can be in percentage also. */
     height: auto;
     margin: 0 auto;
@@ -9,14 +9,14 @@
     background-color: #69acb8;
 }
 
-.NomPage {
+.CoursePage {
     width: 600px; /* Can be in percentage also. */
     height: auto;
     margin: 0 auto;
     position: relative;
 }
 
-.NomPage_heading {
+.CoursePage_heading {
     font-family: 'Orbitron', sans-serif;
     font-size: 36px;
     margin-top: 15px;
@@ -59,11 +59,11 @@
 
 @media screen and (max-width: 500px) {
 
-    .main-nom-page {
+    .main-course-page {
         width: 400px; /* Can be in percentage also */
     }
 
-    .NomPage {
+    .CoursePage {
         width: 350px; /* Can be in percentage also. */
     }
 }

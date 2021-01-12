@@ -7,7 +7,7 @@
     padding-bottom: 20px;
   }
   
-  .make-nom, .edit-nom {
+  .make-course, .edit-course {
     font-family: 'Orbitron', sans-serif;
     font-size: 36px;
     margin-top: 10px;
@@ -41,11 +41,11 @@
     padding-top: 10px;
   }
   
-  .AddNom__required {
+  .AddCourse__required {
     color: #a51414;
   }
   
-  .AddNom__error p {
+  .AddCourse__error p {
     color: #a51414;
     margin-bottom: 5px;
   }

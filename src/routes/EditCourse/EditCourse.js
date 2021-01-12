@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TokenService from '../../services/token-service'
-import NomNomsContext from '../../context/NomNomsContext';
+import CoursesContext from '../../context/CoursesContext';
 import config from '../../config'
-import '../AddNom/AddNom.css';
+import '../AddCourse/AddCourse.css';
 
 const Required = () => (
-    <span className='EditNom_required red'>*</span>
+    <span className='EditCourse_required red'>*</span>
 )
 
-class EditNom extends Component {
+class EditCourse extends Component {
     static propTypes = {
         match: PropTypes.shape({
             params: PropTypes.object,
@@ -19,12 +19,12 @@ class EditNom extends Component {
         }).isRequired,
     };
 
-    static contextType = NomNomsContext;
+    static contextType = CoursesContext;
 
     state = {
         error: null,
         id: '',
-        nom_name: '',
+        course_name: '',
         sub: '',
         url: '',
         description: '',
@@ -32,8 +32,8 @@ class EditNom extends Component {
     };
 
     componentDidMount() {
-        const { nomId } = this.props.match.params;
-        fetch(config.API_ENDPOINT + `/noms/${nomId}`, {
+        const { courseId } = this.props.match.params;
+        fetch(config.API_ENDPOINT + `/courses/${courseId}`, {
             method: 'GET',
             headers: {
               'content-type': 'application/json',
@@ -49,7 +49,7 @@ class EditNom extends Component {
             .then(responseData => {
                 this.setState({
                     id: responseData.id,
-                    nom_name: responseData.nom_name,
+                    course_name: responseData.course_name,
                     sub: responseData.sub,
                     url: responseData.url,
                     description: responseData.description,                    
@@ -64,7 +64,7 @@ class EditNom extends Component {
     }
 
     handleChangeName = e => {
-        this.setState({ nom_name: e.target.value })
+        this.setState({ course_name: e.target.value })
     };
 
     handleChangeSub = e => {
@@ -87,12 +87,12 @@ class EditNom extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        const { nomId } = this.props.match.params;
-        const { id, nom_name, sub, url, description, style } = this.state;
-        const newNom = { id, nom_name, sub, url, description, style };
-        fetch(config.API_ENDPOINT + `/noms/${nomId}`, {
+        const { courseId } = this.props.match.params;
+        const { id, course_name, sub, url, description, style } = this.state;
+        const newCourse = { id, course_name, sub, url, description, style };
+        fetch(config.API_ENDPOINT + `/courses/${courseId}`, {
             method: 'PATCH',
-            body: JSON.stringify(newNom),
+            body: JSON.stringify(newCourse),
             headers: {
                 'content-type': 'application/json',
                 'Authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -103,9 +103,9 @@ class EditNom extends Component {
                     return res.json().then(error => Promise.reject(error))
             })
             .then(() => {
-                this.resetFields(newNom)
-                this.context.updateNom(newNom)
-                this.props.history.push('/nomlist')
+                this.resetFields(newCourse)
+                this.context.updateCourse(newCourse)
+                this.props.history.push('/courselist')
             })
             .catch(error => {
                 console.error(error)
@@ -116,7 +116,7 @@ class EditNom extends Component {
     resetFields = (newFields) => {
         this.setState({
             id: newFields.id || '',
-            nom_name: newFields.nom_name || '',
+            course_name: newFields.course_name || '',
             sub: newFields.sub || '',
             url: newFields.url || '',
             description: newFields.description || '',
@@ -126,20 +126,20 @@ class EditNom extends Component {
     }
 
     handleClickCancel = () => {
-        this.props.history.push('/nomlist')
+        this.props.history.push('/courselist')
     }
 
     render() {
-        const { error, nom_name, sub, url, description, style } = this.state;
+        const { error, course_name, sub, url, description, style } = this.state;
         return (
             <div className='edit-body'>
-            <section className='EditNom'>
-                <h2 className='edit-nom'>Edit Nom</h2>
+            <section className='EditCourse'>
+                <h2 className='edit-course'>Edit Course</h2>
                 <form
-                    className='EditNom_form'
+                    className='EditCourse_form'
                     onSubmit={this.handleSubmit}
                 >
-                    <div className='EditNom_error' role='alert'>
+                    <div className='EditCourse_error' role='alert'>
                         {error && <p>{error.message}</p>}
                     </div>
                     <input 
@@ -147,20 +147,20 @@ class EditNom extends Component {
                         name='id'
                     />
                     <div className='edit-fields'>
-                        <label htmlFor='nom_name'>
-                            Nom Name
+                        <label htmlFor='course_name'>
+                            Course Name
                             {' '}
                             <Required />
                         </label>
                         <br />
                         <input 
                             type='text'
-                            name='nom_name'
-                            id='nom_name'
+                            name='course_name'
+                            id='course_name'
                             className='inputs textarea'
                             placeholder='Vegan honey'
                             required
-                            value={nom_name}
+                            value={course_name}
                             onChange={this.handleChangeName}
                         />
                     </div>
@@ -213,7 +213,7 @@ class EditNom extends Component {
                     </div>
                     <div className='edit-fields'>
                         <label htmlFor='style'>
-                            Nom Type:
+                            Course Type:
                             {' '}
                             <Required />
                         </label>
@@ -225,11 +225,11 @@ class EditNom extends Component {
                             onChange={this.handleChangeStyle}
                         >
                             <option value="None">{style === null ? `-- Select --` : style + ` selected`}</option>
-                            <option value="nom">{style === `Nom` ? `Recipe` : `Recipe`}</option>
-                            <option value="recipe">{style === `Recipe` ? `Nom` : `Nom`}</option>
+                            <option value="course">{style === `Course` ? `Recipe` : `Recipe`}</option>
+                            <option value="recipe">{style === `Recipe` ? `Course` : `Course`}</option>
                         </select>
                     </div>
-                    <div className='EditNom__buttons'>
+                    <div className='EditCourse__buttons'>
                         <button 
                             type='button'
                             onClick={this.handleClickCancel}
@@ -248,4 +248,4 @@ class EditNom extends Component {
     }
 }
 
-export default EditNom;
+export default EditCourse;

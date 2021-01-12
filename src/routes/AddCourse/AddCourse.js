@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import NomNomsContext from '../../context/NomNomsContext';
+import CoursesContext from '../../context/CoursesContext';
 import config from '../../config';
 import TokenService from '../../services/token-service'
-import './AddNom.css'
+import './AddCourse.css'
 
 const Required = () => (
-    <span className='AddNom_required red'>*</span>
+    <span className='AddCourse_required red'>*</span>
 )
 
-class AddNom extends Component {
+class AddCourse extends Component {
     static propTypes = {
         history: PropTypes.shape({
             push: PropTypes.func,
         }).isRequired,
     };
 
-    static contextType = NomNomsContext;
+    static contextType = CoursesContext;
 
     state = {
         error: null,
@@ -27,18 +27,18 @@ class AddNom extends Component {
         var d = document.getElementById("style");
         var result = d.options[d.selectedIndex].text;
         // get the form fields from the event
-        const { nom_name, sub, url, description, style } = e.target;
-        const nom = {
-            nom_name: nom_name.value,
+        const { course_name, sub, url, description, style } = e.target;
+        const course = {
+            course_name: course_name.value,
             sub: sub.value,
             url: url.value,
             description: description.value,
             style: result
         }
         this.setState({ error: null })
-        fetch(config.API_ENDPOINT + `/noms`, {
+        fetch(config.API_ENDPOINT + `/courses`, {
             method: 'POST',
-            body: JSON.stringify(nom),
+            body: JSON.stringify(course),
             headers: {
                 'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -51,13 +51,13 @@ class AddNom extends Component {
                 return res.json()
             })
             .then(data => {
-                nom_name.value = ''
+                course_name.value = ''
                 sub.value = ''
                 url.value = ''
                 description.value = ''
                 style.value = ''
-                this.context.addNom(data)
-                this.props.history.push('/nomlist')
+                this.context.addCourse(data)
+                this.props.history.push('/courselist')
             })
             .catch(error => {
                 console.error(error)
@@ -66,33 +66,33 @@ class AddNom extends Component {
     }
 
     handleClickCancel = () => {
-        this.props.history.push('/nomlist')
+        this.props.history.push('/courselist')
     }
 
     render() {
         const { error } = this.state;
         return (
             <div className='add-body'>
-            <section className='AddNom'>
-                <h2 className='make-nom'>Create a Nom</h2>
+            <section className='AddCourse'>
+                <h2 className='make-course'>Create a Course</h2>
                 <form
-                    className='AddNom_form'
+                    className='AddCourse_form'
                     onSubmit={this.handleSubmit}
                 >
-                    <div className='AddNom_error' role='alert'>
+                    <div className='AddCourse_error' role='alert'>
                         {error && <p>{error.message}</p>}
                     </div>
                     <div className='add-fields'>
-                        <label htmlFor='nom_name'> 
-                            Nom Name
+                        <label htmlFor='course_name'> 
+                            Course Name
                             {' '}
                             <Required />
                         </label>
                         <br />
                         <input 
                             type='text'
-                            name='nom_name'
-                            id='nom_name'
+                            name='course_name'
+                            id='course_name'
                             placeholder='Vegan honey'
                             className='inputs'
                             required
@@ -142,7 +142,7 @@ class AddNom extends Component {
                     </div>
                     <div className='add-fields'>
                         <label htmlFor='style'>
-                            Nom Type:
+                            Course Type:
                             {' '}
                             <Required />
                         </label>
@@ -153,11 +153,11 @@ class AddNom extends Component {
                             required
                         >
                             {/* <option value="None">-- Select --</option> */}
-                            <option value="nom">Nom</option>
+                            <option value="course">Course</option>
                             <option value="recipe">Recipe</option>
                         </select>
                     </div>                    
-                    <div className='AddNom_buttons'>
+                    <div className='AddCourse_buttons'>
                         <button 
                             type='button'
                             onClick={this.handleClickCancel}
@@ -178,4 +178,4 @@ class AddNom extends Component {
     }
 }
 
-export default AddNom;
+export default AddCourse;

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import TokenService from '../../services/token-service'
-import NomNomsContext from '../../context/NomNomsContext';
+import CoursesContext from '../../context/CoursesContext';
 import config from '../../config'
-import './NomPage.css';
+import './CoursePage.css';
 
-class NomPage extends Component {
+class CoursePage extends Component {
     static propTypes = {
         match: PropTypes.shape({
             params: PropTypes.object,
@@ -16,12 +16,12 @@ class NomPage extends Component {
         }).isRequired,
     };
 
-    static contextType = NomNomsContext;
+    static contextType = CoursesContext;
 
     state = {
         error: null,
         id: '',
-        nom_name: '',
+        course_name: '',
         sub: '',
         url: '',
         description: '',
@@ -29,8 +29,8 @@ class NomPage extends Component {
     };
 
     componentDidMount() {
-        const { nomId } = this.props.match.params;
-        fetch(config.API_ENDPOINT + `/noms/${nomId}`, {
+        const { courseId } = this.props.match.params;
+        fetch(config.API_ENDPOINT + `/courses/${courseId}`, {
             method: 'GET',
             headers: {
               'content-type': 'application/json',
@@ -46,7 +46,7 @@ class NomPage extends Component {
             .then(responseData => {
                 this.setState({
                     id: responseData.id,
-                    nom_name: responseData.nom_name,
+                    course_name: responseData.course_name,
                     sub: responseData.sub,
                     url: responseData.url,
                     description: responseData.description,
@@ -60,15 +60,15 @@ class NomPage extends Component {
     }
 
     handleClickBack = () => {
-        this.props.history.push('/nomlist')
+        this.props.history.push('/courselist')
     }
 
     render() {
-        const { id, nom_name, sub, url, description, style } = this.state;
+        const { id, course_name, sub, url, description, style } = this.state;
         return (
-            <div className='main-nom-page'>
-            <section className='NomPage'>
-                <h2 className='NomPage_heading'>{nom_name}</h2>
+            <div className='main-course-page'>
+            <section className='CoursePage'>
+                <h2 className='CoursePage_heading'>{course_name}</h2>
                     <div className='page-body'>
                         <p className='sub'>
                             <span>
@@ -96,16 +96,16 @@ class NomPage extends Component {
                         </p>
                         <p className='style'>
                             <span>
-                            Nom Type:
+                            Course Type:
                             {' '}
                             </span>
                             <br />
-                            {style ? style : `No Nom type was selected`}
+                            {style ? style : `No Course type was selected`}
                         </p>
                     </div>
-                    <div className='NomPage__buttons'>
+                    <div className='CoursePage__buttons'>
                         <Link 
-                            to={`/edit-nom/${id}`}
+                            to={`/edit-course/${id}`}
                             style={{ textDecoration: 'none' }}
                         >
                             <button className='butts'>
@@ -128,4 +128,4 @@ class NomPage extends Component {
     }
 }
 
-export default NomPage;
+export default CoursePage;

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
-import NomNomsContext from '../../context/NomNomsContext';
-import NomItem from '../../components/NomItem/NomItem';
-import './NomList.css';
+import CoursesContext from '../../context/CoursesContext';
+import CourseItem from '../../components/CourseItem/CourseItem';
+import './CourseList.css';
 
-class NomList extends Component {
+class CourseList extends Component {
     static propTypes = {
-        noms: PropTypes.arrayOf(
+        courses: PropTypes.arrayOf(
             PropTypes.shape({
                 id: PropTypes.oneOfType([
                     PropTypes.number,
@@ -18,28 +18,28 @@ class NomList extends Component {
     };
 
     static defaultProps = {
-        noms: []
+        courses: []
     };
 
-    static contextType = NomNomsContext;
+    static contextType = CoursesContext;
 
     render() {
-        const { noms } = this.context;
+        const { courses } = this.context;
         return (
             <div className='main-list'>
-                <div className='NomList'>
-                    <h2 className='NomList_heading'>My Noms</h2>
+                <div className='CourseList'>
+                    <h2 className='CourseList_heading'>My Courses</h2>
                         <Link
-                            to={'/new-nom'}
+                            to={'/new-course'}
                         >
-                            <button className='AddButton'>Add Nom +</button>
+                            <button className='AddButton'>Add Course +</button>
                         </Link>
                         {' '}
-                        <ul className='NomList_list' aria-live='polite'>
-                                {noms.map(nom =>
-                                    <NomItem
-                                        key={nom.id}
-                                        {...nom}
+                        <ul className='CourseList_list' aria-live='polite'>
+                                {courses.map(course =>
+                                    <CourseItem
+                                        key={course.id}
+                                        {...course}
                                     />
                                 )}
                         </ul>
@@ -49,4 +49,4 @@ class NomList extends Component {
     }
 }
 
-export default NomList;
+export default CourseList;

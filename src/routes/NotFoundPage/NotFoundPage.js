@@ -8,7 +8,7 @@ export default class NotFoundPage extends Component {
             <div className='error-body'>
                 <Section className='NotFoundPage'>
                     <h2 className='error-heading'>404 - Page not found</h2>
-                    <p>Try clicking on the <span className='accent'>Home Page</span> or <span className='accent'>My Noms</span> tab.</p>
+                    <p>Try clicking on the <span className='accent'>Home Page</span> or <span className='accent'>My Courses</span> tab.</p>
                 </Section>
             </div>
         )
