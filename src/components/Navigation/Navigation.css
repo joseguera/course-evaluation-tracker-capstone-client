@@ -1,0 +1,45 @@
+.nav-container {
+    width: 700px; /* Can be in percentage also. */
+    height: 50px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    line-height: normal;
+}
+
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #333;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.links {
+    color: white;
+    text-align: center;
+    padding: 25px;
+    text-decoration: none;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.links:hover {
+    background-color: #111;
+}
+
+.nav-items {
+    display: inline;
+}
+
+@media screen and (max-width: 500px) {
+
+    .nav-container {
+        width: 400px; /* Can be in percentage also */
+    }
+    
+}

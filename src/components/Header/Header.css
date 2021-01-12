@@ -1,0 +1,80 @@
+.header-container {
+    width: 700px; /* Can be in percentage also. */
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .Header {
+      height: 40px;
+      display: flex;
+      align-items: normal;
+      justify-content: space-between;
+      margin-bottom: 50px;
+      font-family: 'VT323', monospace;
+      font-size: 25px;
+      padding-bottom: 10px;
+  }
+  
+  .site-title {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 40px;
+  }
+  
+  .first-N {
+    font-size: 56px;
+    color: maroon;
+  }
+  
+  .last-N {
+    font-size: 48px;
+    color: #b37400;
+  }
+    
+    .Header h1 {
+      margin: 0;
+    }
+    
+    .Header h1 a {
+      text-decoration: none;
+    }
+    
+    .Header a {
+      color: #444;
+      text-decoration: none;
+    }
+    
+    .Header__not-logged-in {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .Header__not-logged-in .Hyph {
+      display: none;
+    }
+  
+    .reg-links {
+      padding-bottom: 5px;
+    }
+  
+    .reg-links:hover {
+      text-decoration: underline;
+      color: maroon;
+    }
+  
+  
+  /* start of desktop and large table styles */
+  
+  @media screen and (max-width: 500px) {
+  
+    .header-container {
+      width: 400px; /* Can be in percentage also */
+    }
+  
+    .Header {
+      display: inline-block;
+    }
+  }
+    

@@ -1,0 +1,37 @@
+.form-body, .RegistrationPage, .LoginPage {
+    width: 700px; /* Can be in percentage also. */
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.register, .login {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 36px;
+    margin-top: 10px;
+}
+
+.fields {
+    color: maroon;
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    margin-bottom: 10px;
+    width: 676px;
+}
+
+.input {
+    margin: 0;
+}
+
+@media screen and (max-width: 500px) {
+
+    .form-body, .RegistrationPage, .LoginPage {
+        width: 400px; /* Can be in percentage also */
+    }
+  
+    .fields {
+        width: 376px;
+    }   
+}

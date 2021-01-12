@@ -1,0 +1,45 @@
+.NomItem {
+    list-style: none;
+    margin: 0;
+    font-size: 20px;
+    padding-bottom: 10px;
+    padding-top: 1px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
+    font-family: 'Oxanium', cursive;
+    background-color: #006994;
+}
+
+.NomItem_style {
+    color: yellow;
+    font-family: 'Major Mono Display', monospace;
+    font-size: 18px;
+}
+
+/* font-family: 'Iceland', cursive;
+font-family: 'Major Mono Display', monospace;
+font-family: 'Oxanium', cursive;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Orbitron', sans-serif;
+font-family: 'VT323', monospace; */
+
+.NomItem__title:hover {
+    margin: 0;
+    color: #fff;   
+}
+
+.AddNomItem__required {
+color: #b00c0c;
+}
+
+.butts {
+    color: #b9efe1;
+    border: none;
+    padding: 10px 25px;
+    background-color: maroon;
+    font-size: 25px;
+    margin: 0 25px;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'VT323', monospace;
+}
