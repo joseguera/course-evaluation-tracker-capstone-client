@@ -67,7 +67,7 @@ class App extends Component {
   updateCourse = updatedCourse => {
     this.setState({
       courses: this.state.courses.map(course =>
-        (course.id !== updatedCourse.id) ? course : updatedcourse
+        (course.id !== updatedCourse.id) ? course : updatedCourse
       )
     })
   }

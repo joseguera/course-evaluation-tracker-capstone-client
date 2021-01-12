@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service'
-import NomNomsContext from '../../context/NomNomsContext';
+import CoursesContext from '../../context/CoursesContext';
 import config from '../../config';
-import './NomItem.css';
+import './CourseItem.css';
 
-function deleteNomRequest(nomId, cb) {
-    fetch(config.API_ENDPOINT + `/noms/${nomId}`, {
+function deleteCourseRequest(courseId, cb) {
+    fetch(config.API_ENDPOINT + `/courses/${courseId}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json',
@@ -15,38 +15,38 @@ function deleteNomRequest(nomId, cb) {
         }
     })
         .then(data => {
-            cb(nomId)
-            // window.location = '/nomlist'
+            cb(courseId)
+            // window.location = '/courselist'
         })
         .catch(error => {
             console.error(error)
         })
 }
 
-export default function NomItem(props) {
+export default function CourseItem(props) {
     return (
-        <NomNomsContext.Consumer>
+        <CoursesContext.Consumer>
             {(context) => (
-                <li className='NomItem'>
+                <li className='CourseItem'>
                     <div>
                         <h3>
-                            <Link to={`/nom-page/${props.id}`}
+                            <Link to={`/course-page/${props.id}`}
                                 style={{
                                     color: '#b37400',
                                     textDecoration: 'none',
                                     fontSize: 28,
                                 }}
                             >
-                                {props.nom_name}
+                                {props.course_name}
                             </Link>
                         </h3>
                     </div>
-                    <p className='NomItem_style'>
+                    <p className='CourseItem_style'>
                         {props.style}
                     </p>
                     <div>
                             <Link 
-                                to={`/edit-nom/${props.id}`}
+                                to={`/edit-course/${props.id}`}
                                 style={{ textDecoration: 'none' }}
                             >
                                 <button className='butts'>
@@ -57,7 +57,7 @@ export default function NomItem(props) {
                         <button
                             className='butts'
                             onClick={() =>
-                                deleteNomRequest(props.id, context.deleteNom)
+                                deleteCourseRequest(props.id, context.deleteCourse)
                             }
                         >
                             Delete
@@ -65,20 +65,20 @@ export default function NomItem(props) {
                     </div>
                 </li>
             )}
-        </NomNomsContext.Consumer>
+        </CoursesContext.Consumer>
     )
 }
 
-NomItem.defaultProps = {
+CourseItem.defaultProps = {
     onClickDelete: () => { },
 }
 
-NomItem.propTypes = {
+CourseItem.propTypes = {
     id: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string,
     ]).isRequired,
-    nom_name: PropTypes.string.isRequired,
+    course_name: PropTypes.string.isRequired,
     sub: PropTypes.string.isRequired,
     url: PropTypes.string,
     desciption: PropTypes.string,
