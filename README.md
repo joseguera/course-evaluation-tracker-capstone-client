@@ -1,6 +1,6 @@
 # Course Evaluation Tracker Capstone - Client
 
-# Course Evaluation App
+## CourseGrader App
 This app allows users to review courses and keep track of the instructor's syllabus and course quality as well as instructor-student interaction.
 
 
@@ -13,9 +13,9 @@ You can access a working prototype of the React app here: https://nomnoms-app.ve
 ### 2. User Stories
 This app is for two types of users: a data entry user and a manager "admin" user
 
-###### Landing/Home Page
+###### Landing
 * As a visitor
-* I want to understand what I can do with this app (or sign up, or log in) so I can log in or create an account
+ - I want to understand what I can do with this app (or sign up, or log in) so I can log in or create an account
 
 ###### Login Page
 * As a returning register user
@@ -25,10 +25,10 @@ This app is for two types of users: a data entry user and a manager "admin" user
 * As a visitor
 * I want to register to use this app so I can create a work account.
 
-###### My Noms Page
-* As a logged-in user,
+###### Home Page
+1. As a logged-in user,
 * I want to be able to...
-*   view only my courses on the dashboard page of the app, so I can decide if I want to... 
+* view only my courses on the dashboard page of the app, so I can decide if I want to... 
 *   evaluate a course, 
 *   edit/complete my evaluation of a course I've started
 *   create a new course that's missing from my list of courses
@@ -103,22 +103,38 @@ My Noms Page
 ### 7. Back-end Structure - Business Objects
 * users (database table)
     * id (auto-generated)
-    * first name (user-generated)
-    * last name (user-generated)
+    * first_name (user-generated)
+    * last_name (user-generated)
     * username (user-generated)
     * password (at least one number, one lowercase and one uppercase letter at least eight characters that are letters, numbers or the underscore)
     * date_created (auto-generated)
 
 * courses (database table)
     * id (auto-generated)
-    * course_number (user-generated)
-    * course_title (user-generated)
-    * course_reg_number (user-generated)
-    * quarter (user-generated)
-    * year (user-generated)
     * instructor_name (user-generated)
-
-
+    * program_area (user-generated)
+    * program_rep (foreign key - users id)
+    * course_number (user-generated)
+    * course_name (user-generated)
+    * quarter (user-generated)
+    * project_id (user-generated)
+    * score (user-generated)
+    
+* questions
+    * id (auto-generated)
+    * question1 (user-generated)
+    * question2 (user-generated)
+    * question3 (user-generated)
+    * question4 (user-generated)
+    * question5 (user-generated)
+    * question6 (user-generated)
+    * question7 (user-generated)
+    * question8 (user-generated)
+    * question9 (user-generated)
+    * question10 (user-generated)
+    * total (foreign key - courses id)
+     
+     
 
 ### 8. API Documentation (to do later)
 API Documentation details:
