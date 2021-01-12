@@ -4,25 +4,25 @@ import Header from '../Header/Header'
 import TokenService from '../../services/token-service'
 import Navigation from '../../components/Navigation/Navigation'
 import Home from '../../routes/Home/Home'
-import NomList from '../../routes/NomList/NomList'
-import NomPage from '../../routes/NomPage/NomPage'
-import AddNom from '../../routes/AddNom/AddNom'
-import EditNom from '../../routes/EditNom/EditNom'
+import CourseList from '../../routes/CourseList/CourseList'
+import CoursePage from '../../routes/CoursePage/CoursePage'
+import AddCourse from '../../routes/AddCourse/AddCourse'
+import EditCourse from '../../routes/EditCourse/EditCourse'
 import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
-import NomNomsContext from '../../context/NomNomsContext'
+import CoursesContext from '../../components/context/CoursesContext'
 import config from '../../config'
 
 class App extends Component {
   state = {
-    noms: [],
+    courses: [],
     error: null
   }
 
   componentDidMount() {
     document.body.style.backgroundColor = "skyblue"
-    fetch(config.API_ENDPOINT + `/noms/`, {
+    fetch(config.API_ENDPOINT + `/courses/`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -35,49 +35,49 @@ class App extends Component {
         }
         return res.json()
       })
-      .then(this.setNoms)
+      .then(this.setCourses)
       .catch(error => {
         console.error(error)
         this.setState({ error })
       })
   }
 
-  setNoms = noms => {
+  setCourses = courses => {
     this.setState({
-      noms,
+      courses,
       error: null
     })
   }
 
-  addNom = nom => {
+  addCourse = course => {
     this.setState({
-      noms: [...this.state.noms, nom]
+      courses: [...this.state.courses, course]
     })
   }
 
-  deleteNom = nomId => {
-    const newNoms = this.state.noms.filter(nom =>
-      nom.id !== nomId  
+  deleteCourse = courseId => {
+    const newCourses = this.state.courses.filter(course =>
+      course.id !== courseId  
     )
     this.setState({
-      noms: newNoms
+      courses: newCourses
     })
   }
 
-  updateNom = updatedNom => {
+  updateCourse = updatedCourse => {
     this.setState({
-      noms: this.state.noms.map(nom =>
-        (nom.id !== updatedNom.id) ? nom : updatedNom
+      courses: this.state.courses.map(course =>
+        (course.id !== updatedCourse.id) ? course : updatedcourse
       )
     })
   }
 
   render() {
     const contextValue = {
-      noms: this.state.noms,
-      addNom: this.addNom,
-      deleteNom: this.deleteNom,
-      updateNom: this.updateNom,
+      courses: this.state.courses,
+      addCourse: this.addCourse,
+      deleteCourse: this.deleteCourse,
+      updateCourse: this.updateCourse,
     }
     return (
       <div 
@@ -86,19 +86,19 @@ class App extends Component {
             <Header />
         </header>
         <main className='app-main'>
-          <NomNomsContext.Provider value={contextValue}>
+          <CoursesContext.Provider value={contextValue}>
             <Navigation />
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path={'/login'} component={LoginPage} />
               <Route path={'/register'} component={RegistrationPage} />
-              <Route path={'/nomlist'} component={NomList} />
-              <Route path={'/nom-page/:nomId'} component={NomPage} />
-              <Route path={'/new-nom'} component={AddNom} />
-              <Route path={'/edit-nom/:nomId'} component={EditNom} />
+              <Route path={'/courselist'} component={CourseList} />
+              <Route path={'/course-page/:courseId'} component={CoursePage} />
+              <Route path={'/new-course'} component={AddCourse} />
+              <Route path={'/edit-course/:courseId'} component={EditCourse} />
               <Route component={NotFoundPage} />
             </Switch>
-          </NomNomsContext.Provider>
+          </CoursesContext.Provider>
         </main>
       </div>
     )
