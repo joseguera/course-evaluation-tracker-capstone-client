@@ -35,14 +35,14 @@ class CourseList extends Component {
                             <button className='AddButton'>Add Course +</button>
                         </Link>
                         {' '}
-                        <ul className='CourseList_list' aria-live='polite'>
+                        <div className='CourseList_list' aria-live='polite'>
                                 {courses.map(course =>
                                     <CourseItem
                                         key={course.id}
                                         {...course}
                                     />
                                 )}
-                        </ul>
+                        </div>
                 </div>
             </div>
         )

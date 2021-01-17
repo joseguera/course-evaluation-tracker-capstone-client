@@ -1,18 +1,21 @@
 .CourseItem {
     list-style: none;
-    margin: 0;
-    font-size: 20px;
-    padding-bottom: 10px;
-    padding-top: 1px;
+    margin: 5px;
+    height: 250px;
+    width: 300px;
+    font-size: 15px;
+    padding: 10px;
     margin-bottom: 15px;
     box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
     font-family: 'Oxanium', cursive;
     background-color: #006994;
+    flex-shrink: 3;
+    flex-basis: auto;
+    align-self: auto;
 }
 
 .CourseItem_style {
     color: yellow;
-    font-family: 'Major Mono Display', monospace;
     font-size: 18px;
 }
 
@@ -32,14 +35,15 @@ font-family: 'VT323', monospace; */
 color: #b00c0c;
 }
 
-.butts {
+.CourseItem .butts {
     color: #b9efe1;
+    width: fit-content;
+    height:fit-content;
     border: none;
     padding: 10px 25px;
     background-color: maroon;
     font-size: 25px;
-    margin: 0 25px;
+    margin: 0 15px;
     cursor: pointer;
     text-align: center;
-    font-family: 'VT323', monospace;
 }

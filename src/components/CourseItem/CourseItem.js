@@ -27,8 +27,7 @@ export default function CourseItem(props) {
     return (
         <CoursesContext.Consumer>
             {(context) => (
-                <li className='CourseItem'>
-                    <div>
+                    <div className='CourseItem'>
                         <h3>
                             <Link to={`/course-page/${props.id}`}
                                 style={{
@@ -40,11 +39,11 @@ export default function CourseItem(props) {
                                 {props.course_name}
                             </Link>
                         </h3>
-                    </div>
                     <p className='CourseItem_style'>
-                        {props.style}
+                        {props.course_number}<br />
+                        <span>Reg# {props.project_id}</span><br />
+                        {props.quarter}
                     </p>
-                    <div>
                             <Link 
                                 to={`/edit-course/${props.id}`}
                                 style={{ textDecoration: 'none' }}
@@ -63,7 +62,6 @@ export default function CourseItem(props) {
                             Delete
                         </button>
                     </div>
-                </li>
             )}
         </CoursesContext.Consumer>
     )

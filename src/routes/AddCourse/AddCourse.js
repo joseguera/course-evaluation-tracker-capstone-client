@@ -92,7 +92,7 @@ class AddCourse extends Component {
                     </div>
                     <div className='add-fields'>
                         <label htmlFor='project_id'> 
-                            Project ID
+                            Registration Number
                             {' '}
                             <Required />
                         </label>
