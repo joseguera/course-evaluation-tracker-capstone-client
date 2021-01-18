@@ -49,6 +49,45 @@
     color: #a51414;
     margin-bottom: 5px;
   }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .item {
+    order: 2;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  label {
+    float: left;
+    padding: 0 1em;
+    text-align: center;
+  }
+  
+  .legend {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .question {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
   
   @media screen and (max-width: 500px) {
   
