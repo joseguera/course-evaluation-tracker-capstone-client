@@ -24,23 +24,26 @@ class AddCourse extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        var d = document.getElementById("style");
-        var result = d.options[d.selectedIndex].text;
+        // var d = document.getElementById("style");
+        // var result = d.options[d.selectedIndex].text;
         // get the form fields from the event
-        const { instructor_name, program_area, program_rep, course_number,
+        const { instructor_name, program_area, course_number,
             course_name, quarter, project_id, notes } = e.target;
-
+            // console.log(instructor_name, program_area, course_number,
+            //     course_name, quarter, project_id, notes);
         const course = {
             instructor_name: instructor_name.value,
             program_area: program_area.value,
-            program_rep: program_rep.value,
+            // program_rep: program_rep.value,
             course_number: course_number.value,
             course_name: course_name.value,
             quarter: quarter.value,
             project_id: project_id.value,
-            notes: notes.value
+            notes: notes.value,
+            // total: total.value
         }
         this.setState({ error: null })
+        // console.log("hello");
         fetch(config.API_ENDPOINT + `/courses`, {
             method: 'POST',
             body: JSON.stringify(course),
@@ -56,14 +59,124 @@ class AddCourse extends Component {
                 return res.json()
             })
             .then(data => {
+                console.log(data);
+
+
+
+
+
+
+
+
+                /////////// GET user ID START ///////////////
+                fetch(config.API_ENDPOINT + `/users`, {
+                    method: 'GET',
+                    headers: {
+                        'content-type': 'application/json',
+                        'authorization': `bearer ${TokenService.getAuthToken()}`,
+                    }
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(error => Promise.reject(error))
+                        }
+                        return res.json()
+                    })
+                    .then(data => {
+                        console.log(data);
+                        
+                        instructor_name.value = ''
+                        first_name.value
+                        last_name TEXT NOT NULL,
+                        username TEXT NOT NULL,
+                        this.context.addCourse(data)
+                        this.props.history.push('/courselist')
+                    })
+                    .catch(error => {
+                        console.error(error)
+                        this.setState({ error })
+                    })
+                /////////// GET user ID STOP ///////////////
+
+                
+                /////////// POST questions ID START ///////////////
+                fetch(config.API_ENDPOINT + `/questions`, {
+                    method: 'POST',
+                    body: JSON.stringify(course),
+                    headers: {
+                        'content-type': 'application/json',
+                        'authorization': `bearer ${TokenService.getAuthToken()}`,
+                    }
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(error => Promise.reject(error))
+                        }
+                        return res.json()
+                    })
+                    .then(data => {
+                        console.log(data);
+                        
+                        instructor_name.value = ''
+                        program_area.value = ''
+                        // program_rep.value = ''
+                        course_number.value = ''
+                        course_name.value = ''
+                        quarter.value = ''
+                        project_id.value = ''
+                        notes.value = ''
+                        // total.value = '';
+                        this.context.addCourse(data)
+                        this.props.history.push('/courselist')
+                    })
+                    .catch(error => {
+                        console.error(error)
+                        this.setState({ error })
+                    })
+                /////////// POST questions ID STOP ///////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+
+
+
+
+
+
+
                 instructor_name.value = ''
                 program_area.value = ''
-                program_rep.value = ''
+                // program_rep.value = ''
                 course_number.value = ''
                 course_name.value = ''
                 quarter.value = ''
                 project_id.value = ''
                 notes.value = ''
+                // total.value = '';
                 this.context.addCourse(data)
                 this.props.history.push('/courselist')
             })
@@ -203,260 +316,260 @@ class AddCourse extends Component {
                                 className='inputs'
                             />
                         </div>
-                        <div class="syllabus">
-                            <div class="legend">
+                        <div className="syllabus">
+                            <div className="legend">
                                 <h2>Syllabus</h2>
                                 <p>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
                             </div>
-                            <div class="question">
+                            <div className="question">
                                 <div>
                                     <p>The online course includes a syllabus outlining course objectives, learning outcomes, evaluation methods, books and supplies, technical and proctoring requirements, and other related course information, making course requirements transparent.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
-                                        <label for="myChoice1">0<br />
+                                    <div className="options">
+                                        <label htmlFor="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
 
-                                        <label for="myChoice2">1<br />
+                                        <label htmlFor="myChoice2">1<br />
                                             <input type="radio" id="myChoice2" name="myChoice" value="1" />
                                         </label>
 
-                                        <label for="myChoice3">2<br />
+                                        <label htmlFor="myChoice3">2<br />
                                             <input type="radio" id="myChoice3" name="myChoice" value="2" />
                                         </label>
 
-                                        <label for="myChoice4">3<br />
+                                        <label htmlFor="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="question">
+                            <div className="question">
                                 <div>
                                     <p>Lesson Plans/Weekly Assignments & Point Value of an Assignment.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
-                                        <label for="myChoice1">0<br />
+                                    <div className="options">
+                                        <label htmlFor="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
 
-                                        <label for="myChoice2">1<br />
+                                        <label htmlFor="myChoice2">1<br />
                                             <input type="radio" id="myChoice2" name="myChoice" value="1" />
                                         </label>
 
-                                        <label for="myChoice3">2<br />
+                                        <label htmlFor="myChoice3">2<br />
                                             <input type="radio" id="myChoice3" name="myChoice" value="2" />
                                         </label>
 
-                                        <label for="myChoice4">3<br />
+                                        <label htmlFor="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="question">
+                            <div className="question">
                                 <div>
                                     <p>Course is designed so that students develop necessary knowledge and skills to meet measurable course and program learning outcomes.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
-                                        <label for="myChoice1">0<br />
+                                    <div className="options">
+                                        <label htmlFor="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
 
-                                        <label for="myChoice2">1<br />
+                                        <label htmlFor="myChoice2">1<br />
                                             <input type="radio" id="myChoice2" name="myChoice" value="1" />
                                         </label>
 
-                                        <label for="myChoice3">2<br />
+                                        <label htmlFor="myChoice3">2<br />
                                             <input type="radio" id="myChoice3" name="myChoice" value="2" />
                                         </label>
 
-                                        <label for="myChoice4">3<br />
+                                        <label htmlFor="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="question">
+                            <div className="question">
                                 <div>
                                     <p>Expectations for assignment completion, grade policy and faculty response are clearly provided in the course syllabus.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
-                                        <label for="myChoice1">0<br />
+                                    <div className="options">
+                                        <label htmlFor="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
 
-                                        <label for="myChoice2">1<br />
+                                        <label htmlFor="myChoice2">1<br />
                                             <input type="radio" id="myChoice2" name="myChoice" value="1" />
                                         </label>
 
-                                        <label for="myChoice3">2<br />
+                                        <label htmlFor="myChoice3">2<br />
                                             <input type="radio" id="myChoice3" name="myChoice" value="2" />
                                         </label>
 
-                                        <label for="myChoice4">3<br />
+                                        <label htmlFor="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="Course Content">
-                            <div class="legend">
+                        <div className="Course Content">
+                            <div className="legend">
                                 <h2>Course Content</h2>
                                 <p>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
                             </div>
-                            <div class="question">
+                            <div className="question">
                                 <div>
                                     <p>There is consistency in the design of course navigation and utilization of course components to support student retention and quality.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
-                                        <label for="myChoice1">0<br />
+                                    <div className="options">
+                                        <label htmlFor="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
 
-                                        <label for="myChoice2">1<br />
+                                        <label htmlFor="myChoice2">1<br />
                                             <input type="radio" id="myChoice2" name="myChoice" value="1" />
                                         </label>
 
-                                        <label for="myChoice3">2<br />
+                                        <label htmlFor="myChoice3">2<br />
                                             <input type="radio" id="myChoice3" name="myChoice" value="2" />
                                         </label>
 
-                                        <label for="myChoice4">3<br />
+                                        <label htmlFor="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="question">
+                            <div className="question">
                                 <div>
                                     <p>A process is followed that ensures that permissions (Creative Commons, Copyright, Fair Use, Public Domain, etc.) are in place for appropriate use of online course materials.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
-                                        <label for="myChoice1">0<br />
+                                    <div className="options">
+                                        <label htmlFor="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
 
-                                        <label for="myChoice2">1<br />
+                                        <label htmlFor="myChoice2">1<br />
                                             <input type="radio" id="myChoice2" name="myChoice" value="1" />
                                         </label>
 
-                                        <label for="myChoice3">2<br />
+                                        <label htmlFor="myChoice3">2<br />
                                             <input type="radio" id="myChoice3" name="myChoice" value="2" />
                                         </label>
 
-                                        <label for="myChoice4">3<br />
+                                        <label htmlFor="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="question">
+                            <div className="question">
                                 <div>
                                     <p>Instructional materials are easily accessed by students with disabilities via alternative instructional strategies and/or referral to special institutional resources.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
-                                        <label for="myChoice1">0<br />
+                                    <div className="options">
+                                        <label htmlFor="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
 
-                                        <label for="myChoice2">1<br />
+                                        <label htmlFor="myChoice2">1<br />
                                             <input type="radio" id="myChoice2" name="myChoice" value="1" />
                                         </label>
 
-                                        <label for="myChoice3">2<br />
+                                        <label htmlFor="myChoice3">2<br />
                                             <input type="radio" id="myChoice3" name="myChoice" value="2" />
                                         </label>
 
-                                        <label for="myChoice4">3<br />
+                                        <label htmlFor="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="student-teacher">
-                            <div class="legend">
+                        <div className="student-teacher">
+                            <div className="legend">
                                 <h2>Student/Teacher Interaction</h2>
                                 <p>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
                             </div>
-                            <div class="question">
+                            <div className="question">
                                 <div>
                                     <p>Feedback on student assignments and questions is constructive and provided in a timely manner. (Grades/Discussions)</p>
                                 </div>
                                 <div>
-                                    <form class="options">
-                                        <label for="myChoice1">0<br />
+                                    <div className="options">
+                                        <label htmlFor="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
 
-                                        <label for="myChoice2">1<br />
+                                        <label htmlFor="myChoice2">1<br />
                                             <input type="radio" id="myChoice2" name="myChoice" value="1" />
                                         </label>
 
-                                        <label for="myChoice3">2<br />
+                                        <label htmlFor="myChoice3">2<br />
                                             <input type="radio" id="myChoice3" name="myChoice" value="2" />
                                         </label>
 
-                                        <label for="myChoice4">3<br />
+                                        <label htmlFor="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="question">
+                            <div className="question">
                                 <div>
                                     <p>Instructors use effective strategies to create a presence in the course.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
-                                        <label for="myChoice1">0<br />
+                                    <div className="options">
+                                        <label htmlFor="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
 
-                                        <label for="myChoice2">1<br />
+                                        <label htmlFor="myChoice2">1<br />
                                             <input type="radio" id="myChoice2" name="myChoice" value="1" />
                                         </label>
 
-                                        <label for="myChoice3">2<br />
+                                        <label htmlFor="myChoice3">2<br />
                                             <input type="radio" id="myChoice3" name="myChoice" value="2" />
                                         </label>
 
-                                        <label for="myChoice4">3<br />
+                                        <label htmlFor="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="question">
+                            <div className="question">
                                 <div>
                                     <p>Instructors use effective strategies to create a presence in the course.</p>
                                 </div>
-                                <form class="options">
-                                    <label for="myChoice1">0<br />
+                                <div className="options">
+                                    <label htmlFor="myChoice1">0<br />
                                         <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                     </label>
 
-                                    <label for="myChoice2">1<br />
+                                    <label htmlFor="myChoice2">1<br />
                                         <input type="radio" id="myChoice2" name="myChoice" value="1" />
                                     </label>
 
-                                    <label for="myChoice3">2<br />
+                                    <label htmlFor="myChoice3">2<br />
                                         <input type="radio" id="myChoice3" name="myChoice" value="2" />
                                     </label>
 
-                                    <label for="myChoice4">3<br />
+                                    <label htmlFor="myChoice4">3<br />
                                         <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                     </label>
-                                </form>
+                                </div>
                             </div>
                         </div>
                         <div className='add-fields'>
