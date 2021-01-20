@@ -20,6 +20,9 @@ class AddCourse extends Component {
 
     state = {
         error: null,
+        first_name: '',
+        last_name: '',
+        username: ''
     };
 
     handleSubmit = e => {
@@ -29,6 +32,7 @@ class AddCourse extends Component {
         // get the form fields from the event
         const { instructor_name, program_area, course_number,
             course_name, quarter, project_id, notes } = e.target;
+        const { first_name, last_name, username } = e.target;
             // console.log(instructor_name, program_area, course_number,
             //     course_name, quarter, project_id, notes);
         const course = {
@@ -42,8 +46,44 @@ class AddCourse extends Component {
             notes: notes.value,
             // total: total.value
         }
+
+        const user = {
+            first_name: first_name.value,
+            last_name: last_name.value,
+            username: username.value
+        }
         this.setState({ error: null })
         // console.log("hello");
+
+        /////////// GET user ID START ///////////////
+        fetch(config.API_ENDPOINT + `/users`, {
+            method: 'GET',
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(error => Promise.reject(error))
+                }
+                return res.json()
+            })
+            .then(responseData => {
+                this.setState({
+                    id: responseData.id,
+                    first_name: responseData.first_name,
+                    last_name: responseData.last_name,
+                    username: responseData.username
+                })
+            })
+            .catch(error => {
+                console.error(error)
+                this.setState({ error })
+            })
+        /////////// GET user ID STOP ///////////////
+
         fetch(config.API_ENDPOINT + `/courses`, {
             method: 'POST',
             body: JSON.stringify(course),
@@ -68,35 +108,7 @@ class AddCourse extends Component {
 
 
 
-                /////////// GET user ID START ///////////////
-                fetch(config.API_ENDPOINT + `/users`, {
-                    method: 'GET',
-                    headers: {
-                        'content-type': 'application/json',
-                        'authorization': `bearer ${TokenService.getAuthToken()}`,
-                    }
-                })
-                    .then(res => {
-                        if (!res.ok) {
-                            return res.json().then(error => Promise.reject(error))
-                        }
-                        return res.json()
-                    })
-                    .then(data => {
-                        console.log(data);
-                        
-                        instructor_name.value = ''
-                        first_name.value
-                        last_name TEXT NOT NULL,
-                        username TEXT NOT NULL,
-                        this.context.addCourse(data)
-                        this.props.history.push('/courselist')
-                    })
-                    .catch(error => {
-                        console.error(error)
-                        this.setState({ error })
-                    })
-                /////////// GET user ID STOP ///////////////
+
 
                 
                 /////////// POST questions ID START ///////////////
@@ -192,6 +204,7 @@ class AddCourse extends Component {
 
     render() {
         const { error } = this.state;
+        const { first_name, last_name, username } = this.state;
         return (
             <div className='add-body'>
                 <section className='AddCourse'>
@@ -283,9 +296,8 @@ class AddCourse extends Component {
                                 type='text'
                                 name='program_area'
                                 id='program_area'
-                                placeholder='e.g, LMC'
+                                placeholder='e.g., LMC'
                                 className='inputs'
-                                required
                             />
                         </div>
                         <div className='add-fields'>
@@ -308,13 +320,7 @@ class AddCourse extends Component {
                             {' '}
                             </label>
                             <br />
-                            <input
-                                type='text'
-                                name='instructor_name'
-                                id='instructor_name'
-                                placeholder='e.g., Henry Winkler'
-                                className='inputs'
-                            />
+                            <span>{first_name} {last_name}</span>
                         </div>
                         <div className="syllabus">
                             <div className="legend">

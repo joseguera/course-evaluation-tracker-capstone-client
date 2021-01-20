@@ -31,10 +31,11 @@ class EditCourse extends Component {
         course_name: '',
         quarter: '',
         project_id: '',
-        notes: ''
+        notes: '',
     };
 
     componentDidMount() {
+
         const { courseId } = this.props.match.params;
         fetch(config.API_ENDPOINT + `/courses/${courseId}`, {
             method: 'GET',
@@ -69,32 +70,42 @@ class EditCourse extends Component {
     }
 
     handleChangeName = e => {
+        this.setState({ instructor_name: e.target.value })
+    };
+
+    handleChangeProgramArea = e => {
+        this.setState({ program_area: e.target.value })
+    };
+
+    handleChangeCourseNumber = e => {
+        this.setState({ course_number: e.target.value })
+    };
+
+    handleChangeCourseName = e => {
         this.setState({ course_name: e.target.value })
     };
 
-    handleChangeSub = e => {
-        this.setState({ sub: e.target.value })
+    handleChangeQuarter = e => {
+        this.setState({ handleChangeQuarter: e.target.value })
     };
 
-    handleChangeUrl = e => {
-        this.setState({ url: e.target.value })
+    handleChangeProjectID = e => {
+        this.setState({ project_id: e.target.value })
     };
 
-    handleChangeDescription = e => {
-        this.setState({ description: e.target.value })
-    };
-
-    handleChangeStyle = e => {
-        e = document.getElementById("style");
-        var result = e.options[e.selectedIndex].text;
-        this.setState({ style: result })
+    handleChangeNotes = e => {
+        this.setState({ notes: e.target.value })
     };
 
     handleSubmit = e => {
         e.preventDefault();
         const { courseId } = this.props.match.params;
-        const { id, course_name, sub, url, description, style } = this.state;
-        const newCourse = { id, course_name, sub, url, description, style };
+        const { id, instructor_name, program_area,
+                course_number, course_name, quarter,
+                project_id, notes } = this.state;
+        const newCourse = { id, instructor_name, program_area,
+            course_number, course_name, quarter,
+            project_id, notes };
         fetch(config.API_ENDPOINT + `/courses/${courseId}`, {
             method: 'PATCH',
             body: JSON.stringify(newCourse),
@@ -121,12 +132,13 @@ class EditCourse extends Component {
     resetFields = (newFields) => {
         this.setState({
             id: newFields.id || '',
+            instructor_name: newFields.instructor_name || '',
+            program_area: newFields.program_area || '',
+            course_number: newFields.course_number || '',
             course_name: newFields.course_name || '',
-            sub: newFields.sub || '',
-            url: newFields.url || '',
-            description: newFields.description || '',
-            style: newFields.style || '' 
-
+            quarter: newFields.quarter || '',
+            project_id: newFields.project_id || '',
+            notes: newFields.notes || ''
         })
     }
 
@@ -135,7 +147,9 @@ class EditCourse extends Component {
     }
 
     render() {
-        const { error, course_name, sub, url, description, style } = this.state;
+        const { error, instructor_name, program_area,
+            course_number, course_name, quarter,
+            project_id, notes } = this.state;
         return (
             <div className='edit-body'>
             <section className='EditCourse'>
@@ -169,6 +183,8 @@ class EditCourse extends Component {
                                 placeholder='e.g., 375565'
                                 className='inputs'
                                 required
+                                value={project_id}
+                                onChange={this.handleChangeProjectID}
                             />
                         </div>
                         <div className='add-fields'>
@@ -185,6 +201,8 @@ class EditCourse extends Component {
                                 placeholder='e.g., MGMT X 495.6'
                                 className='inputs'
                                 required
+                                value={course_number}
+                                onChange={this.handleChangeCourseNumber}
                             />
                         </div>
                         <div className='add-fields'>
@@ -201,9 +219,11 @@ class EditCourse extends Component {
                                 placeholder='e.g., Intro to Budgeting'
                                 className='inputs'
                                 required
+                                value={course_name}
+                                onChange={this.handleChangeCourseName}
                             />
                         </div>
-                        <div className='add-fields'>
+                        {/* <div className='add-fields'>
                             <label htmlFor='quarter'>
                                 Quarter
                             {' '}
@@ -217,8 +237,10 @@ class EditCourse extends Component {
                                 placeholder='e.g., Winter 2021'
                                 className='inputs'
                                 required
+                                value={quarter}
+                                onChange={this.handleChangeQuarter}
                             />
-                        </div>
+                        </div> */}
                         <div className='add-fields'>
                             <label htmlFor='program_area'>
                                 Program Area
@@ -233,6 +255,8 @@ class EditCourse extends Component {
                                 placeholder='e.g, LMC'
                                 className='inputs'
                                 required
+                                value={program_area}
+                                onChange={this.handleChangeProgramArea}
                             />
                         </div>
                         <div className='add-fields'>
@@ -247,6 +271,8 @@ class EditCourse extends Component {
                                 id='instructor_name'
                                 placeholder='e.g., Ron Howard'
                                 className='inputs'
+                                value={instructor_name}
+                                onChange={this.handleChangeName}
                             />
                         </div>
                         <div className='add-fields'>
@@ -255,13 +281,15 @@ class EditCourse extends Component {
                             {' '}
                             </label>
                             <br />
-                            <input
+                            {/* <input
                                 type='text'
                                 name='instructor_name'
                                 id='instructor_name'
                                 placeholder='e.g., Henry Winkler'
                                 className='inputs'
-                            />
+                                // value={course_name}
+                                // onChange={this.handleChangeCourseName}
+                            /> */}
                         </div>
                         <div class="syllabus">
                             <div class="legend">
@@ -273,7 +301,7 @@ class EditCourse extends Component {
                                     <p>The online course includes a syllabus outlining course objectives, learning outcomes, evaluation methods, books and supplies, technical and proctoring requirements, and other related course information, making course requirements transparent.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
+                                    <div class="options">
                                         <label for="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
@@ -289,7 +317,7 @@ class EditCourse extends Component {
                                         <label for="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="question">
@@ -297,7 +325,7 @@ class EditCourse extends Component {
                                     <p>Lesson Plans/Weekly Assignments & Point Value of an Assignment.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
+                                    <div class="options">
                                         <label for="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
@@ -313,7 +341,7 @@ class EditCourse extends Component {
                                         <label for="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="question">
@@ -321,7 +349,7 @@ class EditCourse extends Component {
                                     <p>Course is designed so that students develop necessary knowledge and skills to meet measurable course and program learning outcomes.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
+                                    <div class="options">
                                         <label for="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
@@ -337,7 +365,7 @@ class EditCourse extends Component {
                                         <label for="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="question">
@@ -345,7 +373,7 @@ class EditCourse extends Component {
                                     <p>Expectations for assignment completion, grade policy and faculty response are clearly provided in the course syllabus.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
+                                    <div class="options">
                                         <label for="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
@@ -361,7 +389,7 @@ class EditCourse extends Component {
                                         <label for="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -375,7 +403,7 @@ class EditCourse extends Component {
                                     <p>There is consistency in the design of course navigation and utilization of course components to support student retention and quality.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
+                                    <div class="options">
                                         <label for="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
@@ -391,7 +419,7 @@ class EditCourse extends Component {
                                         <label for="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="question">
@@ -399,7 +427,7 @@ class EditCourse extends Component {
                                     <p>A process is followed that ensures that permissions (Creative Commons, Copyright, Fair Use, Public Domain, etc.) are in place for appropriate use of online course materials.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
+                                    <div class="options">
                                         <label for="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
@@ -415,7 +443,7 @@ class EditCourse extends Component {
                                         <label for="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="question">
@@ -423,7 +451,7 @@ class EditCourse extends Component {
                                     <p>Instructional materials are easily accessed by students with disabilities via alternative instructional strategies and/or referral to special institutional resources.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
+                                    <div class="options">
                                         <label for="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
@@ -439,7 +467,7 @@ class EditCourse extends Component {
                                         <label for="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -453,7 +481,7 @@ class EditCourse extends Component {
                                     <p>Feedback on student assignments and questions is constructive and provided in a timely manner. (Grades/Discussions)</p>
                                 </div>
                                 <div>
-                                    <form class="options">
+                                    <div class="options">
                                         <label for="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
@@ -469,7 +497,7 @@ class EditCourse extends Component {
                                         <label for="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="question">
@@ -477,7 +505,7 @@ class EditCourse extends Component {
                                     <p>Instructors use effective strategies to create a presence in the course.</p>
                                 </div>
                                 <div>
-                                    <form class="options">
+                                    <div class="options">
                                         <label for="myChoice1">0<br />
                                             <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                         </label>
@@ -493,14 +521,14 @@ class EditCourse extends Component {
                                         <label for="myChoice4">3<br />
                                             <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                         </label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="question">
                                 <div>
                                     <p>Instructors use effective strategies to create a presence in the course.</p>
                                 </div>
-                                <form class="options">
+                                <div class="options">
                                     <label for="myChoice1">0<br />
                                         <input type="radio" id="myChoice1" name="myChoice" value="0" />
                                     </label>
@@ -516,7 +544,7 @@ class EditCourse extends Component {
                                     <label for="myChoice4">3<br />
                                         <input type="radio" id="myChoice4" name="myChoice" value="3" />
                                     </label>
-                                </form>
+                                </div>
                             </div>
                         </div>
                         <div className='add-fields'>
@@ -530,6 +558,8 @@ class EditCourse extends Component {
                                 id='notes'
                                 className='inputs textarea'
                                 placeholder='e.g., missing grades (01/12/2021)'
+                                value={notes}
+                                onChange={this.handleChangeNotes}
                             />
                         </div>
                     <div className='EditCourse__buttons'>
