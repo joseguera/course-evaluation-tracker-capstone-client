@@ -198,6 +198,7 @@ class AddCourse extends Component {
     render() {
         const { error } = this.state;
         const { first_name, last_name } = this.state;
+        console.log(first_name, last_name);
         return (
             <div className='add-body'>
                 <section className='AddCourse'>
