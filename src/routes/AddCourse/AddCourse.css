@@ -8,21 +8,29 @@
   }
   
   .make-course, .edit-course {
-    font-family: 'Orbitron', sans-serif;
     font-size: 36px;
     margin-top: 10px;
   }
   
-  .add-fields, .edit-fields {
-    font-family: 'VT323', monospace;
-    font-size: 24px;
-    margin-bottom: 10px;
-    width: 676px;
+  .question {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .add-items {
+    order: 2;
   }
   
-  label {
-    font-family: 'VT323', monospace;
-    font-size: 28px;
+  .add-labels {
+    text-align: left;
+  }
+
+  .add-fields, .edit-fields {
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 676px;
   }
   
   .inputs {
@@ -32,8 +40,16 @@
     margin-top: 5px;
     margin-bottom: 10px;
     border-radius: 5px;
-    border: none;
-    font-size: 18px;
+    border: 1px solid rgb(189, 189, 189);
+
+  }
+
+  .q-inputs {
+    width: 25px;
+  }
+
+  .inputs:focus {
+    background-color: cornsilk;
   }
   
   .textarea {
@@ -61,17 +77,9 @@
     order: 2;
   }
   
-  .options {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
   label {
     float: left;
     padding: 0 1em;
-    text-align: center;
   }
   
   .legend {
@@ -80,13 +88,11 @@
     align-items: center;
     justify-content: space-between;
   }
-  
-  .question {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+
+  .legend-item {
+    order: 2;
   }
+  
   
   
   @media screen and (max-width: 500px) {

@@ -20,8 +20,8 @@ class AddCourse extends Component {
 
     state = {
         error: null,
-        first_name: '',
-        last_name: ''
+        first_name: 'jose',
+        last_name: 'luis'
     };
 
     componentDidMount() {
@@ -63,6 +63,8 @@ class AddCourse extends Component {
         // get the form fields from the event
         const { instructor_name, program_area, course_number,
             course_name, quarter, project_id, notes } = e.target;
+        const { first_name, last_name } = this.state;
+        console.log(first_name, last_name);
 
             // console.log(instructor_name, program_area, course_number,
             //     course_name, quarter, project_id, notes);
@@ -198,7 +200,6 @@ class AddCourse extends Component {
     render() {
         const { error } = this.state;
         const { first_name, last_name } = this.state;
-        console.log(first_name, last_name);
         return (
             <div className='add-body'>
                 <section className='AddCourse'>
@@ -314,264 +315,198 @@ class AddCourse extends Component {
                             {' '}
                             </label>
                             <br />
-                            <span>{first_name} {last_name}</span>
+                            <input
+                                type='text'
+                                name='instructor_name'
+                                id='instructor_name'
+                                placeholder='e.g., Ron Howard'
+                                className='inputs'
+                            />
+                            {/* <span>{first_name} {last_name}</span> */}
                         </div>
                         <div className="syllabus">
                             <div className="legend">
-                                <h2>Syllabus</h2>
-                                <p>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
+                                <h2 className='legend-item'>Syllabus</h2>
+                                <p className='legend-item'>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
+                                
                             </div>
                             <div className="question">
-                                <div>
-                                    <p>The online course includes a syllabus outlining course objectives, learning outcomes, evaluation methods, books and supplies, technical and proctoring requirements, and other related course information, making course requirements transparent.</p>
+                                <div className='add-labels'>
+                                    <label htmlFor='q1'>
+                                        The online course includes a syllabus outlining course objectives, learning outcomes, evaluation methods, books and supplies, technical and proctoring requirements, and other related course information, making course requirements transparent.
+                                    </label>
                                 </div>
-                                <div>
-                                    <div className="options">
-                                        <label htmlFor="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label htmlFor="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label htmlFor="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label htmlFor="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q1'
+                                        id='q1'
+                                        className='q-inputs inputs'
+                                        min='1' max='5'
+                                    />
                                 </div>
                             </div>
                             <div className="question">
-                                <div>
-                                    <p>Lesson Plans/Weekly Assignments & Point Value of an Assignment.</p>
+                                <div className='add-labels'>
+                                    <label htmlFor='q2'>
+                                        Lesson Plans/Weekly Assignments & Point Value of an Assignment.
+                                    </label>   
                                 </div>
-                                <div>
-                                    <div className="options">
-                                        <label htmlFor="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label htmlFor="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label htmlFor="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label htmlFor="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q2'
+                                        id='q2'
+                                        className='q-inputs inputs'
+                                        min='1' max='5'
+                                    />
                                 </div>
                             </div>
                             <div className="question">
-                                <div>
-                                    <p>Course is designed so that students develop necessary knowledge and skills to meet measurable course and program learning outcomes.</p>
+                                <div className='add-labels'>
+                                    <label htmlFor='q3'>
+                                        Course is designed so that students develop necessary knowledge and skills to meet measurable course and program learning outcomes.
+                                    </label>   
                                 </div>
-                                <div>
-                                    <div className="options">
-                                        <label htmlFor="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label htmlFor="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label htmlFor="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label htmlFor="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q3'
+                                        id='q3'
+                                        className='q-inputs inputs'
+                                        min='1' max='5'
+                                    />
                                 </div>
                             </div>
                             <div className="question">
-                                <div>
-                                    <p>Expectations for assignment completion, grade policy and faculty response are clearly provided in the course syllabus.</p>
+                                <div className='add-labels'>
+                                    <label htmlFor='q4'>
+                                        Expectations for assignment completion, grade policy and faculty response are clearly provided in the course syllabus.
+                                    </label>   
                                 </div>
-                                <div>
-                                    <div className="options">
-                                        <label htmlFor="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label htmlFor="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label htmlFor="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label htmlFor="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q4'
+                                        id='q4'
+                                        className='q-inputs inputs'
+                                        min='1' max='5'
+                                    />
                                 </div>
-                            </div>
+                            </div>    
                         </div>
-                        <div className="Course Content">
+
+                        <div className="course-content">
                             <div className="legend">
                                 <h2>Course Content</h2>
                                 <p>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
                             </div>
                             <div className="question">
-                                <div>
-                                    <p>There is consistency in the design of course navigation and utilization of course components to support student retention and quality.</p>
+                                <div className='add-labels'>
+                                    <label htmlFor='q4'>
+                                        There is consistency in the design of course navigation and utilization of course components to support student retention and quality.
+                                    </label>   
                                 </div>
-                                <div>
-                                    <div className="options">
-                                        <label htmlFor="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label htmlFor="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label htmlFor="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label htmlFor="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q4'
+                                        id='q4'
+                                        className='q-inputs inputs'
+                                        min='1' max='5'
+                                    />
                                 </div>
                             </div>
                             <div className="question">
-                                <div>
-                                    <p>A process is followed that ensures that permissions (Creative Commons, Copyright, Fair Use, Public Domain, etc.) are in place for appropriate use of online course materials.</p>
+                                <div className='add-labels'>
+                                    <label htmlFor='q5'>
+                                        A process is followed that ensures that permissions (Creative Commons, Copyright, Fair Use, Public Domain, etc.) are in place for appropriate use of online course materials.
+                                    </label>   
                                 </div>
-                                <div>
-                                    <div className="options">
-                                        <label htmlFor="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label htmlFor="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label htmlFor="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label htmlFor="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q5'
+                                        id='q5'
+                                        className='q-inputs inputs'
+                                        min='1' max='5'
+                                    />
                                 </div>
                             </div>
                             <div className="question">
-                                <div>
-                                    <p>Instructional materials are easily accessed by students with disabilities via alternative instructional strategies and/or referral to special institutional resources.</p>
+                                <div className='add-labels'>
+                                    <label htmlFor='q6'>
+                                        Instructional materials are easily accessed by students with disabilities via alternative instructional strategies and/or referral to special institutional resources.
+                                    </label>   
                                 </div>
-                                <div>
-                                    <div className="options">
-                                        <label htmlFor="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label htmlFor="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label htmlFor="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label htmlFor="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q6'
+                                        id='q6'
+                                        className='q-inputs inputs'
+                                        min='1' max='5'
+                                    />
                                 </div>
-                            </div>
+                            </div>  
                         </div>
+
                         <div className="student-teacher">
                             <div className="legend">
                                 <h2>Student/Teacher Interaction</h2>
-                                <p>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
+                                <p>0 = deficient / 1 = developing / 2 = accomplished / <br />3 = exemplary</p>
                             </div>
+
                             <div className="question">
-                                <div>
-                                    <p>Feedback on student assignments and questions is constructive and provided in a timely manner. (Grades/Discussions)</p>
+                                <div className='add-labels'>
+                                    <label htmlFor='q7'>
+                                        Feedback on student assignments and questions is constructive and provided in a timely manner. (Grades/Discussions)
+                                    </label>   
                                 </div>
-                                <div>
-                                    <div className="options">
-                                        <label htmlFor="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label htmlFor="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label htmlFor="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label htmlFor="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q7'
+                                        id='q7'
+                                        className='q-inputs inputs'
+                                        min='1' max='5'
+                                    />
                                 </div>
                             </div>
                             <div className="question">
-                                <div>
-                                    <p>Instructors use effective strategies to create a presence in the course.</p>
+                                <div className='add-labels'>
+                                    <label htmlFor='q8'>
+                                        Instructors use effective strategies to create a presence in the course.
+                                    </label>   
                                 </div>
-                                <div>
-                                    <div className="options">
-                                        <label htmlFor="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label htmlFor="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label htmlFor="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label htmlFor="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q8'
+                                        id='q8'
+                                        className='q-inputs inputs'
+                                        min='1' max='5'
+                                    />
                                 </div>
                             </div>
                             <div className="question">
-                                <div>
-                                    <p>Instructors use effective strategies to create a presence in the course.</p>
+                                <div className='add-labels'>
+                                    <label htmlFor='q9'>
+                                        Instructors use effective strategies to create a presence in the course.
+                                    </label>   
                                 </div>
-                                <div className="options">
-                                    <label htmlFor="myChoice1">0<br />
-                                        <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                    </label>
-
-                                    <label htmlFor="myChoice2">1<br />
-                                        <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                    </label>
-
-                                    <label htmlFor="myChoice3">2<br />
-                                        <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                    </label>
-
-                                    <label htmlFor="myChoice4">3<br />
-                                        <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                    </label>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q9'
+                                        id='q9'
+                                        className='q-inputs inputs'
+                                        min='1' max='5'
+                                    />
                                 </div>
-                            </div>
+                            </div> 
                         </div>
+
                         <div className='add-fields'>
                             <label htmlFor='notes'>
                                 Notes
