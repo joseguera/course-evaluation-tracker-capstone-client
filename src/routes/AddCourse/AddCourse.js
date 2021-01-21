@@ -27,12 +27,11 @@ class AddCourse extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        // var d = document.getElementById("style");
-        // var result = d.options[d.selectedIndex].text;
+
         // get the form fields from the event
         const { instructor_name, program_area, course_number,
             course_name, quarter, project_id, notes } = e.target;
-        const { first_name, last_name, username } = e.target;
+
             // console.log(instructor_name, program_area, course_number,
             //     course_name, quarter, project_id, notes);
         const course = {
@@ -46,43 +45,8 @@ class AddCourse extends Component {
             notes: notes.value,
             // total: total.value
         }
-
-        const user = {
-            first_name: first_name.value,
-            last_name: last_name.value,
-            username: username.value
-        }
         this.setState({ error: null })
         // console.log("hello");
-
-        /////////// GET user ID START ///////////////
-        fetch(config.API_ENDPOINT + `/users`, {
-            method: 'GET',
-            body: JSON.stringify(user),
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`,
-            }
-        })
-            .then(res => {
-                if (!res.ok) {
-                    return res.json().then(error => Promise.reject(error))
-                }
-                return res.json()
-            })
-            .then(responseData => {
-                this.setState({
-                    id: responseData.id,
-                    first_name: responseData.first_name,
-                    last_name: responseData.last_name,
-                    username: responseData.username
-                })
-            })
-            .catch(error => {
-                console.error(error)
-                this.setState({ error })
-            })
-        /////////// GET user ID STOP ///////////////
 
         fetch(config.API_ENDPOINT + `/courses`, {
             method: 'POST',
@@ -102,7 +66,34 @@ class AddCourse extends Component {
                 console.log(data);
 
 
-
+                    /////////// GET user ID START ///////////////
+                    // fetch(config.API_ENDPOINT + `/users`, {
+                    //     method: 'GET',
+                    //     body: JSON.stringify(user),
+                    //     headers: {
+                    //         'content-type': 'application/json',
+                    //         'authorization': `bearer ${TokenService.getAuthToken()}`,
+                    //     }
+                    // })
+                    //     .then(res => {
+                    //         if (!res.ok) {
+                    //             return res.json().then(error => Promise.reject(error))
+                    //         }
+                    //         return res.json()
+                    //     })
+                    //     .then(responseData => {
+                    //         this.setState({
+                    //             id: responseData.id,
+                    //             first_name: responseData.first_name,
+                    //             last_name: responseData.last_name,
+                    //             username: responseData.username
+                    //         })
+                    //     })
+                    //     .catch(error => {
+                    //         console.error(error)
+                    //         this.setState({ error })
+                    //     })
+                    /////////// GET user ID STOP ///////////////
 
 
 
@@ -112,39 +103,39 @@ class AddCourse extends Component {
 
                 
                 /////////// POST questions ID START ///////////////
-                fetch(config.API_ENDPOINT + `/questions`, {
-                    method: 'POST',
-                    body: JSON.stringify(course),
-                    headers: {
-                        'content-type': 'application/json',
-                        'authorization': `bearer ${TokenService.getAuthToken()}`,
-                    }
-                })
-                    .then(res => {
-                        if (!res.ok) {
-                            return res.json().then(error => Promise.reject(error))
-                        }
-                        return res.json()
-                    })
-                    .then(data => {
-                        console.log(data);
+                // fetch(config.API_ENDPOINT + `/questions`, {
+                //     method: 'POST',
+                //     body: JSON.stringify(course),
+                //     headers: {
+                //         'content-type': 'application/json',
+                //         'authorization': `bearer ${TokenService.getAuthToken()}`,
+                //     }
+                // })
+                //     .then(res => {
+                //         if (!res.ok) {
+                //             return res.json().then(error => Promise.reject(error))
+                //         }
+                //         return res.json()
+                //     })
+                //     .then(data => {
+                //         console.log(data);
                         
-                        instructor_name.value = ''
-                        program_area.value = ''
-                        // program_rep.value = ''
-                        course_number.value = ''
-                        course_name.value = ''
-                        quarter.value = ''
-                        project_id.value = ''
-                        notes.value = ''
-                        // total.value = '';
-                        this.context.addCourse(data)
-                        this.props.history.push('/courselist')
-                    })
-                    .catch(error => {
-                        console.error(error)
-                        this.setState({ error })
-                    })
+                //         instructor_name.value = ''
+                //         program_area.value = ''
+                //         // program_rep.value = ''
+                //         course_number.value = ''
+                //         course_name.value = ''
+                //         quarter.value = ''
+                //         project_id.value = ''
+                //         notes.value = ''
+                //         // total.value = '';
+                //         this.context.addCourse(data)
+                //         this.props.history.push('/courselist')
+                //     })
+                //     .catch(error => {
+                //         console.error(error)
+                //         this.setState({ error })
+                    // })
                 /////////// POST questions ID STOP ///////////////
 
 
@@ -204,7 +195,7 @@ class AddCourse extends Component {
 
     render() {
         const { error } = this.state;
-        const { first_name, last_name, username } = this.state;
+        const { first_name, last_name } = this.state;
         return (
             <div className='add-body'>
                 <section className='AddCourse'>
@@ -320,7 +311,7 @@ class AddCourse extends Component {
                             {' '}
                             </label>
                             <br />
-                            <span>{first_name} {last_name}</span>
+                            {/* <span>{first_name} {last_name}</span> */}
                         </div>
                         <div className="syllabus">
                             <div className="legend">
