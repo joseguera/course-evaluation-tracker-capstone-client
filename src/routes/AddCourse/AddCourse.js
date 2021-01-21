@@ -21,9 +21,41 @@ class AddCourse extends Component {
     state = {
         error: null,
         first_name: '',
-        last_name: '',
-        username: ''
+        last_name: ''
     };
+
+    componentDidMount() {
+
+        /////////// GET user ID START ///////////////
+
+
+        fetch(config.API_ENDPOINT + `/users`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(error => Promise.reject(error))
+                }
+                return res.json()
+            })
+            .then(responseData => {
+                this.setState({
+                    id: responseData.id,
+                    first_name: responseData.first_name,
+                    last_name: responseData.last_name,
+                    username: responseData.username
+                })
+            })
+            .catch(error => {
+                console.error(error)
+                this.setState({ error })
+            })
+        /////////// GET user ID STOP ///////////////
+    }
 
     handleSubmit = e => {
         e.preventDefault()
@@ -64,36 +96,6 @@ class AddCourse extends Component {
             })
             .then(data => {
                 console.log(data);
-
-
-                    /////////// GET user ID START ///////////////
-                    // fetch(config.API_ENDPOINT + `/users`, {
-                    //     method: 'GET',
-                    //     body: JSON.stringify(user),
-                    //     headers: {
-                    //         'content-type': 'application/json',
-                    //         'authorization': `bearer ${TokenService.getAuthToken()}`,
-                    //     }
-                    // })
-                    //     .then(res => {
-                    //         if (!res.ok) {
-                    //             return res.json().then(error => Promise.reject(error))
-                    //         }
-                    //         return res.json()
-                    //     })
-                    //     .then(responseData => {
-                    //         this.setState({
-                    //             id: responseData.id,
-                    //             first_name: responseData.first_name,
-                    //             last_name: responseData.last_name,
-                    //             username: responseData.username
-                    //         })
-                    //     })
-                    //     .catch(error => {
-                    //         console.error(error)
-                    //         this.setState({ error })
-                    //     })
-                    /////////// GET user ID STOP ///////////////
 
 
 
@@ -311,7 +313,7 @@ class AddCourse extends Component {
                             {' '}
                             </label>
                             <br />
-                            {/* <span>{first_name} {last_name}</span> */}
+                            <span>{first_name} {last_name}</span>
                         </div>
                         <div className="syllabus">
                             <div className="legend">
