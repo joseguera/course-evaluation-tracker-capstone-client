@@ -20,67 +20,36 @@ class AddCourse extends Component {
 
     state = {
         error: null,
-        first_name: 'jose',
-        last_name: 'luis'
     };
-
-    componentDidMount() {
-
-        /////////// GET user ID START ///////////////
-
-
-        fetch(config.API_ENDPOINT + `/users`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`,
-            }
-        })
-            .then(res => {
-                if (!res.ok) {
-                    return res.json().then(error => Promise.reject(error))
-                }
-                return res.json()
-            })
-            .then(responseData => {
-                this.setState({
-                    id: responseData.id,
-                    first_name: responseData.first_name,
-                    last_name: responseData.last_name,
-                    username: responseData.username
-                })
-            })
-            .catch(error => {
-                console.error(error)
-                this.setState({ error })
-            })
-        /////////// GET user ID STOP ///////////////
-    }
 
     handleSubmit = e => {
         e.preventDefault()
 
         // get the form fields from the event
         const { instructor_name, program_area, course_number,
-            course_name, quarter, project_id, notes } = e.target;
-        const { first_name, last_name } = this.state;
-        console.log(first_name, last_name);
+            course_name, quarter, project_id, 
+            q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, notes } = e.target;
 
-            // console.log(instructor_name, program_area, course_number,
-            //     course_name, quarter, project_id, notes);
         const course = {
             instructor_name: instructor_name.value,
             program_area: program_area.value,
-            // program_rep: program_rep.value,
             course_number: course_number.value,
             course_name: course_name.value,
             quarter: quarter.value,
             project_id: project_id.value,
+            q1: q1.value, 
+            q2: q2.value, 
+            q3: q3.value, 
+            q4: q4.value, 
+            q5: q5.value, 
+            q6: q6.value, 
+            q7: q7.value, 
+            q8: q8.value, 
+            q9: q9.value, 
+            q10: q10.value,
             notes: notes.value,
-            // total: total.value
         }
         this.setState({ error: null })
-        // console.log("hello");
 
         fetch(config.API_ENDPOINT + `/courses`, {
             method: 'POST',
@@ -97,93 +66,25 @@ class AddCourse extends Component {
                 return res.json()
             })
             .then(data => {
-                console.log(data);
-
-
-
-
-
-
-
-                
-                /////////// POST questions ID START ///////////////
-                // fetch(config.API_ENDPOINT + `/questions`, {
-                //     method: 'POST',
-                //     body: JSON.stringify(course),
-                //     headers: {
-                //         'content-type': 'application/json',
-                //         'authorization': `bearer ${TokenService.getAuthToken()}`,
-                //     }
-                // })
-                //     .then(res => {
-                //         if (!res.ok) {
-                //             return res.json().then(error => Promise.reject(error))
-                //         }
-                //         return res.json()
-                //     })
-                //     .then(data => {
-                //         console.log(data);
-                        
-                //         instructor_name.value = ''
-                //         program_area.value = ''
-                //         // program_rep.value = ''
-                //         course_number.value = ''
-                //         course_name.value = ''
-                //         quarter.value = ''
-                //         project_id.value = ''
-                //         notes.value = ''
-                //         // total.value = '';
-                //         this.context.addCourse(data)
-                //         this.props.history.push('/courselist')
-                //     })
-                //     .catch(error => {
-                //         console.error(error)
-                //         this.setState({ error })
-                    // })
-                /////////// POST questions ID STOP ///////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-
-
-
-
-
-
-
+                // console.log(data);
 
                 instructor_name.value = ''
                 program_area.value = ''
-                // program_rep.value = ''
                 course_number.value = ''
                 course_name.value = ''
                 quarter.value = ''
                 project_id.value = ''
+                q1.value = ''
+                q2.value = '' 
+                q3.value = '' 
+                q4.value = '' 
+                q5.value = '' 
+                q6.value = ''
+                q7.value = '' 
+                q8.value = '' 
+                q9.value = '' 
+                q10.value = ''
                 notes.value = ''
-                // total.value = '';
                 this.context.addCourse(data)
                 this.props.history.push('/courselist')
             })
@@ -199,7 +100,6 @@ class AddCourse extends Component {
 
     render() {
         const { error } = this.state;
-        const { first_name, last_name } = this.state;
         return (
             <div className='add-body'>
                 <section className='AddCourse'>
@@ -214,7 +114,7 @@ class AddCourse extends Component {
                         <input 
                         type='hidden'
                         name='id'
-                    />
+                        />
 
                         <div className='add-fields'>
                             <label htmlFor='project_id'>
@@ -297,7 +197,7 @@ class AddCourse extends Component {
                         </div>
                         <div className='add-fields'>
                             <label htmlFor='instructor_name'>
-                                Instructor Name:
+                                Instructor Name
                             {' '}
                             </label>
                             <br />
@@ -309,9 +209,9 @@ class AddCourse extends Component {
                                 className='inputs'
                             />
                         </div>
-                        <div className='add-fields'>
+                        {/* <div className='add-fields'>
                             <label htmlFor='instructor_name'>
-                                Program Representative:
+                                Program Representative
                             {' '}
                             </label>
                             <br />
@@ -322,8 +222,7 @@ class AddCourse extends Component {
                                 placeholder='e.g., Ron Howard'
                                 className='inputs'
                             />
-                            {/* <span>{first_name} {last_name}</span> */}
-                        </div>
+                        </div> */}
                         <div className="syllabus">
                             <div className="legend">
                                 <h2 className='legend-item'>Syllabus</h2>
@@ -505,6 +404,22 @@ class AddCourse extends Component {
                                     />
                                 </div>
                             </div> 
+                            <div className="question">
+                                <div className='add-labels'>
+                                    <label htmlFor='q10'>
+                                        Opportunities/tools are provided to encourage student-student and faculty-student collaboration/interaction (i.e., discussion boards, web conferencing, instant messaging, etc.) if appropriate.
+                                    </label>   
+                                </div>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q10'
+                                        id='q10'
+                                        className='q-inputs inputs'
+                                        min='1' max='5'
+                                    />
+                                </div>
+                            </div> 
                         </div>
 
                         <div className='add-fields'>
@@ -520,6 +435,7 @@ class AddCourse extends Component {
                                 placeholder='e.g., missing grades (01/12/2021)'
                             />
                         </div>
+
                         <div className='AddCourse_buttons'>
                             <button
                                 type='button'

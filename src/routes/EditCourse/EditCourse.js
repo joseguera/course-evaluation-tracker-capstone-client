@@ -26,12 +26,21 @@ class EditCourse extends Component {
         id: '',
         instructor_name: '',
         program_area: '',
-        program_rep: '',
         course_number: '',
         course_name: '',
         quarter: '',
         project_id: '',
-        notes: '',
+        q1: '',
+        q2: '',
+        q3: '',
+        q4: '',
+        q5: '',
+        q6: '',
+        q7: '',
+        q8: '',
+        q9: '',
+        q10: '',
+        notes: ''
     };
 
     componentDidMount() {
@@ -55,11 +64,20 @@ class EditCourse extends Component {
                     id: responseData.id,
                     instructor_name: responseData.instructor_name,
                     program_area: responseData.program_area,
-                    program_rep: responseData.program_rep,
                     course_number: responseData.course_number,
                     course_name: responseData.course_name,
                     quarter: responseData.quarter,
                     project_id: responseData.project_id,
+                    q1: responseData.q1,
+                    q2: responseData.q2,
+                    q3: responseData.q3,
+                    q4: responseData.q4,
+                    q5: responseData.q5,
+                    q6: responseData.q6,
+                    q7: responseData.q7,
+                    q8: responseData.q8,
+                    q9: responseData.q9,
+                    q10: responseData.q10,
                     notes: responseData.notes
                 })
             })
@@ -93,6 +111,40 @@ class EditCourse extends Component {
         this.setState({ project_id: e.target.value })
     };
 
+    // Questions START //
+        handleChangeQ1 = e => {
+            this.setState({ q1: e.target.value })
+        };
+        handleChangeQ2 = e => {
+            this.setState({ q2: e.target.value })
+        };
+        handleChangeQ3 = e => {
+            this.setState({ q3: e.target.value })
+        };
+        handleChangeQ4 = e => {
+            this.setState({ q4: e.target.value })
+        };
+        handleChangeQ5 = e => {
+            this.setState({ q5: e.target.value })
+        };
+        handleChangeQ6 = e => {
+            this.setState({ q6: e.target.value })
+        };
+        handleChangeQ7 = e => {
+            this.setState({ q7: e.target.value })
+        };
+        handleChangeQ8 = e => {
+            this.setState({ q8: e.target.value })
+        };
+        handleChangeQ9 = e => {
+            this.setState({ q9: e.target.value })
+        };
+        handleChangeQ10 = e => {
+            this.setState({ q10: e.target.value })
+        };
+
+    // Questions END //
+
     handleChangeNotes = e => {
         this.setState({ notes: e.target.value })
     };
@@ -100,12 +152,12 @@ class EditCourse extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const { courseId } = this.props.match.params;
-        const { id, instructor_name, program_area,
-                course_number, course_name, quarter,
-                project_id, notes } = this.state;
-        const newCourse = { id, instructor_name, program_area,
-            course_number, course_name, quarter,
-            project_id, notes };
+        const { id, instructor_name, program_area, course_number, course_name,
+                quarter, project_id, notes,
+                q1, q2, q3, q4, q5, q6, q7, q8, q9, q10 } = this.state;
+        const newCourse = { id, instructor_name, program_area, course_number, course_name,
+                            quarter, project_id, notes, 
+                            q1, q2, q3, q4, q5, q6, q7, q8, q9, q10 };
         fetch(config.API_ENDPOINT + `/courses/${courseId}`, {
             method: 'PATCH',
             body: JSON.stringify(newCourse),
@@ -138,6 +190,16 @@ class EditCourse extends Component {
             course_name: newFields.course_name || '',
             quarter: newFields.quarter || '',
             project_id: newFields.project_id || '',
+            q1: newFields.q1 || '',
+            q2: newFields.q2 || '',
+            q3: newFields.q3 || '',
+            q4: newFields.q4 || '',
+            q5: newFields.q5 || '',
+            q6: newFields.q6 || '',
+            q7: newFields.q7 || '',
+            q8: newFields.q8 || '',
+            q9: newFields.q9 || '',
+            q10: newFields.q10 || '',
             notes: newFields.notes || ''
         })
     }
@@ -147,9 +209,9 @@ class EditCourse extends Component {
     }
 
     render() {
-        const { error, instructor_name, program_area,
-            course_number, course_name, quarter,
-            project_id, notes } = this.state;
+        const { error, instructor_name, program_area, course_number, 
+                course_name, quarter, project_id, notes,
+                q1, q2, q3, q4, q5, q6, q7, q8, q9, q10 } = this.state;
         return (
             <div className='edit-body'>
             <section className='EditCourse'>
@@ -165,403 +227,345 @@ class EditCourse extends Component {
                         type='hidden'
                         name='id'
                     />
-                
 
+                    <div className='add-fields'>
+                        <label htmlFor='project_id'>
+                            Registration Number
+                        {' '}
+                            <Required />
+                        </label>
+                        <br />
+                        <input
+                            type='text'
+                            name='project_id'
+                            id='project_id'
+                            placeholder='e.g., 375565'
+                            className='inputs'
+                            required
+                            value={project_id}
+                            onChange={this.handleChangeProjectID}
+                        />
+                    </div>
+                    <div className='add-fields'>
+                        <label htmlFor='course_number'>
+                            Course Number
+                        {' '}
+                            <Required />
+                        </label>
+                        <br />
+                        <input
+                            type='text'
+                            name='course_number'
+                            id='course_number'
+                            placeholder='e.g., MGMT X 495.6'
+                            className='inputs'
+                            required
+                            value={course_number}
+                            onChange={this.handleChangeCourseNumber}
+                        />
+                    </div>
+                    <div className='add-fields'>
+                        <label htmlFor='course_name'>
+                            Course Title
+                        {' '}
+                            <Required />
+                        </label>
+                        <br />
+                        <input
+                            type='text'
+                            name='course_name'
+                            id='course_name'
+                            placeholder='e.g., Intro to Budgeting'
+                            className='inputs'
+                            required
+                            value={course_name}
+                            onChange={this.handleChangeCourseName}
+                        />
+                    </div>
+                    <div className='add-fields'>
+                        <label htmlFor='quarter'>
+                            Quarter
+                        {' '}
+                            <Required />
+                        </label>
+                        <br />
+                        <input
+                            type='text'
+                            name='quarter'
+                            id='quarter'
+                            placeholder='e.g., Winter 2021'
+                            className='inputs'
+                            required
+                            value={quarter}
+                            onChange={this.handleChangeQuarter}
+                        />
+                    </div>
+                    <div className='add-fields'>
+                        <label htmlFor='program_area'>
+                            Program Area
+                        {' '}
+                            <Required />
+                        </label>
+                        <br />
+                        <input
+                            type='text'
+                            name='program_area'
+                            id='program_area'
+                            placeholder='e.g., LMC'
+                            className='inputs'
+                            value={program_area}
+                            onChange={this.handleChangeProgramArea}
+                        />
+                    </div>
+                    <div className='add-fields'>
+                        <label htmlFor='instructor_name'>
+                            Instructor Name
+                        {' '}
+                        </label>
+                        <br />
+                        <input
+                            type='text'
+                            name='instructor_name'
+                            id='instructor_name'
+                            placeholder='e.g., Ron Howard'
+                            className='inputs'
+                            value={instructor_name}
+                            onChange={this.handleChangeName}
+                        />
+                    </div>
+                    {/* <div className='add-fields'>
+                        <label htmlFor='instructor_name'>
+                            Program Representative
+                        {' '}
+                        </label>
+                        <br />
+                        <input
+                            type='text'
+                            name='instructor_name'
+                            id='instructor_name'
+                            placeholder='e.g., Ron Howard'
+                            className='inputs'
+                        />
+                    </div> */}
+                    <div className="syllabus">
+                        <div className="legend">
+                            <h2 className='legend-item'>Syllabus</h2>
+                            <p className='legend-item'>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
+                            
+                        </div>
+                        <div className="question">
+                            <div className='add-labels'>
+                                <label htmlFor='q1'>
+                                    The online course includes a syllabus outlining course objectives, learning outcomes, evaluation methods, books and supplies, technical and proctoring requirements, and other related course information, making course requirements transparent.
+                                </label>
+                            </div>
+                            <div className='add-items'>
+                                <input
+                                    type='text'
+                                    name='q1'
+                                    id='q1'
+                                    className='q-inputs inputs'
+                                    min='0' max='3'
+                                    value={q1}
+                                    onChange={this.handleChangeQ1}
+                                />
+                            </div>
+                        </div>
+                        <div className="question">
+                            <div className='add-labels'>
+                                <label htmlFor='q2'>
+                                    Lesson Plans/Weekly Assignments & Point Value of an Assignment.
+                                </label>   
+                            </div>
+                            <div className='add-items'>
+                                <input
+                                    type='text'
+                                    name='q2'
+                                    id='q2'
+                                    className='q-inputs inputs'
+                                    min='0' max='3'
+                                    value={q2}
+                                    onChange={this.handleChangeQ2}
+                                />
+                            </div>
+                        </div>
+                        <div className="question">
+                            <div className='add-labels'>
+                                <label htmlFor='q3'>
+                                    Course is designed so that students develop necessary knowledge and skills to meet measurable course and program learning outcomes.
+                                </label>   
+                            </div>
+                            <div className='add-items'>
+                                <input
+                                    type='text'
+                                    name='q3'
+                                    id='q3'
+                                    className='q-inputs inputs'
+                                    min='0' max='3'
+                                    value={q3}
+                                    onChange={this.handleChangeQ3}
+                                />
+                            </div>
+                        </div>
+                        <div className="question">
+                            <div className='add-labels'>
+                                <label htmlFor='q4'>
+                                    Expectations for assignment completion, grade policy and faculty response are clearly provided in the course syllabus.
+                                </label>   
+                            </div>
+                            <div className='add-items'>
+                                <input
+                                    type='text'
+                                    name='q4'
+                                    id='q4'
+                                    className='q-inputs inputs'
+                                    min='0' max='3'
+                                    value={q4}
+                                    onChange={this.handleChangeQ4}
+                                />
+                            </div>
+                        </div>    
+                    </div>
 
+                    <div className="course-content">
+                        <div className="legend">
+                            <h2>Course Content</h2>
+                            <p>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
+                        </div>
+                        <div className="question">
+                            <div className='add-labels'>
+                                <label htmlFor='q5'>
+                                    There is consistency in the design of course navigation and utilization of course components to support student retention and quality.
+                                </label>   
+                            </div>
+                            <div className='add-items'>
+                                <input
+                                    type='text'
+                                    name='q5'
+                                    id='q5'
+                                    className='q-inputs inputs'
+                                    min='0' max='3'
+                                    value={q5}
+                                    onChange={this.handleChangeQ5}
+                                />
+                            </div>
+                        </div>
+                        <div className="question">
+                            <div className='add-labels'>
+                                <label htmlFor='q6'>
+                                    A process is followed that ensures that permissions (Creative Commons, Copyright, Fair Use, Public Domain, etc.) are in place for appropriate use of online course materials.
+                                </label>   
+                            </div>
+                            <div className='add-items'>
+                                <input
+                                    type='text'
+                                    name='q6'
+                                    id='q6'
+                                    className='q-inputs inputs'
+                                    min='0' max='3'
+                                    value={q6}
+                                    onChange={this.handleChangeQ6}
+                                />
+                            </div>
+                        </div>
+                        <div className="question">
+                            <div className='add-labels'>
+                                <label htmlFor='q7'>
+                                    Instructional materials are easily accessed by students with disabilities via alternative instructional strategies and/or referral to special institutional resources.
+                                </label>   
+                            </div>
+                            <div className='add-items'>
+                                <input
+                                    type='text'
+                                    name='q7'
+                                    id='q7'
+                                    className='q-inputs inputs'
+                                    min='0' max='3'
+                                    value={q7}
+                                    onChange={this.handleChangeQ7}
+                                />
+                            </div>
+                        </div>  
+                    </div>
 
-                <div className='add-fields'>
-                            <label htmlFor='project_id'>
-                                Registration Number
+                    <div className="student-teacher">
+                        <div className="legend">
+                            <h2>Student/Teacher Interaction</h2>
+                            <p>0 = deficient / 1 = developing / 2 = accomplished / <br />3 = exemplary</p>
+                        </div>
+
+                        <div className="question">
+                            <div className='add-labels'>
+                                <label htmlFor='q8'>
+                                    Feedback on student assignments and questions is constructive and provided in a timely manner. (Grades/Discussions)
+                                </label>   
+                            </div>
+                            <div className='add-items'>
+                                <input
+                                    type='text'
+                                    name='q8'
+                                    id='q8'
+                                    className='q-inputs inputs'
+                                    min='0' max='3'
+                                    value={q8}
+                                    onChange={this.handleChangeQ8}
+                                />
+                            </div>
+                        </div>
+                        <div className="question">
+                            <div className='add-labels'>
+                                <label htmlFor='q9'>
+                                    Instructors use effective strategies to create a presence in the course.
+                                </label>   
+                            </div>
+                            <div className='add-items'>
+                                <input
+                                    type='text'
+                                    name='q9'
+                                    id='q9'
+                                    className='q-inputs inputs'
+                                    min='0' max='3'
+                                    value={q9}
+                                    onChange={this.handleChangeQ9}
+                                />
+                            </div>
+                        </div>
+                        <div className="question">
+                            <div className='add-labels'>
+                                <label htmlFor='q10'>
+                                    Opportunities/tools are provided to encourage student-student and faculty-student collaboration/interaction (i.e., discussion boards, web conferencing, instant messaging, etc.) if appropriate.
+                                </label>   
+                            </div>
+                            <div className='add-items'>
+                                <input
+                                    type='text'
+                                    name='q10'
+                                    id='q10'
+                                    className='q-inputs inputs'
+                                    min='0' max='3'
+                                    value={q10}
+                                    onChange={this.handleChangeQ10}
+                                />
+                            </div>
+                        </div> 
+                    </div>
+
+                    <div className='add-fields'>
+                        <label htmlFor='notes'>
+                            Notes
                             {' '}
-                                <Required />
-                            </label>
-                            <br />
-                            <input
-                                type='text'
-                                name='project_id'
-                                id='project_id'
-                                placeholder='e.g., 375565'
-                                className='inputs'
-                                required
-                                value={project_id}
-                                onChange={this.handleChangeProjectID}
-                            />
-                        </div>
-                        <div className='add-fields'>
-                            <label htmlFor='course_number'>
-                                Course Number
-                            {' '}
-                                <Required />
-                            </label>
-                            <br />
-                            <input
-                                type='text'
-                                name='course_number'
-                                id='course_number'
-                                placeholder='e.g., MGMT X 495.6'
-                                className='inputs'
-                                required
-                                value={course_number}
-                                onChange={this.handleChangeCourseNumber}
-                            />
-                        </div>
-                        <div className='add-fields'>
-                            <label htmlFor='course_name'>
-                                Course Title
-                            {' '}
-                                <Required />
-                            </label>
-                            <br />
-                            <input
-                                type='text'
-                                name='course_name'
-                                id='course_name'
-                                placeholder='e.g., Intro to Budgeting'
-                                className='inputs'
-                                required
-                                value={course_name}
-                                onChange={this.handleChangeCourseName}
-                            />
-                        </div>
-                        {/* <div className='add-fields'>
-                            <label htmlFor='quarter'>
-                                Quarter
-                            {' '}
-                                <Required />
-                            </label>
-                            <br />
-                            <input
-                                type='text'
-                                name='quarter'
-                                id='quarter'
-                                placeholder='e.g., Winter 2021'
-                                className='inputs'
-                                required
-                                value={quarter}
-                                onChange={this.handleChangeQuarter}
-                            />
-                        </div> */}
-                        <div className='add-fields'>
-                            <label htmlFor='program_area'>
-                                Program Area
-                            {' '}
-                                <Required />
-                            </label>
-                            <br />
-                            <input
-                                type='text'
-                                name='program_area'
-                                id='program_area'
-                                placeholder='e.g, LMC'
-                                className='inputs'
-                                required
-                                value={program_area}
-                                onChange={this.handleChangeProgramArea}
-                            />
-                        </div>
-                        <div className='add-fields'>
-                            <label htmlFor='instructor_name'>
-                                Instructor Name:
-                            {' '}
-                            </label>
-                            <br />
-                            <input
-                                type='text'
-                                name='instructor_name'
-                                id='instructor_name'
-                                placeholder='e.g., Ron Howard'
-                                className='inputs'
-                                value={instructor_name}
-                                onChange={this.handleChangeName}
-                            />
-                        </div>
-                        <div className='add-fields'>
-                            <label htmlFor='instructor_name'>
-                                Program Representative:
-                            {' '}
-                            </label>
-                            <br />
-                            {/* <input
-                                type='text'
-                                name='instructor_name'
-                                id='instructor_name'
-                                placeholder='e.g., Henry Winkler'
-                                className='inputs'
-                                // value={course_name}
-                                // onChange={this.handleChangeCourseName}
-                            /> */}
-                        </div>
-                        <div class="syllabus">
-                            <div class="legend">
-                                <h2>Syllabus</h2>
-                                <p>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
-                            </div>
-                            <div class="question">
-                                <div>
-                                    <p>The online course includes a syllabus outlining course objectives, learning outcomes, evaluation methods, books and supplies, technical and proctoring requirements, and other related course information, making course requirements transparent.</p>
-                                </div>
-                                <div>
-                                    <div class="options">
-                                        <label for="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label for="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label for="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label for="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="question">
-                                <div>
-                                    <p>Lesson Plans/Weekly Assignments & Point Value of an Assignment.</p>
-                                </div>
-                                <div>
-                                    <div class="options">
-                                        <label for="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label for="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label for="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label for="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="question">
-                                <div>
-                                    <p>Course is designed so that students develop necessary knowledge and skills to meet measurable course and program learning outcomes.</p>
-                                </div>
-                                <div>
-                                    <div class="options">
-                                        <label for="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label for="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label for="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label for="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="question">
-                                <div>
-                                    <p>Expectations for assignment completion, grade policy and faculty response are clearly provided in the course syllabus.</p>
-                                </div>
-                                <div>
-                                    <div class="options">
-                                        <label for="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label for="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label for="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label for="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Course Content">
-                            <div class="legend">
-                                <h2>Course Content</h2>
-                                <p>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
-                            </div>
-                            <div class="question">
-                                <div>
-                                    <p>There is consistency in the design of course navigation and utilization of course components to support student retention and quality.</p>
-                                </div>
-                                <div>
-                                    <div class="options">
-                                        <label for="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label for="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label for="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label for="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="question">
-                                <div>
-                                    <p>A process is followed that ensures that permissions (Creative Commons, Copyright, Fair Use, Public Domain, etc.) are in place for appropriate use of online course materials.</p>
-                                </div>
-                                <div>
-                                    <div class="options">
-                                        <label for="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label for="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label for="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label for="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="question">
-                                <div>
-                                    <p>Instructional materials are easily accessed by students with disabilities via alternative instructional strategies and/or referral to special institutional resources.</p>
-                                </div>
-                                <div>
-                                    <div class="options">
-                                        <label for="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label for="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label for="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label for="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="student-teacher">
-                            <div class="legend">
-                                <h2>Student/Teacher Interaction</h2>
-                                <p>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
-                            </div>
-                            <div class="question">
-                                <div>
-                                    <p>Feedback on student assignments and questions is constructive and provided in a timely manner. (Grades/Discussions)</p>
-                                </div>
-                                <div>
-                                    <div class="options">
-                                        <label for="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label for="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label for="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label for="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="question">
-                                <div>
-                                    <p>Instructors use effective strategies to create a presence in the course.</p>
-                                </div>
-                                <div>
-                                    <div class="options">
-                                        <label for="myChoice1">0<br />
-                                            <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                        </label>
-
-                                        <label for="myChoice2">1<br />
-                                            <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                        </label>
-
-                                        <label for="myChoice3">2<br />
-                                            <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                        </label>
-
-                                        <label for="myChoice4">3<br />
-                                            <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="question">
-                                <div>
-                                    <p>Instructors use effective strategies to create a presence in the course.</p>
-                                </div>
-                                <div class="options">
-                                    <label for="myChoice1">0<br />
-                                        <input type="radio" id="myChoice1" name="myChoice" value="0" />
-                                    </label>
-
-                                    <label for="myChoice2">1<br />
-                                        <input type="radio" id="myChoice2" name="myChoice" value="1" />
-                                    </label>
-
-                                    <label for="myChoice3">2<br />
-                                        <input type="radio" id="myChoice3" name="myChoice" value="2" />
-                                    </label>
-
-                                    <label for="myChoice4">3<br />
-                                        <input type="radio" id="myChoice4" name="myChoice" value="3" />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='add-fields'>
-                            <label htmlFor='notes'>
-                                Notes
-                                {' '}
-                            </label>
-                            <br />
-                            <textarea
-                                name='notes'
-                                id='notes'
-                                className='inputs textarea'
-                                placeholder='e.g., missing grades (01/12/2021)'
-                                value={notes}
-                                onChange={this.handleChangeNotes}
-                            />
-                        </div>
+                        </label>
+                        <br />
+                        <textarea
+                            name='notes'
+                            id='notes'
+                            className='inputs textarea'
+                            placeholder='e.g., missing grades (01/12/2021)'
+                            value={notes}
+                            onChange={this.handleChangeNotes}
+                        />
+                    </div>
+                        
                     <div className='EditCourse__buttons'>
                         <button 
                             type='button'
