@@ -34,7 +34,7 @@ This app is for two types of users: a data entry user and a manager "admin" user
 *   create a new course that's missing from my list of courses
 *   generate a report of my courses' scores
 
-* As an "admin" user,
+2. As an "admin" user,
 * I want to be able to...
 *   view all of the courses assigned to the data entry users
 
@@ -92,11 +92,11 @@ My Noms Page
         * __Navigation.js__ (stateless)
             * __Home.js__ (stateless)
                 * __NotFoundPage.js__ (stateless)
-                * __AddNom.js__ (stateful) - gets the _"error"_ from the __App.js__
-                * __NomList.js__ (stateful) gets the _"noms"_ from the __App.js__
-                    * __NomPage.js__ (stateful) context consumer from __App.js__
-                    * __NomItem.js__ (stateful) - context consumer from __App.js__
-                        * __EditNom.js__ (stateful) - context consumer from __App.js__
+                * __AddCourse.js__ (stateful) - gets the _"error"_ from the __App.js__
+                * __CourseList.js__ (stateful) gets the _"courses"_ from the __App.js__
+                    * __CoursePage.js__ (stateful) context consumer from __App.js__
+                    * __CourseItem.js__ (stateful) - context consumer from __App.js__
+                        * __EditCourse.js__ (stateful) - context consumer from __App.js__
 
 
 
@@ -107,7 +107,6 @@ My Noms Page
     * last_name (user-generated)
     * username (user-generated)
     * password (at least one number, one lowercase and one uppercase letter at least eight characters that are letters, numbers or the underscore)
-    * date_created (auto-generated)
 
 * courses (database table)
     * id (auto-generated)
@@ -118,21 +117,16 @@ My Noms Page
     * course_name (user-generated)
     * quarter (user-generated)
     * project_id (user-generated)
-    * score (user-generated)
-    
-* questions
-    * id (auto-generated)
-    * question1 (user-generated)
-    * question2 (user-generated)
-    * question3 (user-generated)
-    * question4 (user-generated)
-    * question5 (user-generated)
-    * question6 (user-generated)
-    * question7 (user-generated)
-    * question8 (user-generated)
-    * question9 (user-generated)
-    * question10 (user-generated)
-    * total (foreign key - courses id)
+    * q1 (user-generated)
+    * q2 (user-generated)
+    * q3 (user-generated)
+    * q4 (user-generated)
+    * q5 (user-generated)
+    * q6 (user-generated)
+    * q7 (user-generated)
+    * q8 (user-generated)
+    * q9 (user-generated)
+    * q10 (user-generated)
      
      
 
@@ -141,7 +135,7 @@ API Documentation details:
 * GET All Courses
     * `https://nomnoms-app.herokuapp.com/api/noms/`
 
-* GET One Nom
+* GET One Course
     * `https://nomnoms-app.herokuapp.com/api/noms/12`
 
 * POST Nom
@@ -180,15 +174,13 @@ My Noms Page
 
 ### 10. Development Roadmap
 This is v1.0 of the app, but future enhancements are expected to include:
-* Rate my Nom
-* Date when "Nom" or "Recipe" was last updated
-* Sort/Filter Nom:
-  * Alphabetically
-  * By "Nom" or "Recipe"
-  * By rating
+* Only display course created by a specific user
+* Date when "course" was first created and last updated
+* Sort/Filter Course:
+  * By Quarter
+  * By "project_id"
   * By date
-* Ability to upload an image to "Nom" or "Recipe"
-* Ability to export a "Nom" or "Recipe" into a PDF or printer  
+* Ability to export a report of courses into a PDF or printer  
 
 
 
