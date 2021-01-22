@@ -43,7 +43,6 @@ This app is for two types of users: a data entry user and a manager "admin" user
 ### 3. Functionality
 The app's functionality includes:
 * Every User has the ability to create an account
-* Every User has the ability to view the courses assigned to them only
 * Every User has the ability to "Add" a course
 * Every User has the ability to "Edit" a course
 * Every User has the ability to "Delete" a course
