@@ -241,7 +241,7 @@ class AddCourse extends Component {
                                         name='q1'
                                         id='q1'
                                         className='q-inputs inputs'
-                                        min='1' max='5'
+                                        min='0' max='3'
                                     />
                                 </div>
                             </div>
@@ -257,7 +257,7 @@ class AddCourse extends Component {
                                         name='q2'
                                         id='q2'
                                         className='q-inputs inputs'
-                                        min='1' max='5'
+                                        min='0' max='3'
                                     />
                                 </div>
                             </div>
@@ -273,7 +273,7 @@ class AddCourse extends Component {
                                         name='q3'
                                         id='q3'
                                         className='q-inputs inputs'
-                                        min='1' max='5'
+                                        min='0' max='3'
                                     />
                                 </div>
                             </div>
@@ -289,7 +289,7 @@ class AddCourse extends Component {
                                         name='q4'
                                         id='q4'
                                         className='q-inputs inputs'
-                                        min='1' max='5'
+                                        min='0' max='3'
                                     />
                                 </div>
                             </div>    
@@ -302,24 +302,8 @@ class AddCourse extends Component {
                             </div>
                             <div className="question">
                                 <div className='add-labels'>
-                                    <label htmlFor='q4'>
-                                        There is consistency in the design of course navigation and utilization of course components to support student retention and quality.
-                                    </label>   
-                                </div>
-                                <div className='add-items'>
-                                    <input
-                                        type='text'
-                                        name='q4'
-                                        id='q4'
-                                        className='q-inputs inputs'
-                                        min='1' max='5'
-                                    />
-                                </div>
-                            </div>
-                            <div className="question">
-                                <div className='add-labels'>
                                     <label htmlFor='q5'>
-                                        A process is followed that ensures that permissions (Creative Commons, Copyright, Fair Use, Public Domain, etc.) are in place for appropriate use of online course materials.
+                                        There is consistency in the design of course navigation and utilization of course components to support student retention and quality.
                                     </label>   
                                 </div>
                                 <div className='add-items'>
@@ -328,14 +312,14 @@ class AddCourse extends Component {
                                         name='q5'
                                         id='q5'
                                         className='q-inputs inputs'
-                                        min='1' max='5'
+                                        min='0' max='3'
                                     />
                                 </div>
                             </div>
                             <div className="question">
                                 <div className='add-labels'>
                                     <label htmlFor='q6'>
-                                        Instructional materials are easily accessed by students with disabilities via alternative instructional strategies and/or referral to special institutional resources.
+                                        A process is followed that ensures that permissions (Creative Commons, Copyright, Fair Use, Public Domain, etc.) are in place for appropriate use of online course materials.
                                     </label>   
                                 </div>
                                 <div className='add-items'>
@@ -344,7 +328,23 @@ class AddCourse extends Component {
                                         name='q6'
                                         id='q6'
                                         className='q-inputs inputs'
-                                        min='1' max='5'
+                                        min='0' max='3'
+                                    />
+                                </div>
+                            </div>
+                            <div className="question">
+                                <div className='add-labels'>
+                                    <label htmlFor='q7'>
+                                        Instructional materials are easily accessed by students with disabilities via alternative instructional strategies and/or referral to special institutional resources.
+                                    </label>   
+                                </div>
+                                <div className='add-items'>
+                                    <input
+                                        type='text'
+                                        name='q7'
+                                        id='q7'
+                                        className='q-inputs inputs'
+                                        min='0' max='3'
                                     />
                                 </div>
                             </div>  
@@ -358,24 +358,8 @@ class AddCourse extends Component {
 
                             <div className="question">
                                 <div className='add-labels'>
-                                    <label htmlFor='q7'>
-                                        Feedback on student assignments and questions is constructive and provided in a timely manner. (Grades/Discussions)
-                                    </label>   
-                                </div>
-                                <div className='add-items'>
-                                    <input
-                                        type='text'
-                                        name='q7'
-                                        id='q7'
-                                        className='q-inputs inputs'
-                                        min='1' max='5'
-                                    />
-                                </div>
-                            </div>
-                            <div className="question">
-                                <div className='add-labels'>
                                     <label htmlFor='q8'>
-                                        Instructors use effective strategies to create a presence in the course.
+                                        Feedback on student assignments and questions is constructive and provided in a timely manner. (Grades/Discussions)
                                     </label>   
                                 </div>
                                 <div className='add-items'>
@@ -384,7 +368,7 @@ class AddCourse extends Component {
                                         name='q8'
                                         id='q8'
                                         className='q-inputs inputs'
-                                        min='1' max='5'
+                                        min='0' max='3'
                                     />
                                 </div>
                             </div>
@@ -400,7 +384,7 @@ class AddCourse extends Component {
                                         name='q9'
                                         id='q9'
                                         className='q-inputs inputs'
-                                        min='1' max='5'
+                                        min='0' max='3'
                                     />
                                 </div>
                             </div> 
@@ -416,12 +400,12 @@ class AddCourse extends Component {
                                         name='q10'
                                         id='q10'
                                         className='q-inputs inputs'
-                                        min='1' max='5'
+                                        min='0' max='3'
                                     />
                                 </div>
                             </div> 
                         </div>
-
+                        <br />
                         <div className='add-fields'>
                             <label htmlFor='notes'>
                                 Notes

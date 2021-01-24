@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    document.body.style.backgroundColor = "white"
+    document.body.style.backgroundColor = "#FAFAFA"
     fetch(config.API_ENDPOINT + `/courses/`, {
       method: 'GET',
       headers: {

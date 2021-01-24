@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { Input, Required } from '../Utils/Utils'
 import AuthApiService from '../../services/auth-api-service'
 import './RegistrationForm.css'
@@ -27,8 +28,8 @@ export default class RegistrationForm extends Component {
         username.value = ''
         password.value = ''
         this.props.onRegistrationSuccess()
-        this.props.history.push('/')
-        window.location = '/'
+        this.props.history.push('/login')
+        window.location = '/login'
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -47,7 +48,7 @@ export default class RegistrationForm extends Component {
           {error && <p className='red'>{error}</p>}
         </div>
         <div className='first_name fields'>
-          <label htmlFor='RegistrationForm__first_name'>
+          <label htmlFor='RegistrationForm__firstname'>
             First name <Required />
           </label>
           <br />
@@ -55,11 +56,11 @@ export default class RegistrationForm extends Component {
             name='first_name'
             type='text'
             required
-            id='RegistrationForm__first_name'>
+            id='RegistrationForm__firstname'>
           </Input>
         </div>
         <div className='last_name fields'>
-          <label htmlFor='RegistrationForm__last_name'>
+          <label htmlFor='RegistrationForm__lastname'>
             Last name <Required />
           </label>
           <br />
@@ -67,7 +68,7 @@ export default class RegistrationForm extends Component {
             name='last_name'
             type='text'
             required
-            id='RegistrationForm__last_name'>
+            id='RegistrationForm__lastname'>
           </Input>
         </div>
         <div className='username fields'>
@@ -96,6 +97,8 @@ export default class RegistrationForm extends Component {
         <button type='submit' className='butts'>
           Register
         </button>
+        <br />
+        <Link className='input' to='/login'>Already have an account?</Link>
       </form>
       </div>
     )

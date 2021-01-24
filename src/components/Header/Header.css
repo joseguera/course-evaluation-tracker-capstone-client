@@ -13,23 +13,24 @@
       align-items: normal;
       justify-content: space-between;
       margin-bottom: 50px;
-      font-family: 'VT323', monospace;
+      font-family: 'Varela Round', sans-serif;
       font-size: 25px;
       padding-bottom: 10px;
   }
   
   .site-title {
-    font-family: 'Major Mono Display', monospace;
+    font-family: 'Shrikhand', cursive;
     font-size: 40px;
+    letter-spacing: 2px;
   }
   
   .first-N {
-    font-size: 56px;
+    font-size: 70px;
     color: maroon;
   }
   
   .last-N {
-    font-size: 48px;
+    font-size: 70px;
     color: #b37400;
   }
     
@@ -42,7 +43,7 @@
     }
     
     .Header a {
-      color: #444;
+      color: #333;
       text-decoration: none;
     }
     

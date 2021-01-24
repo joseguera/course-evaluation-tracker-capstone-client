@@ -3,14 +3,14 @@ import { Section } from '../../components/Utils/Utils'
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
 import '../../components/RegistrationForm/RegistrationForm.css'
 
-export default class RegistrationPage extends Component {
+class RegistrationPage extends Component {
     static defaultProps = {
         history: {
             push: () => { },
         },
     }
 
-    handleRegistrationSuccess = user => {
+    handleRegistrationSuccess = () => {
         const { history } = this.props
         history.push('/login')
     }
@@ -26,3 +26,5 @@ export default class RegistrationPage extends Component {
         )
     }
 }
+
+export default RegistrationPage

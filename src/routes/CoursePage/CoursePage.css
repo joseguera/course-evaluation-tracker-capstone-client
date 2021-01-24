@@ -50,11 +50,11 @@
     border: none;
     padding: 10px 25px;
     background-color: maroon;
-    font-size: 25px;
+    font-size: 20px;
     margin: 0 25px;
     cursor: pointer;
     text-align: center;
-    font-family: 'VT323', monospace;
+    font-family: 'Varela Round', sans-serif;
 }
 
 @media screen and (max-width: 500px) {

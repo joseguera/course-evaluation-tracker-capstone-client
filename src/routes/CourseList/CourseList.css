@@ -8,10 +8,17 @@
     padding-bottom: 20px;
 }
 
+/*  font-family: 'Didact Gothic', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Shrikhand', cursive; 
+*/
+
 .CourseList_heading {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Shrikhand', cursive;
     font-size: 36px;
     margin-top: 0;
+    letter-spacing: 2px;
 }
 
 .CourseList {
@@ -39,17 +46,17 @@ ul {
 }
 
 .AddButton {
-    color: #b9efe1;
+    color: #FAFAFA;
     border: none;
     padding: 15px 32px;
-    background-color: maroon;
-    font-size: 16px;
+    background-color: #8AA29E;
+    font-size: 25px;
     margin: 0 30px;
     margin-bottom: 10px;
     cursor: pointer;
     text-align: center;
     font-weight: bold;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Varela Round', sans-serif;
 }
 
 @media screen and (max-width: 500px) {
