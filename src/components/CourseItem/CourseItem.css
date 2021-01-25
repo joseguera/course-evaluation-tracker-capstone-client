@@ -17,6 +17,14 @@
     align-self: auto;
 }
 
+.courseItem-title {
+    color: #000000
+}
+
+.courseItem-title:hover {
+    color: #003B5C
+}
+
 .CourseItem_style {
     color: #005587;
     font-size: 18px;

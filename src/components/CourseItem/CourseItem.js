@@ -28,10 +28,12 @@ export default function CourseItem(props) {
         <CoursesContext.Consumer>
             {(context) => (
                     <div className='CourseItem'>
-                        <h3>
+                        <h3
+                            className='courseItem-title'
+                        >
                             <Link to={`/course-page/${props.id}`}
+                                className='courseItem-title'
                                 style={{
-                                    color: '#000000',
                                     textDecoration: 'none',
                                     fontSize: 28,
                                 }}

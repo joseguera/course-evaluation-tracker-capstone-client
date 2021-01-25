@@ -49,7 +49,7 @@
   }
 
   .inputs:focus {
-    background-color: cornsilk;
+    background-color: #DAEBFE;
   }
   
   .textarea {
@@ -103,6 +103,10 @@
   
     .add-fields, .edit-fields {
       width: 376px;
+    }
+
+    .question {
+      margin-bottom: 10px;
     }
     
   }
