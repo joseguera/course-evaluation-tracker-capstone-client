@@ -65,18 +65,18 @@ Login Page
 Dashboard Page
 ![Dashboard](/github-images/wireframes/dashboard.png)
 Grading Form Page
-![Grading Form](/github-images/wireframes/grading-form.jpg)
+![Grading Form](/github-images/wireframes/grading-form.png)
 
 #### Graybox Wireframes
 Landing/Home Page
 :-------------------------:
-![Landing/Home Page](/github-images/graybox-wireframes/home-page.png)
+![Landing/Home Page](/github-images/graybox-wireframes/landing-page.png)
 Login Page
 ![Login Page](/github-images/graybox-wireframes/login-page.png)
-Sign Up/Registration Page
-![Sign Up/Registration Page](/github-images/graybox-wireframes/sign-up-form.png)
-My Noms Page
-![My Noms Page](/github-images/graybox-wireframes/your-noms-page.png)
+Dashboard Page
+![Dashboard](/github-images/graybox-wireframes/dashboard.png)
+Grading Form Page
+![Grading Form](/github-images/graybox-wireframes/grading-form.png)
 
 
 
@@ -132,47 +132,57 @@ My Noms Page
 ### 8. API Documentation (to do later)
 API Documentation details:
 * GET All Courses
-    * `https://nomnoms-app.herokuapp.com/api/noms/`
+    * `https://secure-springs-04088.herokuapp.com/api/courses`
 
 * GET One Course
-    * `https://nomnoms-app.herokuapp.com/api/noms/12`
+    * `https://secure-springs-04088.herokuapp.com/api/courses/12`
 
-* POST Nom
-    * `https://nomnoms-app.herokuapp.com/api/noms/`
+* POST Grade a Course
+    * `https://secure-springs-04088.herokuapp.com/api/courses/`
         * JSON body
-        *   { "nom_name": "Nature's Own 100% Whole Wheat Hot Dog Buns", "sub": "bread", "url": `"https://www.naturesownbread.com/natures-own/100-whole-wheat-hot-dog-buns"`, "description": "Each soft bun contains a whopping 22 grams of whole grains and 3 grams of fiber. They’re the perfect complement to your favorite hot dog or sausage.", "author": 1, "style": "Recipe"
+        *   {   
+                "instructor_name": "Carl Johnson", "program_area": "LMC", "course_number": "MGMT X 567.8",
+                "course_name": "Mo' Money, Mo' Problems", "quarter": "Winter 2021", "project_id": "377656",
+                "notes": "missing nothing", "q1": 2, "q2": 2, "q3": 2, "q4": 2, "q5": 2, "q6": 2, "q7": 2,
+                "q8": 2, "q9": 2, "q10": 2
             }
 
-* POST User
-    * `https://nomnoms-app.herokuapp.com/api/users`
+* POST Register User
+    * `https://secure-springs-04088.herokuapp.com/api/users`
         * JSON body
-        *   { "fullname": "Hello Day", "username": "hello-day", "password": "Nico0809!" }
+        *   { "first_name": "Hello", "last_name": "Day", "username": "hello-day", "password": "Pass0809!" }
 
-* PATCH One Nom
-    * `https://nomnoms-app.herokuapp.com/api/noms/12`
+* PATCH Edit a Course
+    * `https://secure-springs-04088.herokuapp.com/api/courses/12`
         * JSON body
-        *   { "nom_name": "Nature's Own 100% Whole Wheat Hot Dog Buns", "sub": "bread", "url": `"https://www.naturesownbread.com/natures-own/100-whole-wheat-hot-dog-buns"`, "description": "New bread.", "author": 1, "style": "Nom" }
+        *   {   
+                "instructor_name": "Carl Johnson", "program_area": "LMC", "course_number": "MGMT X 567.8",
+                "course_name": "Mo' Money, Mo' Problems", "quarter": "Winter 2021", "project_id": "377656",
+                "notes": "missing nothing", "q1": 2, "q2": 2, "q3": 2, "q4": 2, "q5": 2, "q6": 2, "q7": 2,
+                "q8": 2, "q9": 2, "q10": 2
+            }
 
-* DELETE One Nom
-    * `https://nomnoms-app.herokuapp.com/api/noms/12`
+* DELETE One Course
+    * `https://secure-springs-04088.herokuapp.com/api/courses/12`
 
 
 
 ### 9. Screenshots
 Landing/Home Page
 :-------------------------:
-![Landing/Home Page](/github-images/screenshots/home-page-screen.png)
+![Landing/Home Page](/github-images/screenshots/landing page.png)
 Login Page
-![Login Page](/github-images/screenshots/login-screen.png)
-Sign Up/Registration Page
-![Sign Up/Registration Page](/github-images/screenshots/register-screen.png)
-My Noms Page
-![My Noms Page](/github-images/screenshots/my-noms-screen.png)
+![Login Page](/github-images/screenshots/login-page.png)
+Dashboard Page
+![Dashboard](/github-images/screenshots/dashboard.png)
+Grading Form Page
+![Grading Form](/github-images/screenshots/grading-form.png)
 
 
 
 ### 10. Development Roadmap
 This is v1.0 of the app, but future enhancements are expected to include:
+* Display a visual question total on the Dashboard's course tiles 
 * Only display course created by a specific user
 * Date when "course" was first created and last updated
 * Sort/Filter Course:
