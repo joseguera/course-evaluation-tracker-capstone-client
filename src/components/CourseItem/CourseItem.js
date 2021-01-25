@@ -31,7 +31,7 @@ export default function CourseItem(props) {
                         <h3>
                             <Link to={`/course-page/${props.id}`}
                                 style={{
-                                    color: '#333',
+                                    color: '#000000',
                                     textDecoration: 'none',
                                     fontSize: 28,
                                 }}

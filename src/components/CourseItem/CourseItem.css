@@ -1,32 +1,27 @@
 
 .CourseItem {
     list-style: none;
-    font-family: 'Varela Round', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
     margin: 5px;
     height: 250px;
     width: 300px;
     font-size: 15px;
     padding: 10px;
     margin-bottom: 15px;
-    box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
-    background-color: #E3F2FD;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);    background-color: #DAEBFE;
     flex-shrink: 3;
     flex-basis: auto;
     align-self: auto;
 }
 
 .CourseItem_style {
-    color: #DB5461;
+    color: #005587;
     font-size: 18px;
     font-family: 'Didact Gothic', sans-serif;
 }
-
-/*  font-family: 'Didact Gothic', sans-serif;
-    font-family: 'Varela Round', sans-serif;
-    font-family: 'Satisfy', cursive;
-    font-family: 'Shrikhand', cursive; 
-*/
-
 
 .CourseItem__title:hover {
     margin: 0;
@@ -38,12 +33,12 @@ color: #b00c0c;
 }
 
 .CourseItem .butts {
-    color: #FAFAFA;
+    color: #FFD100;
     width: fit-content;
     height:fit-content;
     border: none;
     padding: 10px 25px;
-    background-color: #8AA29E;
+    background-color: #2774AE;
     font-size: 20px;
     margin: 0 15px;
     cursor: pointer;

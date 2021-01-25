@@ -15,10 +15,10 @@
 */
 
 .CourseList_heading {
-    font-family: 'Shrikhand', cursive;
+    font-family: 'Josefin Sans', sans-serif;    
     font-size: 36px;
-    margin-top: 0;
-    letter-spacing: 2px;
+    margin-top: 10px;
+    letter-spacing: -2px;
 }
 
 .CourseList {
@@ -46,17 +46,17 @@ ul {
 }
 
 .AddButton {
-    color: #FAFAFA;
+    color: #00FF87;
     border: none;
     padding: 15px 32px;
-    background-color: #8AA29E;
+    background-color: #003B5C;
     font-size: 25px;
     margin: 0 30px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     cursor: pointer;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-family: 'Varela Round', sans-serif;
 }
 
 @media screen and (max-width: 500px) {

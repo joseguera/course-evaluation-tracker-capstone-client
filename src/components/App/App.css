@@ -1,0 +1,13 @@
+.app-main {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+  
+    .app-main {
+      width: 400px; /* Can be in percentage also */
+      display: flex;
+      justify-content: center;
+    }
+  }
