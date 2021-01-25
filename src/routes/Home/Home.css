@@ -9,14 +9,35 @@
 }
 
 .home-heading {
-    font-family: 'Orbitron', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     margin-top: 15px;
-    color: #333;
+    color: #000000;
+}
+
+.home-logo {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
+    letter-spacing: -2.5px;
+    color: #000000;
+}
+  
+  .first-C {
+    font-size: 32px;
+    color: #005587;
+}
+  
+  .last-C {
+    font-size: 32px;
+    color: #2774AE;
 }
 
 .home-text {
-    color: #333;
+    color: #000000;
+}
+
+.login-creds {
+    color: #8237FF;
 }
 
 @media screen and (max-width: 500px) {

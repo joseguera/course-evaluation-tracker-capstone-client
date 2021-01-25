@@ -9,7 +9,9 @@
   
   .make-course, .edit-course {
     font-size: 36px;
-    margin-top: 10px;
+    margin-top: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: -2px;
   }
   
   .question {
