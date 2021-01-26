@@ -79,4 +79,15 @@
       display: inline-block;
     }
   }
+
+  @media screen and (max-width: 320px) {
+  
+    .header-container {
+      width: 220px; /* Can be in percentage also */
+    }
+  
+    .Header {
+      display: inline-block;
+    }
+  }
     
