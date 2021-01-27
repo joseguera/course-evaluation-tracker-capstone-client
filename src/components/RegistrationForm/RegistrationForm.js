@@ -98,7 +98,7 @@ export default class RegistrationForm extends Component {
           Register
         </button>
         <br />
-        <Link className='input' to='/login'>Already have an account?</Link>
+        <a className='input' href='/login'>Already have an account?</a>
       </form>
       </div>
     )

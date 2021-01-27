@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import Header from '../Header/Header'
 import TokenService from '../../services/token-service'
 import Navigation from '../../components/Navigation/Navigation'
@@ -87,17 +87,19 @@ class App extends Component {
         </header>
         <main className='app-main'>
           <CoursesContext.Provider value={contextValue}>
-            <Navigation />
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path={'/login'} component={LoginPage} />
-              <Route path={'/register'} component={RegistrationPage} />
-              <Route path={'/courselist'} component={CourseList} />
-              <Route path={'/course-page/:courseId'} component={CoursePage} />
-              <Route path={'/new-course'} component={AddCourse} />
-              <Route path={'/edit-course/:courseId'} component={EditCourse} />
-              <Route component={NotFoundPage} />
-            </Switch>
+              <Navigation />
+              <BrowserRouter>
+                <Switch>
+                  <Route exact path='/' component={Home} />
+                  <Route path={'/login'} component={LoginPage} />
+                  <Route path={'/register'} component={RegistrationPage} />
+                  <Route path={'/courselist'} component={CourseList} />
+                  <Route path={'/course-page/:courseId'} component={CoursePage} />
+                  <Route path={'/new-course'} component={AddCourse} />
+                  <Route path={'/edit-course/:courseId'} component={EditCourse} />
+                  <Route component={NotFoundPage} />
+                </Switch>
+              </BrowserRouter>
           </CoursesContext.Provider>
         </main>
       </div>

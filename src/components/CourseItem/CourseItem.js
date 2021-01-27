@@ -31,7 +31,7 @@ export default function CourseItem(props) {
                         <h3
                             className='courseItem-title'
                         >
-                            <Link to={`/course-page/${props.id}`}
+                            <a href={`/course-page/${props.id}`}
                                 className='courseItem-title'
                                 style={{
                                     textDecoration: 'none',
@@ -39,21 +39,21 @@ export default function CourseItem(props) {
                                 }}
                             >
                                 {props.course_name}
-                            </Link>
+                            </a>
                         </h3>
-                    <p className='CourseItem_style'>
-                        {props.course_number}<br />
-                        <span>Reg# {props.project_id}</span><br />
-                        {props.quarter}
-                    </p>
-                            <Link 
-                                to={`/edit-course/${props.id}`}
+                            <p className='CourseItem_style'>
+                                {props.course_number}<br />
+                                <span>Reg# {props.project_id}</span><br />
+                                {props.quarter}
+                            </p>
+                            <a 
+                                href={`/edit-course/${props.id}`}
                                 style={{ textDecoration: 'none' }}
                             >
                                 <button className='butts'>
                                     Edit
                                 </button>
-                            </Link>
+                            </a>
                         {' '}
                         <button
                             className='butts'
@@ -78,9 +78,5 @@ CourseItem.propTypes = {
         PropTypes.number,
         PropTypes.string,
     ]).isRequired,
-    course_name: PropTypes.string.isRequired,
-    sub: PropTypes.string.isRequired,
-    url: PropTypes.string,
-    desciption: PropTypes.string,
-    onClickDelete: PropTypes.func,
+    onClickDelete: PropTypes.func
 }

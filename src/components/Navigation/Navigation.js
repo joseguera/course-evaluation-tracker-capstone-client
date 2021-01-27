@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './Navigation.css'
 
 
@@ -7,9 +6,9 @@ function Navigation() {
     return (
         <div className='nav-container'>
             <ul className='nav'>
-                <li className='nav-items'><Link to={'/'} className='links'>Home Page</Link></li>
+                <li className='nav-items'><a href={'/'} className='links'>Home Page</a></li>
                 {' '}
-                <li className='nav-items'><Link to={'/courselist'} className='links'>My Courses</Link></li>
+                <li className='nav-items'><a href={'/courselist'} className='links'>My Courses</a></li>
             </ul>
         </div>
     )
