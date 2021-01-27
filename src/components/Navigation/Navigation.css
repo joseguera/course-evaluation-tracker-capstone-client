@@ -37,10 +37,10 @@
     display: inline;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
 
     .nav-container {
-        width: 220px;
+        width: 400px;
     }
     
 }

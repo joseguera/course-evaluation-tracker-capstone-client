@@ -59,10 +59,10 @@ ul {
     font-weight: bold;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
 
     .main-list {
-        width: 220px; /* Can be in percentage also */
+        width: 400px; /* Can be in percentage also */
     }
 }
   

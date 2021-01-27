@@ -21,9 +21,11 @@
 
 /* start of desktop styles */
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
+    /* start of large tablet styles */
 
-    .nav-container {
-        width: 220px;
-    }    
+    .error-body {
+        width: 400px; /* Can be in percentage also */
+    }
+    
 }

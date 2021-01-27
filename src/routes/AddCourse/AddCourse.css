@@ -97,14 +97,14 @@
   
   
   
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 500px) {
   
     .add-body, .edit-body {
-        width: 220px; /* Can be in percentage also */
+        width: 400px; /* Can be in percentage also */
     }
   
     .add-fields, .edit-fields {
-      width: 196px;
+      width: 376px;
     }
 
     .question {

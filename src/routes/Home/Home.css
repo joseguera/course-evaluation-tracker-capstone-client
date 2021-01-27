@@ -40,10 +40,9 @@
     color: #8237FF;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
 
     .home-body {
-        width: 220px;
+        width: 400px; /* Can be in percentage also */
     }
-    
 }
