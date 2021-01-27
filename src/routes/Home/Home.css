@@ -42,7 +42,8 @@
 
 @media screen and (max-width: 320px) {
 
-    .nav-container {
+    .home-body {
         width: 220px;
-    }    
+    }
+    
 }

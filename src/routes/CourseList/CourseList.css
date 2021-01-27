@@ -61,8 +61,8 @@ ul {
 
 @media screen and (max-width: 320px) {
 
-    .nav-container {
-        width: 220px;
-    } 
+    .main-list {
+        width: 220px; /* Can be in percentage also */
+    }
 }
   
