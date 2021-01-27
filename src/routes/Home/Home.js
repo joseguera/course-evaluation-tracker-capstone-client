@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 import './Home.css'
 
@@ -15,7 +14,7 @@ class Home extends Component  {
                                             the students' educational experience.
                     </p>
                     <p  className='home-text'>
-                        <Link className='reg-links' to='/login'>Log in</Link> or <Link className='reg-links' to='/register'>Register</Link> to get started.</p>
+                        <a className='reg-links' href='/login'>Log in</a> or <a className='reg-links' href='/register'>Register</a> to get started.</p>
                     <p>To view a demo:<br/>
                         username: <span className='login-creds'>sample</span><br/>
                         password: <span className='login-creds'>Password123!</span>

@@ -29,11 +29,11 @@ class CourseList extends Component {
             <div className='main-list'>
                 <div className='CourseList'>
                     <h2 className='CourseList_heading'>My Courses</h2>
-                        <Link
-                            to={'/new-course'}
+                        <a
+                            href={'/new-course'}
                         >
                             <button className='AddButton'>Add Course +</button>
-                        </Link>
+                        </a>
                         {' '}
                         <div className='CourseList_list' aria-live='polite'>
                                 {courses.map(course =>

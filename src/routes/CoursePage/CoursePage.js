@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import TokenService from '../../services/token-service'
 import CoursesContext from '../../components/context/CoursesContext';
@@ -13,7 +12,7 @@ class CoursePage extends Component {
         }),
         history: PropTypes.shape({
             push: PropTypes.func,
-        }).isRequired,
+        }),
     };
 
     static contextType = CoursesContext;
@@ -112,14 +111,14 @@ class CoursePage extends Component {
                         </p>
                     </div>
                     <div className='CoursePage__buttons'>
-                        <Link 
-                            to={`/edit-course/${id}`}
+                        <a 
+                            href={`/edit-course/${id}`}
                             style={{ textDecoration: 'none' }}
                         >
                             <button className='butts'>
                                 Edit
                             </button>
-                        </Link>
+                        </a>
 
                         {' '}
                         <button 

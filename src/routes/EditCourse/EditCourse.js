@@ -333,20 +333,6 @@ class EditCourse extends Component {
                             onChange={this.handleChangeName}
                         />
                     </div>
-                    {/* <div className='add-fields'>
-                        <label htmlFor='instructor_name'>
-                            Program Representative
-                        {' '}
-                        </label>
-                        <br />
-                        <input
-                            type='text'
-                            name='instructor_name'
-                            id='instructor_name'
-                            placeholder='e.g., Ron Howard'
-                            className='inputs'
-                        />
-                    </div> */}
                     <div className="syllabus">
                         <div className="legend">
                             <h2 className='legend-item'>Syllabus</h2>
