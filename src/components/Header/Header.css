@@ -68,17 +68,6 @@
   
   
   /* start of desktop and large table styles */
-  
-  @media screen and (max-width: 500px) {
-  
-    .header-container {
-      width: 400px; /* Can be in percentage also */
-    }
-  
-    .Header {
-      display: inline-block;
-    }
-  }
 
   @media screen and (max-width: 320px) {
   

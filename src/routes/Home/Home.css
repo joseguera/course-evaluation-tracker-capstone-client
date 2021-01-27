@@ -40,9 +40,9 @@
     color: #8237FF;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 320px) {
 
-    .home-body {
-        width: 400px; /* Can be in percentage also */
-    }
+    .nav-container {
+        width: 220px;
+    }    
 }

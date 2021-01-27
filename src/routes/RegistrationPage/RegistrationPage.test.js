@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RegistrationPage from './ResgistrationPage';
+import RegistrationPage from './RegistrationPage';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
