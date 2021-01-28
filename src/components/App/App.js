@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom'
 import Header from '../Header/Header'
 import TokenService from '../../services/token-service'
 import Navigation from '../../components/Navigation/Navigation'
@@ -93,10 +93,66 @@ class App extends Component {
                   <Route exact path='/' component={Home} />
                   <Route path={'/login'} component={LoginPage} />
                   <Route path={'/register'} component={RegistrationPage} />
-                  <Route path={'/courselist'} component={CourseList} />
-                  <Route path={'/course-page/:courseId'} component={CoursePage} />
-                  <Route path={'/new-course'} component={AddCourse} />
-                  <Route path={'/edit-course/:courseId'} component={EditCourse} />
+                  <Route
+                    path={'/courselist'}
+                    render={({ ...props }) => {
+                      return this.context.log || TokenService.hasAuthToken() ? (
+                        <CourseList {...props} />
+                      ) : (
+                          <Redirect
+                            to={{
+                              pathname: '/',
+                              state: { from: props.location }
+                            }}
+                          />
+                        );
+                      }}>
+                  </Route>
+                  <Route
+                    path={'/course-page/:courseId'}
+                    render={({ ...props }) => {
+                      return this.context.log || TokenService.hasAuthToken() ? (
+                        <CoursePage {...props} />
+                      ) : (
+                          <Redirect
+                            to={{
+                              pathname: '/',
+                              state: { from: props.location }
+                            }}
+                          />
+                        );
+                      }}>
+                  </Route>
+                  <Route
+                    path={'/new-course'}
+                    render={({ ...props }) => {
+                      return this.context.log || TokenService.hasAuthToken() ? (
+                        <AddCourse {...props} />
+                      ) : (
+                          <Redirect
+                            to={{
+                              pathname: '/',
+                              state: { from: props.location }
+                            }}
+                          />
+                        );
+                      }}>
+                  </Route>
+                  <Route
+                    path={'/edit-course/:courseId'}
+                    render={({ ...props }) => {
+                      return this.context.log || TokenService.hasAuthToken() ? (
+                        <EditCourse {...props} />
+                      ) : (
+                          <Redirect
+                            to={{
+                              pathname: '/',
+                              state: { from: props.location }
+                            }}
+                          />
+                        );
+                      }}>
+                  </Route>
                   <Route component={NotFoundPage} />
                 </Switch>
               </BrowserRouter>
