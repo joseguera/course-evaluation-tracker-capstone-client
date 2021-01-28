@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TokenService from '../../services/token-service'
 import CoursesContext from '../../components/context/CoursesContext';
+import NumericInput from 'react-numeric-input';
 import config from '../../config'
 import '../AddCourse/AddCourse.css';
 
@@ -347,17 +348,21 @@ class EditCourse extends Component {
                             <div className='add-labels'>
                                 <label htmlFor='q1'>
                                     The online course includes a syllabus outlining course objectives, learning outcomes, evaluation methods, books and supplies, technical and proctoring requirements, and other related course information, making course requirements transparent.
+                                    <Required />
                                 </label>
                             </div>
                             <div className='add-items'>
-                                <input
-                                    type='text'
+                                <NumericInput 
                                     name='q1'
                                     id='q1'
                                     className='q-inputs inputs'
-                                    min='0' max='3'
+                                    type="number"
+                                    min={0}
+                                    max={3}
+                                    mobile='auto'
                                     value={q1}
                                     onChange={this.handleChangeQ1}
+                                    required
                                 />
                             </div>
                         </div>
@@ -365,17 +370,21 @@ class EditCourse extends Component {
                             <div className='add-labels'>
                                 <label htmlFor='q2'>
                                     Lesson Plans/Weekly Assignments & Point Value of an Assignment.
+                                    <Required />
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
-                                    type='text'
+                                <NumericInput 
                                     name='q2'
                                     id='q2'
                                     className='q-inputs inputs'
-                                    min='0' max='3'
+                                    type="number"
+                                    min={0}
+                                    max={3}
+                                    mobile='auto'
                                     value={q2}
                                     onChange={this.handleChangeQ2}
+                                    required
                                 />
                             </div>
                         </div>
@@ -383,17 +392,21 @@ class EditCourse extends Component {
                             <div className='add-labels'>
                                 <label htmlFor='q3'>
                                     Course is designed so that students develop necessary knowledge and skills to meet measurable course and program learning outcomes.
+                                    <Required />
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
-                                    type='text'
+                                <NumericInput 
                                     name='q3'
                                     id='q3'
                                     className='q-inputs inputs'
-                                    min='0' max='3'
+                                    type="number"
+                                    min={0}
+                                    max={3}
+                                    mobile='auto'
                                     value={q3}
                                     onChange={this.handleChangeQ3}
+                                    required
                                 />
                             </div>
                         </div>
@@ -401,17 +414,21 @@ class EditCourse extends Component {
                             <div className='add-labels'>
                                 <label htmlFor='q4'>
                                     Expectations for assignment completion, grade policy and faculty response are clearly provided in the course syllabus.
+                                    <Required />
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
-                                    type='text'
+                                <NumericInput 
                                     name='q4'
                                     id='q4'
                                     className='q-inputs inputs'
-                                    min='0' max='3'
+                                    type="number"
+                                    min={0}
+                                    max={3}
+                                    mobile='auto'
                                     value={q4}
                                     onChange={this.handleChangeQ4}
+                                    required
                                 />
                             </div>
                         </div>    
@@ -431,17 +448,21 @@ class EditCourse extends Component {
                             <div className='add-labels'>
                                 <label htmlFor='q5'>
                                     There is consistency in the design of course navigation and utilization of course components to support student retention and quality.
+                                    <Required />
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
-                                    type='text'
+                                <NumericInput 
                                     name='q5'
                                     id='q5'
                                     className='q-inputs inputs'
-                                    min='0' max='3'
+                                    type="number"
+                                    min={0}
+                                    max={3}
+                                    mobile='auto'
                                     value={q5}
                                     onChange={this.handleChangeQ5}
+                                    required
                                 />
                             </div>
                         </div>
@@ -449,17 +470,21 @@ class EditCourse extends Component {
                             <div className='add-labels'>
                                 <label htmlFor='q6'>
                                     A process is followed that ensures that permissions (Creative Commons, Copyright, Fair Use, Public Domain, etc.) are in place for appropriate use of online course materials.
+                                    <Required />
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
-                                    type='text'
+                                <NumericInput 
                                     name='q6'
                                     id='q6'
                                     className='q-inputs inputs'
-                                    min='0' max='3'
+                                    type="number"
+                                    min={0}
+                                    max={3}
+                                    mobile='auto'
                                     value={q6}
                                     onChange={this.handleChangeQ6}
+                                    required
                                 />
                             </div>
                         </div>
@@ -467,17 +492,21 @@ class EditCourse extends Component {
                             <div className='add-labels'>
                                 <label htmlFor='q7'>
                                     Instructional materials are easily accessed by students with disabilities via alternative instructional strategies and/or referral to special institutional resources.
+                                    <Required />
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
-                                    type='text'
+                                <NumericInput 
                                     name='q7'
                                     id='q7'
                                     className='q-inputs inputs'
-                                    min='0' max='3'
+                                    type="number"
+                                    min={0}
+                                    max={3}
+                                    mobile='auto'
                                     value={q7}
                                     onChange={this.handleChangeQ7}
+                                    required
                                 />
                             </div>
                         </div>  
@@ -498,17 +527,21 @@ class EditCourse extends Component {
                             <div className='add-labels'>
                                 <label htmlFor='q8'>
                                     Feedback on student assignments and questions is constructive and provided in a timely manner. (Grades/Discussions)
+                                    <Required />
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
-                                    type='text'
+                                <NumericInput 
                                     name='q8'
                                     id='q8'
                                     className='q-inputs inputs'
-                                    min='0' max='3'
+                                    type="number"
+                                    min={0}
+                                    max={3}
+                                    mobile='auto'
                                     value={q8}
                                     onChange={this.handleChangeQ8}
+                                    required
                                 />
                             </div>
                         </div>
@@ -516,17 +549,21 @@ class EditCourse extends Component {
                             <div className='add-labels'>
                                 <label htmlFor='q9'>
                                     Instructors use effective strategies to create a presence in the course.
+                                    <Required />
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
-                                    type='text'
+                                <NumericInput 
                                     name='q9'
                                     id='q9'
                                     className='q-inputs inputs'
-                                    min='0' max='3'
+                                    type="number"
+                                    min={0}
+                                    max={3}
+                                    mobile='auto'
                                     value={q9}
                                     onChange={this.handleChangeQ9}
+                                    required
                                 />
                             </div>
                         </div>
@@ -534,17 +571,21 @@ class EditCourse extends Component {
                             <div className='add-labels'>
                                 <label htmlFor='q10'>
                                     Opportunities/tools are provided to encourage student-student and faculty-student collaboration/interaction (i.e., discussion boards, web conferencing, instant messaging, etc.) if appropriate.
+                                    <Required />
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
-                                    type='text'
+                                <NumericInput 
                                     name='q10'
                                     id='q10'
                                     className='q-inputs inputs'
-                                    min='0' max='3'
+                                    type="number"
+                                    min={0}
+                                    max={3}
+                                    mobile='auto'
                                     value={q10}
                                     onChange={this.handleChangeQ10}
+                                    required
                                 />
                             </div>
                         </div> 
