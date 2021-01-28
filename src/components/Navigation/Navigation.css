@@ -19,6 +19,11 @@
     font-size: 20px;
 }
 
+.NavBar__logged-in {
+    height: 50px;
+    line-height: 50px;
+}
+
 .links {
     color: white;
     text-align: center;
@@ -54,8 +59,13 @@
 
     .nav {
         font-size: 20px;
-        height: 70px;
+        height: 100%;
         padding-top: 5px;
+    }
+
+    .NavBar__logged-in {
+        height: 45px;
+        line-height: 38px;
     }
     
     .links {
