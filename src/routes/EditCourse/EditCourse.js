@@ -359,6 +359,7 @@ class EditCourse extends Component {
                                     min='0' max='3'
                                     value={q1}
                                     onChange={this.handleChangeQ1}
+                                    required
                                 />
                             </div>
                         </div>
@@ -378,6 +379,7 @@ class EditCourse extends Component {
                                     min='0' max='3'
                                     value={q2}
                                     onChange={this.handleChangeQ2}
+                                    required
                                 />
                             </div>
                         </div>
@@ -397,6 +399,7 @@ class EditCourse extends Component {
                                     min='0' max='3'
                                     value={q3}
                                     onChange={this.handleChangeQ3}
+                                    required
                                 />
                             </div>
                         </div>
@@ -416,6 +419,7 @@ class EditCourse extends Component {
                                     min='0' max='3'
                                     value={q4}
                                     onChange={this.handleChangeQ4}
+                                    required
                                 />
                             </div>
                         </div>    
@@ -447,6 +451,7 @@ class EditCourse extends Component {
                                     min='0' max='3'
                                     value={q5}
                                     onChange={this.handleChangeQ5}
+                                    required
                                 />
                             </div>
                         </div>
@@ -466,6 +471,7 @@ class EditCourse extends Component {
                                     min='0' max='3'
                                     value={q6}
                                     onChange={this.handleChangeQ6}
+                                    required
                                 />
                             </div>
                         </div>
@@ -485,6 +491,7 @@ class EditCourse extends Component {
                                     min='0' max='3'
                                     value={q7}
                                     onChange={this.handleChangeQ7}
+                                    required
                                 />
                             </div>
                         </div>  
@@ -517,6 +524,7 @@ class EditCourse extends Component {
                                     min='0' max='3'
                                     value={q8}
                                     onChange={this.handleChangeQ8}
+                                    required
                                 />
                             </div>
                         </div>
@@ -536,6 +544,7 @@ class EditCourse extends Component {
                                     min='0' max='3'
                                     value={q9}
                                     onChange={this.handleChangeQ9}
+                                    required
                                 />
                             </div>
                         </div>
@@ -555,6 +564,7 @@ class EditCourse extends Component {
                                     min='0' max='3'
                                     value={q10}
                                     onChange={this.handleChangeQ10}
+                                    required
                                 />
                             </div>
                         </div> 
