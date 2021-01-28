@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
-import { Hyph } from '../Utils/Utils'
 import './Navigation.css'
 
 
@@ -59,15 +58,6 @@ class Navigation extends Component {
             </div>
         )
     }
-
-    // return (
-    //     <div className='nav-container'>
-    //             <li className='nav-items'><a href={'/'} className='links'>Home Page</a></li>
-    //             {' '}
-    //             <li className='nav-items'><a href={'/courselist'} className='links'>My Courses</a></li>
-    //         </ul>
-    //     </div>
-    // )
 }
 
 export default Navigation;
