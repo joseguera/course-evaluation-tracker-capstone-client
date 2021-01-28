@@ -50,11 +50,20 @@ class CoursePage extends Component {
                     id: responseData.id,
                     instructor_name: responseData.instructor_name,
                     program_area: responseData.program_area,
-                    program_rep: responseData.program_rep,
                     course_number: responseData.course_number,
                     course_name: responseData.course_name,
                     quarter: responseData.quarter,
                     project_id: responseData.project_id,
+                    q1: responseData.q1, 
+                    q2: responseData.q2, 
+                    q3: responseData.q3, 
+                    q4: responseData.q4, 
+                    q5: responseData.q5, 
+                    q6: responseData.q6, 
+                    q7: responseData.q7, 
+                    q8: responseData.q8, 
+                    q9: responseData.q9, 
+                    q10: responseData.q10,
                     notes: responseData.notes
                 })
             })
@@ -69,45 +78,52 @@ class CoursePage extends Component {
     }
 
     render() {
-        const { id, instructor_name, program_area, program_rep,
-                course_number, course_name, quarter,
-                project_id, notes } = this.state;
+        const { id, instructor_name, program_area,
+                course_number, course_name, quarter, project_id,
+                q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, 
+                notes } = this.state;
         return (
             <div className='main-course-page'>
             <section className='CoursePage'>
-                <h2 className='CoursePage_heading'>{project_id}: {course_number} - {course_name} ({quarter})</h2>
+                <h2 className='CoursePage_heading'>{project_id}: {course_number} <br /> 
+                    {course_name} <br />
+                    ({quarter})
+                </h2>
                     <div className='page-body'>
-                        <p className='program_area'>
-                            <span>
+                        <p className='course-labels'>
                             Program Area:
-                            {' '}
-                            </span>
                             <br />
-                            {program_area}
+                            <span className='course-data'>
+                                {program_area}
+                            </span>
                         </p>
-                        <p className='instructor_name'>
-                            <span>
+                        <p className='course-labels'>
+                            Course Number:
+                            <br />
+                            <span className='course-data'>
+                                {course_number}
+                            </span>
+                        </p>
+                        <p className='course-labels'>
                             Instructor:
-                            {' '}
-                            </span>
                             <br />
-                            {instructor_name}
-                        </p>
-                        <p className='program_rep'>
-                            <span>
-                            Program Representative:
-                            {' '}
+                            <span className='course-data'>
+                                {instructor_name}
                             </span>
-                            <br />
-                            {program_rep}
                         </p>
-                        <p className='notes'>
-                            <span>
+                        <p className='course-labels'>
+                            Total Score:
+                            <br />
+                            <span className='course-data'>
+                                {q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10}
+                            </span>
+                        </p>
+                        <p className='course-labels'>
                             Notes:
-                            {' '}
-                            </span>
                             <br />
-                            {notes}
+                            <span className='course-data'>
+                                {notes}
+                            </span>
                         </p>
                     </div>
                     <div className='CoursePage__buttons'>
@@ -119,7 +135,6 @@ class CoursePage extends Component {
                                 Edit
                             </button>
                         </a>
-
                         {' '}
                         <button 
                             type='button'

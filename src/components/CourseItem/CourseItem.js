@@ -33,10 +33,6 @@ export default function CourseItem(props) {
                         >
                             <a href={`/course-page/${props.id}`}
                                 className='courseItem-title'
-                                style={{
-                                    textDecoration: 'none',
-                                    fontSize: 28,
-                                }}
                             >
                                 {props.course_name}
                             </a>

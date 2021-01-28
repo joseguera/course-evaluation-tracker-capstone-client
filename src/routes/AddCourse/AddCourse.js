@@ -226,8 +226,12 @@ class AddCourse extends Component {
                         <div className="syllabus">
                             <div className="legend">
                                 <h2 className='legend-item'>Syllabus</h2>
-                                <p className='legend-item'>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
-                                
+                                    <div className='legend-item legend-sub'>
+                                        <div className='subs'>0 = deficient /&nbsp;</div>
+                                        <div className='subs'>1 = developing /&nbsp;</div>
+                                        <div className='subs'>2 = accomplished /&nbsp;</div>
+                                        <div className='subs'>3 = exemplary</div>
+                                    </div>
                             </div>
                             <div className="question">
                                 <div className='add-labels'>
@@ -297,8 +301,13 @@ class AddCourse extends Component {
 
                         <div className="course-content">
                             <div className="legend">
-                                <h2>Course Content</h2>
-                                <p>0 = deficient / 1 = developing / 2 = accomplished / 3 = exemplary</p>
+                                <h2 className='legend-item'>Course Content</h2>
+                                <div className='legend-item legend-sub'>
+                                    <div className='subs'>0 = deficient /&nbsp;</div>
+                                    <div className='subs'>1 = developing /&nbsp;</div>
+                                    <div className='subs'>2 = accomplished /&nbsp;</div>
+                                    <div className='subs'>3 = exemplary</div>
+                                </div>
                             </div>
                             <div className="question">
                                 <div className='add-labels'>
@@ -352,8 +361,13 @@ class AddCourse extends Component {
 
                         <div className="student-teacher">
                             <div className="legend">
-                                <h2>Student/Teacher Interaction</h2>
-                                <p>0 = deficient / 1 = developing / 2 = accomplished / <br />3 = exemplary</p>
+                                <h2 className='legend-item stu-teach'>Student/Teacher Interaction</h2>
+                                <div className='legend-item legend-sub'>
+                                    <div className='subs'>0 = deficient /&nbsp;</div>
+                                    <div className='subs'>1 = developing /&nbsp;</div>
+                                    <div className='subs'>2 = accomplished /&nbsp;</div>
+                                    <div className='subs'>3 = exemplary</div>
+                                </div>
                             </div>
 
                             <div className="question">
@@ -422,16 +436,16 @@ class AddCourse extends Component {
 
                         <div className='AddCourse_buttons'>
                             <button
+                                type='submit'
+                                className='butts'>
+                                Save
+                            </button>
+                            {' '}
+                            <button
                                 type='button'
                                 onClick={this.handleClickCancel}
                                 className='butts'>
                                 Cancel
-                            </button>
-                            {' '}
-                            <button
-                                type='submit'
-                                className='butts'>
-                                Save
                             </button>
                         </div>
                     </form>

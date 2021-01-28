@@ -17,7 +17,9 @@
 }
 
 .courseItem-title {
-    color: #000000
+    color: #000000;
+    text-decoration: none;
+    font-size: 28px;
 }
 
 .courseItem-title:hover {
@@ -50,4 +52,34 @@ color: #b00c0c;
     margin: 0 15px;
     cursor: pointer;
     text-align: center;
+}
+
+@media screen and (max-width: 320px) {
+    .CourseItem {
+        padding: 0;
+        height: 100%;
+        padding-bottom: 20px;
+        width: 300px;
+    }
+
+    .CourseItem .butts {
+        color: #FFD100;
+        width: fit-content;
+        height:fit-content;
+        border: none;
+        padding: 5px 20px;
+        background-color: #2774AE;
+        font-size: 16px;
+        margin: 0 10px;
+        cursor: pointer;
+        text-align: center;
+    }  
+    
+    .courseItem-title {
+        font-size: 20px;
+    }
+
+    .CourseItem_style {
+        font-size: 16px;
+    }
 }

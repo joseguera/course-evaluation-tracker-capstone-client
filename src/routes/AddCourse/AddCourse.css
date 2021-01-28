@@ -94,8 +94,19 @@
   .legend-item {
     order: 2;
   }
-  
-  
+    
+  .legend-sub {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: space-around;
+  }
+
+  .subs {
+    order: 5;
+  }
   
   @media screen and (max-width: 500px) {
   
@@ -111,4 +122,43 @@
       margin-bottom: 10px;
     }
     
+  }
+
+  @media screen and (max-width: 320px) {
+    
+    .add-body, .edit-body {
+        width: 220px; /* Can be in percentage also */
+        padding-top: 20px;
+        font-size: 14px;
+    }
+
+    .make-course, .edit-course {
+      font-size: 32px;
+      padding-top: 15px;
+      letter-spacing: -2px;
+    }
+  
+    .add-fields, .edit-fields {
+      width: 196px;
+    }
+
+    .question {
+      margin-bottom: 10px;
+    }
+    
+    h2 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    .stu-teach {
+      font-size: 14px
+    }
+
+    .subs {
+      font-size: 12px;
+    }
   }
