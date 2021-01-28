@@ -56,7 +56,7 @@ color: #b00c0c;
 
 @media screen and (max-width: 500px) {
     .CourseItem {
-        padding: 0;
+        padding: 10px;
         height: 100%;
         padding-bottom: 20px;
         width: 300px;
