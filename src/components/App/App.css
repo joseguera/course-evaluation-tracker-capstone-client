@@ -11,3 +11,13 @@
       justify-content: center;
     }
   }
+}
+
+@media screen and (max-width: 320px) {
+  
+    .app-main {
+      width: 220px; /* Can be in percentage also */
+      display: flex;
+      justify-content: center;
+    }
+  }

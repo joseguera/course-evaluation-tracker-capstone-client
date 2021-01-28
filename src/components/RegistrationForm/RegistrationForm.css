@@ -112,3 +112,23 @@
 	}
     
 }
+
+@media screen and (max-width: 320px) {
+
+	.form-body {
+		margin: 0 auto;
+		width: 100%;
+		display: table-cell;
+	}
+
+	.RegistrationPage, .LoginPage {
+		margin: auto;
+		width: 80%;
+		text-align: center;
+	}
+
+	.butts {
+		margin-top: 10px;
+	}
+    
+}

@@ -67,3 +67,14 @@
         width: 350px; /* Can be in percentage also. */
     }
 }
+
+@media screen and (max-width: 320px) {
+
+    .main-course-page {
+        width: 220px; /* Can be in percentage also */
+    }
+
+    .CoursePage {
+        width: 170px; /* Can be in percentage also. */
+    }
+}

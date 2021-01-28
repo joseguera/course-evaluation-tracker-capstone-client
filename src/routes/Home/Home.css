@@ -46,3 +46,10 @@
         width: 400px; /* Can be in percentage also */
     }
 }
+
+@media screen and (max-width: 320px) {
+
+    .home-body {
+        width: 220px; /* Can be in percentage also */
+    }
+}

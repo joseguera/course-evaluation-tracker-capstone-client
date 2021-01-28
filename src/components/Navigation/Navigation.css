@@ -44,3 +44,11 @@
     }
     
 }
+
+@media screen and (max-width: 320px) {
+
+    .nav-container {
+        width: 220px;
+    }
+    
+}

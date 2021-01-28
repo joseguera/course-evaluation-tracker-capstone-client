@@ -29,3 +29,12 @@
     }
     
 }
+
+@media screen and (max-width: 320px) {
+    /* start of large tablet styles */
+
+    .error-body {
+        width: 220px; /* Can be in percentage also */
+    }
+    
+}
