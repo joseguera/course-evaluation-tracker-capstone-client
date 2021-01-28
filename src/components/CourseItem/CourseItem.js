@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service'
 import CoursesContext from '../../components/context/CoursesContext';
 import config from '../../config';

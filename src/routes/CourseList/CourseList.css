@@ -59,17 +59,17 @@ ul {
     font-weight: bold;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 750px) {
 
     .main-list {
         width: 400px; /* Can be in percentage also */
     }
 }
  
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
 
     .main-list {
-        width: 220px; /* Can be in percentage also */
+        width: 300px; /* Can be in percentage also */
     }
 
     .CourseList_heading {

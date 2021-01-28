@@ -40,17 +40,17 @@
     color: #8237FF;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 750px) {
 
     .home-body {
         width: 400px; /* Can be in percentage also */
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
 
     .home-body {
-        width: 220px; /* Can be in percentage also */
+        width: 300px; /* Can be in percentage also */
         padding-top: 20px;
         font-size: 14px;
     }

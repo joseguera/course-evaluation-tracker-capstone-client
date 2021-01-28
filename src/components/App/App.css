@@ -3,7 +3,7 @@
     justify-content: center;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 750px) {
   
     .app-main {
       width: 400px; /* Can be in percentage also */
@@ -12,10 +12,10 @@
     }
   }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   
     .app-main {
-      width: 220px; /* Can be in percentage also */
+      width: 300px; /* Can be in percentage also */
       display: flex;
       justify-content: center;
     }

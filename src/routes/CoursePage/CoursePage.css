@@ -55,25 +55,25 @@
     font-family: 'Varela Round', sans-serif;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 750px) {
 
     .main-course-page {
         width: 400px; /* Can be in percentage also */
     }
 
     .CoursePage {
-        width: 350px; /* Can be in percentage also. */
+        width: 75%; /* Can be in percentage also. */
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
 
     .main-course-page {
-        width: 220px; /* Can be in percentage also */
+        width: 300px; /* Can be in percentage also */
     }
 
     .CoursePage {
-        width: 170px; /* Can be in percentage also. */
+        width: 75%; /* Can be in percentage also. */
     }
 
     .CoursePage_heading {

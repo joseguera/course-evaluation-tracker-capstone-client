@@ -24,7 +24,7 @@ export default class Header extends Component {
 
   renderLoginLink() {
     return (
-      <div className='Header__not-logged-in'>
+      <div className='Header__not-logged-in header-links'>
         <a
           className='reg-links'
           href='/register'>

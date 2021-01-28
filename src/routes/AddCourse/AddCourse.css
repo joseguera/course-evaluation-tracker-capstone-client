@@ -108,7 +108,7 @@
     order: 5;
   }
   
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 750px) {
   
     .add-body, .edit-body {
         width: 400px; /* Can be in percentage also */
@@ -124,22 +124,22 @@
     
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 500px) {
     
     .add-body, .edit-body {
-        width: 220px; /* Can be in percentage also */
+        width: 300px; /* Can be in percentage also */
         padding-top: 20px;
         font-size: 14px;
     }
 
     .make-course, .edit-course {
       font-size: 32px;
-      padding-top: 15px;
       letter-spacing: -2px;
+      margin-top: 0;
     }
   
     .add-fields, .edit-fields {
-      width: 196px;
+      width: 93%;
     }
 
     .question {

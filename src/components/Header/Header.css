@@ -69,34 +69,32 @@
   
   /* start of desktop and large table styles */
   
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 750px) {
   
     .header-container {
       width: 400px; /* Can be in percentage also */
-      padding-bottom: 10px;    
 }
   
     .Header {
       display: inline-block;
-      padding-bottom: 0;
-
     }
+
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 500px) {
   
     .header-container {
-      width: 220px; /* Can be in percentage also */
+      width: 300px; /* Can be in percentage also */
+      padding: 20px 10px 0px 10px;
     }
   
     .Header {
       display: inline-block;
-      padding-bottom: 0;
     }
 
     .site-title {
       font-family: 'Josefin Sans', sans-serif;
-      font-size: 30px;
+      font-size: 32px;
       letter-spacing: -2.5px;
       color: #000000;
     }
@@ -109,6 +107,10 @@
     .last-N {
       font-size: 50px;
       color: #2774AE;
+    }
+
+    .reg-links {
+      font-size: 16px;
     }
   }
     
