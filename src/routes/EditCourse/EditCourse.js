@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TokenService from '../../services/token-service'
 import CoursesContext from '../../components/context/CoursesContext';
-import NumericInput from 'react-numeric-input';
 import config from '../../config'
 import '../AddCourse/AddCourse.css';
 
@@ -352,17 +351,14 @@ class EditCourse extends Component {
                                 </label>
                             </div>
                             <div className='add-items'>
-                                <NumericInput 
+                                <input
+                                    type='number'
                                     name='q1'
                                     id='q1'
                                     className='q-inputs inputs'
-                                    type="number"
-                                    min={0}
-                                    max={3}
-                                    mobile='auto'
+                                    min='0' max='3'
                                     value={q1}
                                     onChange={this.handleChangeQ1}
-                                    required
                                 />
                             </div>
                         </div>
@@ -374,17 +370,14 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <NumericInput 
+                                <input
+                                    type='number'
                                     name='q2'
                                     id='q2'
                                     className='q-inputs inputs'
-                                    type="number"
-                                    min={0}
-                                    max={3}
-                                    mobile='auto'
+                                    min='0' max='3'
                                     value={q2}
                                     onChange={this.handleChangeQ2}
-                                    required
                                 />
                             </div>
                         </div>
@@ -396,17 +389,14 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <NumericInput 
+                                <input
+                                    type='number'
                                     name='q3'
                                     id='q3'
                                     className='q-inputs inputs'
-                                    type="number"
-                                    min={0}
-                                    max={3}
-                                    mobile='auto'
+                                    min='0' max='3'
                                     value={q3}
                                     onChange={this.handleChangeQ3}
-                                    required
                                 />
                             </div>
                         </div>
@@ -418,17 +408,14 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <NumericInput 
+                                <input
+                                    type='number'
                                     name='q4'
                                     id='q4'
                                     className='q-inputs inputs'
-                                    type="number"
-                                    min={0}
-                                    max={3}
-                                    mobile='auto'
+                                    min='0' max='3'
                                     value={q4}
                                     onChange={this.handleChangeQ4}
-                                    required
                                 />
                             </div>
                         </div>    
@@ -452,17 +439,14 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <NumericInput 
+                                <input
+                                    type='number'
                                     name='q5'
                                     id='q5'
                                     className='q-inputs inputs'
-                                    type="number"
-                                    min={0}
-                                    max={3}
-                                    mobile='auto'
+                                    min='0' max='3'
                                     value={q5}
                                     onChange={this.handleChangeQ5}
-                                    required
                                 />
                             </div>
                         </div>
@@ -474,17 +458,14 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <NumericInput 
+                                <input
+                                    type='number'
                                     name='q6'
                                     id='q6'
                                     className='q-inputs inputs'
-                                    type="number"
-                                    min={0}
-                                    max={3}
-                                    mobile='auto'
+                                    min='0' max='3'
                                     value={q6}
                                     onChange={this.handleChangeQ6}
-                                    required
                                 />
                             </div>
                         </div>
@@ -496,17 +477,14 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <NumericInput 
+                                <input
+                                    type='number'
                                     name='q7'
                                     id='q7'
                                     className='q-inputs inputs'
-                                    type="number"
-                                    min={0}
-                                    max={3}
-                                    mobile='auto'
+                                    min='0' max='3'
                                     value={q7}
                                     onChange={this.handleChangeQ7}
-                                    required
                                 />
                             </div>
                         </div>  
@@ -531,17 +509,14 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <NumericInput 
+                                <input
+                                    type='number'
                                     name='q8'
                                     id='q8'
                                     className='q-inputs inputs'
-                                    type="number"
-                                    min={0}
-                                    max={3}
-                                    mobile='auto'
+                                    min='0' max='3'
                                     value={q8}
                                     onChange={this.handleChangeQ8}
-                                    required
                                 />
                             </div>
                         </div>
@@ -553,17 +528,14 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <NumericInput 
+                                <input
+                                    type='number'
                                     name='q9'
                                     id='q9'
                                     className='q-inputs inputs'
-                                    type="number"
-                                    min={0}
-                                    max={3}
-                                    mobile='auto'
+                                    min='0' max='3'
                                     value={q9}
                                     onChange={this.handleChangeQ9}
-                                    required
                                 />
                             </div>
                         </div>
@@ -575,17 +547,14 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <NumericInput 
+                                <input
+                                    type='number'
                                     name='q10'
                                     id='q10'
                                     className='q-inputs inputs'
-                                    type="number"
-                                    min={0}
-                                    max={3}
-                                    mobile='auto'
+                                    min='0' max='3'
                                     value={q10}
                                     onChange={this.handleChangeQ10}
-                                    required
                                 />
                             </div>
                         </div> 
