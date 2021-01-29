@@ -52,6 +52,7 @@ class CoursePage extends Component {
                     program_area: responseData.program_area,
                     course_number: responseData.course_number,
                     course_name: responseData.course_name,
+                    program_rep: responseData.program_rep,
                     quarter: responseData.quarter,
                     project_id: responseData.project_id,
                     q1: responseData.q1, 
@@ -79,7 +80,7 @@ class CoursePage extends Component {
 
     render() {
         const { id, instructor_name, program_area,
-                course_number, course_name, quarter, project_id,
+                course_number, course_name, program_rep, quarter, project_id,
                 q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, 
                 notes } = this.state;
         return (
@@ -102,6 +103,13 @@ class CoursePage extends Component {
                             <br />
                             <span className='course-data'>
                                 {course_number}
+                            </span>
+                        </p>
+                        <p className='course-labels'>
+                            Program Representative:
+                            <br />
+                            <span className='course-data'>
+                                {program_rep}
                             </span>
                         </p>
                         <p className='course-labels'>

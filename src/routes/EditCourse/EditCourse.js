@@ -28,6 +28,7 @@ class EditCourse extends Component {
         program_area: '',
         course_number: '',
         course_name: '',
+        program_rep: '',
         quarter: '',
         project_id: '',
         q1: '',
@@ -66,6 +67,7 @@ class EditCourse extends Component {
                     program_area: responseData.program_area,
                     course_number: responseData.course_number,
                     course_name: responseData.course_name,
+                    program_rep: responseData.program_rep,
                     quarter: responseData.quarter,
                     project_id: responseData.project_id,
                     q1: responseData.q1,
@@ -210,7 +212,7 @@ class EditCourse extends Component {
 
     render() {
         const { error, instructor_name, program_area, course_number, 
-                course_name, quarter, project_id, notes,
+                course_name, program_rep, quarter, project_id, notes,
                 q1, q2, q3, q4, q5, q6, q7, q8, q9, q10 } = this.state;
         return (
             <div className='edit-body'>
@@ -281,6 +283,14 @@ class EditCourse extends Component {
                             value={course_name}
                             onChange={this.handleChangeCourseName}
                         />
+                    </div>
+                    <div className='add-fields'>
+                        <label htmlFor='program_rep'>
+                            Program Representative
+                        {' '}
+                        </label>
+                        <br />
+                        <span>{program_rep}</span>
                     </div>
                     <div className='add-fields'>
                         <label htmlFor='quarter'>

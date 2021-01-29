@@ -36,7 +36,7 @@ class AddCourse extends Component {
             program_area: program_area.value,
             course_number: course_number.value,
             course_name: course_name.value,
-            quarter: quarter.value,
+            quarter: quarter.value, 
             project_id: project_id.value,
             q1: q1.value, 
             q2: q2.value, 
@@ -67,8 +67,6 @@ class AddCourse extends Component {
                 return res.json()
             })
             .then(data => {
-                // console.log(data);
-
                 instructor_name.value = ''
                 program_area.value = ''
                 course_number.value = ''
@@ -210,20 +208,6 @@ class AddCourse extends Component {
                                 className='inputs'
                             />
                         </div>
-                        {/* <div className='add-fields'>
-                            <label htmlFor='instructor_name'>
-                                Program Representative
-                            {' '}
-                            </label>
-                            <br />
-                            <input
-                                type='text'
-                                name='instructor_name'
-                                id='instructor_name'
-                                placeholder='e.g., Ron Howard'
-                                className='inputs'
-                            />
-                        </div> */}
                         <div className="syllabus">
                             <div className="legend">
                                 <h2 className='legend-item'>Syllabus</h2>
