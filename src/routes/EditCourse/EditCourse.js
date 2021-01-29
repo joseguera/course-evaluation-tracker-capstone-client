@@ -104,7 +104,7 @@ class EditCourse extends Component {
     };
 
     handleChangeQuarter = e => {
-        this.setState({ handleChangeQuarter: e.target.value })
+        this.setState({ quarter: e.target.value })
     };
 
     handleChangeProjectID = e => {
