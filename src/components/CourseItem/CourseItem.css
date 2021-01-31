@@ -63,16 +63,9 @@ color: #b00c0c;
     }
 
     .CourseItem .butts {
-        color: #FFD100;
-        width: fit-content;
-        height:fit-content;
-        border: none;
         padding: 5px 20px;
-        background-color: #2774AE;
         font-size: 16px;
         margin: 0 10px;
-        cursor: pointer;
-        text-align: center;
     }  
     
     .courseItem-title {

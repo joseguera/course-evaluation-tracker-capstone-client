@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
-
-
 import './Home.css'
 
 class Home extends Component  {
