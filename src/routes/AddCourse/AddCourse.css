@@ -63,7 +63,7 @@
     width: 100%;
     padding: 7px;
     border: none;
-    border-bottom: 1px solid rgb(209, 20, 20);
+    border-bottom: 1px solid #2774AE;
     background: transparent;
     margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
@@ -71,7 +71,7 @@
   }
 
   .add-body input[type="text"]:focus {
-    border-bottom: 1px bold rgb(55, 20, 209);
+    border-bottom: 1px bold #005587;
     border-bottom-width: 2px;
   }
   
