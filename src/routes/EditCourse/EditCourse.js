@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TokenService from '../../services/token-service'
+import NumericInput from 'react-numeric-input';
 import CoursesContext from '../../components/context/CoursesContext';
 import config from '../../config'
 import '../AddCourse/AddCourse.css';
@@ -215,7 +216,7 @@ class EditCourse extends Component {
                 course_name, program_rep, quarter, project_id, notes,
                 q1, q2, q3, q4, q5, q6, q7, q8, q9, q10 } = this.state;
         return (
-            <div className='edit-body'>
+            <div className='add-body'>
             <section className='EditCourse'>
                 <h2 className='edit-course'>Edit Course</h2>
                 <form
@@ -231,7 +232,10 @@ class EditCourse extends Component {
                     />
 
                     <div className='add-fields'>
-                        <label htmlFor='project_id'>
+                        <label 
+                            htmlFor='project_id'
+                            className='form-labels'
+                        >
                             Registration Number
                         {' '}
                             <Required />
@@ -249,7 +253,10 @@ class EditCourse extends Component {
                         />
                     </div>
                     <div className='add-fields'>
-                        <label htmlFor='course_number'>
+                        <label 
+                            htmlFor='course_number'
+                            className='form-labels'    
+                        >
                             Course Number
                         {' '}
                             <Required />
@@ -267,7 +274,10 @@ class EditCourse extends Component {
                         />
                     </div>
                     <div className='add-fields'>
-                        <label htmlFor='course_name'>
+                        <label 
+                            htmlFor='course_name'
+                            className='form-labels'
+                        >
                             Course Title
                         {' '}
                             <Required />
@@ -284,16 +294,19 @@ class EditCourse extends Component {
                             onChange={this.handleChangeCourseName}
                         />
                     </div>
-                    <div className='add-fields'>
-                        <label htmlFor='program_rep'>
-                            Program Representative
-                        {' '}
-                        </label>
-                        <br />
-                        <span>{program_rep}</span>
+                    <div className='page-line'>
+                        <p className='course-labels'>
+                            Program Representative:&nbsp;
+                        </p>
+                        <span className='course-data'>
+                            {program_rep}
+                        </span>
                     </div>
                     <div className='add-fields'>
-                        <label htmlFor='quarter'>
+                        <label 
+                            htmlFor='quarter'
+                            className='form-labels'
+                        >
                             Quarter
                         {' '}
                             <Required />
@@ -311,7 +324,10 @@ class EditCourse extends Component {
                         />
                     </div>
                     <div className='add-fields'>
-                        <label htmlFor='program_area'>
+                        <label 
+                            htmlFor='program_area'
+                            className='form-labels'
+                        >
                             Program Area
                         {' '}
                             <Required />
@@ -328,7 +344,10 @@ class EditCourse extends Component {
                         />
                     </div>
                     <div className='add-fields'>
-                        <label htmlFor='instructor_name'>
+                        <label 
+                            htmlFor='instructor_name'
+                            className='form-labels'
+                        >
                             Instructor Name
                         {' '}
                         </label>
@@ -361,7 +380,7 @@ class EditCourse extends Component {
                                 </label>
                             </div>
                             <div className='add-items'>
-                                <input
+                                <NumericInput
                                     type='number'
                                     name='q1'
                                     id='q1'
@@ -381,7 +400,7 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
+                                <NumericInput
                                     type='number'
                                     name='q2'
                                     id='q2'
@@ -401,7 +420,7 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
+                                <NumericInput
                                     type='number'
                                     name='q3'
                                     id='q3'
@@ -421,7 +440,7 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
+                                <NumericInput
                                     type='number'
                                     name='q4'
                                     id='q4'
@@ -453,7 +472,7 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
+                                <NumericInput
                                     type='number'
                                     name='q5'
                                     id='q5'
@@ -473,7 +492,7 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
+                                <NumericInput
                                     type='number'
                                     name='q6'
                                     id='q6'
@@ -493,7 +512,7 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
+                                <NumericInput
                                     type='number'
                                     name='q7'
                                     id='q7'
@@ -526,7 +545,7 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
+                                <NumericInput
                                     type='number'
                                     name='q8'
                                     id='q8'
@@ -546,7 +565,7 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
+                                <NumericInput
                                     type='number'
                                     name='q9'
                                     id='q9'
@@ -566,7 +585,7 @@ class EditCourse extends Component {
                                 </label>   
                             </div>
                             <div className='add-items'>
-                                <input
+                                <NumericInput
                                     type='number'
                                     name='q10'
                                     id='q10'

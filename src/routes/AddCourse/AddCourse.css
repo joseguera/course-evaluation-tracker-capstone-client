@@ -5,13 +5,30 @@
     position: relative;
     text-align: center;
     padding-bottom: 20px;
+    background-color: #DAEBFE;
+  }
+
+  .AddCourse, .EditCourse {
+    width: 600px; /* Can be in percentage also. */
+    height: auto;
+    margin: 0 auto;
+    position: relative;
   }
   
   .make-course, .edit-course {
     font-size: 36px;
     margin-top: 20px;
+    padding-top: 20px;
     font-family: 'Josefin Sans', sans-serif;
     letter-spacing: -2px;
+  }
+
+  .form-labels {
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
   
   .question {
@@ -30,9 +47,10 @@
   }
 
   .add-fields, .edit-fields {
-    font-size: 16px;
     margin-bottom: 10px;
-    width: 676px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
   }
   
   .inputs {
@@ -41,18 +59,16 @@
     padding-left: 15px;
     margin-top: 5px;
     margin-bottom: 10px;
-    border: 1px solid rgb(189, 189, 189);
+    color: #005587;
+    background-color: #ffffff;
   }
 
   .q-inputs {
     width: 75px;
   }
 
-  .inputs:focus {
-    background-color: #DAEBFE;
-  }
-
-  .add-body input[type="text"]
+  
+  .add-body input[type="text"] 
   /* .add-body input[type="number"] */
   {
     box-sizing: border-box;
@@ -60,24 +76,45 @@
     -moz-box-sizing: border-box;
     outline: none;
     display: block;
-    width: 100%;
     padding: 7px;
     border: none;
+    background-color: transparent;
     border-bottom: 1px solid #2774AE;
-    background: transparent;
     margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
     height: 45px;
   }
-
+  
   .add-body input[type="text"]:focus {
-    border-bottom: 1px bold #005587;
+    border-bottom-color: #8237FF;
     border-bottom-width: 2px;
+    font-weight: bolder;
+    color: #8237FF;
   }
   
+  .inputs:focus {
+    
+    font-family: 'Didact Gothic', sans-serif;
+  }
+
   .textarea {
     font-family: "Raleway", sans-serif;
     padding-top: 10px;
+  }
+
+  .course-labels {
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #000000;
+    order: 1;
+}
+
+  .course-data {
+    color: #005587;
+    font-size: 20px;
+    font-family: 'Didact Gothic', sans-serif;
+    order: 2;
   }
   
   .AddCourse__required {
@@ -135,13 +172,28 @@
     .add-body, .edit-body {
         width: 400px; /* Can be in percentage also */
     }
+
+    .AddCourse, .EditCourse {
+      width: 75%;
+    }
   
     .add-fields, .edit-fields {
-      width: 376px;
+      width: 100%;
     }
 
     .question {
       margin-bottom: 10px;
+    }
+
+    .course-labels {
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    .course-data {
+      margin-bottom: 10px;
+      font-size: 18px;
+      padding-left: 5px;
     }
     
   }
@@ -167,8 +219,16 @@
     .question {
       margin-bottom: 10px;
     }
+
+    .course-labels {
+      font-size: 16px;
+    }
+
+    .course-data {
+      font-size: 18px;
+    }
     
-    h2 {
+    h2, .form-labels {
       font-size: 16px;
     }
 

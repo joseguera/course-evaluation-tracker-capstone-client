@@ -133,7 +133,7 @@ class CoursePage extends Component {
                         </div>
                         <div className='page-line'>
                             <p className='course-labels'>
-                                Notes:
+                                Notes:&nbsp;
                             </p>
                             <span className='course-data'>
                                     {notes}

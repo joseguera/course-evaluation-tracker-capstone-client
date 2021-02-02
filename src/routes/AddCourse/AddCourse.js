@@ -116,7 +116,10 @@ class AddCourse extends Component {
                         />
 
                         <div className='add-fields'>
-                            <label htmlFor='project_id'>
+                            <label 
+                                htmlFor='project_id'
+                                className='form-labels'
+                            >
                                 Registration Number
                             {' '}
                                 <Required />
@@ -132,7 +135,10 @@ class AddCourse extends Component {
                             />
                         </div>
                         <div className='add-fields'>
-                            <label htmlFor='course_number'>
+                            <label 
+                                htmlFor='course_number'
+                                className='form-labels'
+                            >
                                 Course Number
                             {' '}
                                 <Required />
@@ -148,7 +154,10 @@ class AddCourse extends Component {
                             />
                         </div>
                         <div className='add-fields'>
-                            <label htmlFor='course_name'>
+                            <label 
+                                htmlFor='course_name'
+                                className='form-labels'
+                            >
                                 Course Title
                             {' '}
                                 <Required />
@@ -164,7 +173,10 @@ class AddCourse extends Component {
                             />
                         </div>
                         <div className='add-fields'>
-                            <label htmlFor='quarter'>
+                            <label 
+                                htmlFor='quarter'
+                                className='form-labels'
+                            >
                                 Quarter
                             {' '}
                                 <Required />
@@ -180,7 +192,10 @@ class AddCourse extends Component {
                             />
                         </div>
                         <div className='add-fields'>
-                            <label htmlFor='program_area'>
+                            <label 
+                                htmlFor='program_area'
+                                className='form-labels'    
+                            >
                                 Program Area
                             {' '}
                                 <Required />
@@ -195,7 +210,10 @@ class AddCourse extends Component {
                             />
                         </div>
                         <div className='add-fields'>
-                            <label htmlFor='instructor_name'>
+                            <label
+                                htmlFor='instructor_name'
+                                className='form-labels'
+                            >
                                 Instructor Name
                             {' '}
                             </label>
