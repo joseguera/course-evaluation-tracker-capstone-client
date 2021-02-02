@@ -91,48 +91,54 @@ class CoursePage extends Component {
                     ({quarter})
                 </h2>
                     <div className='page-body'>
-                        <p className='course-labels'>
-                            Program Area:
-                            <br />
+                        <div className='page-line'>
+                            <p className='course-labels'>
+                                Program Area:&nbsp;
+                            </p>
                             <span className='course-data'>
-                                {program_area}
+                                    {program_area}
                             </span>
-                        </p>
-                        <p className='course-labels'>
-                            Course Number:
-                            <br />
+                        </div>
+                        <div className='page-line'>
+                            <p className='course-labels'>
+                                Course Number:&nbsp;
+                            </p>
                             <span className='course-data'>
-                                {course_number}
+                                    {course_number}
                             </span>
-                        </p>
-                        <p className='course-labels'>
-                            Program Representative:
-                            <br />
+                        </div>
+                        <div className='page-line'>
+                            <p className='course-labels'>
+                                Program Representative:&nbsp;
+                            </p>
                             <span className='course-data'>
-                                {program_rep}
+                                    {program_rep}
                             </span>
-                        </p>
-                        <p className='course-labels'>
-                            Instructor:
-                            <br />
+                        </div>
+                        <div className='page-line'>
+                            <p className='course-labels'>
+                                Instructor:&nbsp;
+                            </p>
                             <span className='course-data'>
-                                {instructor_name}
+                                    {instructor_name}
                             </span>
-                        </p>
-                        <p className='course-labels'>
-                            Total Score:
-                            <br />
+                        </div>
+                        <div className='page-line'>
+                            <p className='course-labels'>
+                                Total Score:&nbsp;
+                            </p>
                             <span className='course-data'>
-                                {q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10}
+                                    {q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10}
                             </span>
-                        </p>
-                        <p className='course-labels'>
-                            Notes:
-                            <br />
+                        </div>
+                        <div className='page-line'>
+                            <p className='course-labels'>
+                                Notes:
+                            </p>
                             <span className='course-data'>
-                                {notes}
+                                    {notes}
                             </span>
-                        </p>
+                        </div>
                     </div>
                     <div className='CoursePage__buttons'>
                         <a 

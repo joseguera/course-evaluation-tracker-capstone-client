@@ -41,9 +41,7 @@
     padding-left: 15px;
     margin-top: 5px;
     margin-bottom: 10px;
-    border-radius: 5px;
     border: 1px solid rgb(189, 189, 189);
-
   }
 
   .q-inputs {
@@ -52,6 +50,29 @@
 
   .inputs:focus {
     background-color: #DAEBFE;
+  }
+
+  .add-body input[type="text"]
+  /* .add-body input[type="number"] */
+  {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid rgb(209, 20, 20);
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+  }
+
+  .add-body input[type="text"]:focus {
+    border-bottom: 1px bold rgb(55, 20, 209);
+    border-bottom-width: 2px;
   }
   
   .textarea {
@@ -82,6 +103,7 @@
   label {
     float: left;
     padding: 0 1em;
+    padding-left: 0;
   }
   
   .legend {

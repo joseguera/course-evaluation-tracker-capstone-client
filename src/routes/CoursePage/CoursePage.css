@@ -31,16 +31,28 @@
     padding-bottom: 30px;
 }
 
+.page-line {
+    height:fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
 .course-labels {
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+    order: 1;
+
 }
 
 .course-data {
     color: #005587;
     font-size: 20px;
     font-family: 'Didact Gothic', sans-serif;
+    order: 2;
 }
 
 .butts {
@@ -81,5 +93,9 @@
         margin-top: 20px;
         padding-top: 20px;
         letter-spacing: -1px;
+    }
+
+    .course-labels, .course-data {
+        font-size: 16px;
     }
 }
